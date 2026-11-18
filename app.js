@@ -212,7 +212,9 @@ return `<div class="route-item"><span class="route-number">${i+1}</span><div><h4
 queryAll("[data-route-scope]").forEach(b=>b.classList.toggle("active",b.dataset.routeScope===scope));
 }
 function renderJournal(){
-$("#journalTasks").innerHTML=entries.map(e=>`<label class="journal-task ${state.done[e.id]?"done":""}"><input type="checkbox" data-journal-check="${e.id}" ${state.done[e.id]?"checked":""}><span>${safe(name(e))}</span><small>${typeName(e.type)}</small></label>`).join("");
+const journalType=$("#journalFilter")?.value||"all";
+const journalEntries=entries.filter(e=>journalType==="all"||e.type===journalType);
+$("#journalTasks").innerHTML=journalEntries.map(e=>`<label class="journal-task ${state.done[e.id]?"done":""}"><input type="checkbox" data-journal-check="${e.id}" ${state.done[e.id]?"checked":""}><span>${safe(name(e))}</span><small>${typeName(e.type)}</small></label>`).join("");
 $("#notesInput").value=store.get("gb_notes")||"";
 updateProgress();
 }
@@ -240,6 +242,7 @@ $("#clearFilters").addEventListener("click",()=>{$("#searchInput").value="";$("#
 $("#levelInput").addEventListener("input",()=>{renderRoute();renderSuggested()});
 queryAll("[data-route-scope]").forEach(b=>b.addEventListener("click",()=>{state.routeScope=b.dataset.routeScope;renderRoute()}));
 document.addEventListener("click",e=>{const b=e.target.closest("[data-open-region]");if(b){state.scope=region(b.dataset.openRegion).dlc?"dlc":"base";selectView("map");selectRegion(b.dataset.openRegion)}});
+$("#journalFilter").addEventListener("change",renderJournal);
 $("#journalTasks").addEventListener("change",e=>{const i=e.target.closest("[data-journal-check]");if(i){state.done[i.dataset.journalCheck]=i.checked;if(!i.checked)delete state.done[i.dataset.journalCheck];store.set("gb_done",JSON.stringify(state.done));renderStats();renderJournal()}});
 $("#notesInput").addEventListener("input",()=>{store.set("gb_notes",$("#notesInput").value);$("#saveHint").textContent=t("autoSaved")});
 $("#resetProgress").addEventListener("click",()=>{if(confirm(t("resetConfirm"))){state.done={};store.remove("gb_done");store.remove("gb_notes");renderStats();renderJournal();if($("#view-atlas").classList.contains("active"))renderAtlas();alert(t("resetDone"))}});
