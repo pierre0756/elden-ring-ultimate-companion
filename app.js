@@ -88,6 +88,11 @@ const entries=[
 { id:"mapfragments",type:"collectible",de:"Kartenfragmente",en:"Map Fragments",region:"scadu",dlc:true,level:"—",note:"Decken nach und nach die Karte des Schattenlands auf.",noteEn:"Gradually reveal the map of the Realm of Shadow."}
 ];
 
+entries.push(
+ {id:"malenia-manual",type:"boss",de:"Malenia",en:"Malenia",region:"snowfield",dlc:false,level:"120–150",note:"Optionale Begegnung am Ende von Elphael, Brace of the Haligtree.",noteEn:"Optional encounter at the end of Elphael, Brace of the Haligtree."},
+ {id:"maliketh-manual",type:"boss",de:"Maliketh",en:"Maliketh",region:"farum",dlc:false,level:"105–130",note:"Zentraler Boss im Zerfallenen Farum Azula.",noteEn:"Major boss in Crumbling Farum Azula."},
+ {id:"elden-beast-manual",type:"boss",de:"Eldenbestie",en:"Elden Beast",region:"leyndell",dlc:false,level:"120–150",note:"Der abschließende Gegner des Grundspiels.",noteEn:"The final encounter of the base game."}
+);
 const catalogue = window.ER_DB || {meta:{},bosses:[],armors:[],locations:[],npcs:[],creatures:[],quests:[]};
 const guides = window.ER_GUIDES || {imageGallery:[],regionMaps:[],questlines:[],runeFarms:[],bossProfiles:[]};
 const catalogueRegionLabel = id => { const r=regions.find(x=>x.id===id); return r ? name(r) : ""; };
