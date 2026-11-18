@@ -9,7 +9,7 @@ schematicMap:"Schematische Gebietsübersicht",baseGame:"Grundspiel",all:"Alle",b
 loreAndPlaces:"Wissen & Orte",atlasTitle:"Der Atlas",atlasSub:"Finde wichtige Orte, Figuren und Aufgaben. Setze Haken, sobald du etwas erledigt hast.",searchPlaceholder:"Einträge durchsuchen…",allCategories:"Alle Kategorien",bosses:"Bosse",quests:"Quests",places:"Orte",collectibles:"Sammelobjekte",baseAndDlc:"Grundspiel + DLC",baseOnly:"Nur Grundspiel",resetFilters:"Filter zurücksetzen",
 progressionGuide:"Fortschrittsplaner",routeTitle:"Finde deinen nächsten Weg",routeSub:"Nutze dein aktuelles Level als grobe Orientierung für die nächste Region.",yourCharacter:"Dein Charakter",currentLevel:"Aktuelles Level",journeyScope:"Reiseumfang",everything:"Alles",levelDisclaimer:"Levelbereiche sind Richtwerte zur Orientierung und keine Zugangsvoraussetzungen.",routeRecommendation:"Empfehlungen",nextAreas:"Passende Gebiete",
 personalLog:"Persönliches Tagebuch",journalTitle:"Deine Reise in deinem Tempo",journalSub:"Deine Haken bleiben auf diesem Gerät gespeichert. Du kannst jederzeit weitermachen.",journeyProgress:"Reisefortschritt",tasksToExplore:"Stationen zum Entdecken",tapToComplete:"Antippen zum Abhaken",travelNotes:"Reisenotizen",notesText:"Notiere dir Hinweise, offene Fragen oder deinen nächsten Schritt.",notesPlaceholder:"Deine Notizen…",autoSaved:"Wird automatisch gespeichert",resetProgress:"Fortschritt zurücksetzen",
-footerText:"Ein Fanprojekt. Elden Ring und alle zugehörigen Inhalte sind Eigentum ihrer jeweiligen Rechteinhaber.",madeFor:"Für neugierige Befleckte",openRegion:"Region öffnen",level:"Empfohlenes Level",blessing:"Segen des Scadubaums",keyStops:"Wichtige Stationen",noEntries:"Für diese Auswahl gibt es keine Einträge.",completed:"Erledigt",markDone:"Abhaken",found:"Gefunden",notFound:"Offen",base:"Grundspiel",dlc:"DLC",from:"Level",around:"Richtwert",entries:"Einträge",routeEmpty:"Keine passenden Gebiete gefunden.",noSearch:"Keine Einträge gefunden. Passe deine Suche oder Filter an.",resetConfirm:"Möchtest du wirklich alle Haken und Notizen löschen?",resetDone:"Dein lokaler Fortschritt wurde zurückgesetzt.",countDone:"erledigt",of:"von",allDone:"Du hast alle Stationen abgehakt. Stark!",startPoint:"Guter nächster Halt",typeBoss:"Boss",typeNpc:"NPC",typeQuest:"Quest",typePlace:"Ort",typeCollectible:"Sammelobjekt",scopeDlc:"DLC",suggestLevel:"Empfohlene Stufe",levelLow:"Für dein aktuelles Level vielleicht noch etwas früh.",levelMatch:"Passt ungefähr zu deinem aktuellen Level.",levelHigh:"Ein mögliches späteres Ziel.",blessingShort:"Scadubaum-Segen",mapFragment:"Kartenfragment",mapNote:"Die Gebietsanordnung ist stark vereinfacht. Entfernungen, Wege und Höhenunterschiede sind nicht dargestellt."
+footerText:"Ein Fanprojekt. Elden Ring und alle zugehörigen Inhalte sind Eigentum ihrer jeweiligen Rechteinhaber.",madeFor:"Für neugierige Befleckte",openRegion:"Region öffnen",level:"Empfohlenes Level",blessing:"Segen des Scadubaums",keyStops:"Wichtige Stationen",noEntries:"Für diese Auswahl gibt es keine Einträge.",completed:"Erledigt",markDone:"Abhaken",found:"Gefunden",notFound:"Offen",base:"Grundspiel",dlc:"DLC",from:"Level",around:"Richtwert",entries:"Einträge",routeEmpty:"Keine passenden Gebiete gefunden.",noSearch:"Keine Einträge gefunden. Passe deine Suche oder Filter an.",page:"Seite",previous:"Zurück",next:"Weiter",resetConfirm:"Möchtest du wirklich alle Haken und Notizen löschen?",resetDone:"Dein lokaler Fortschritt wurde zurückgesetzt.",countDone:"erledigt",of:"von",allDone:"Du hast alle Stationen abgehakt. Stark!",startPoint:"Guter nächster Halt",typeBoss:"Boss",typeNpc:"NPC",typeQuest:"Quest",typePlace:"Ort",typeCollectible:"Sammelobjekt",typeArmor:"Rüstung",typeCreature:"Kreatur",armor:"Rüstungen",creatures:"Kreaturen",scopeDlc:"DLC",suggestLevel:"Empfohlene Stufe",levelLow:"Für dein aktuelles Level vielleicht noch etwas früh.",levelMatch:"Passt ungefähr zu deinem aktuellen Level.",levelHigh:"Ein mögliches späteres Ziel.",blessingShort:"Scadubaum-Segen",mapFragment:"Kartenfragment",mapNote:"Die Gebietsanordnung ist stark vereinfacht. Entfernungen, Wege und Höhenunterschiede sind nicht dargestellt."
 },
 en:{
 navOverview:"Overview",navMap:"World Map",navAtlas:"Atlas",navRoute:"Guide",navJournal:"Travel Journal",
@@ -21,7 +21,7 @@ schematicMap:"Schematic region overview",baseGame:"Base game",all:"All",baseRegi
 loreAndPlaces:"Lore & locations",atlasTitle:"The Atlas",atlasSub:"Find important places, characters and quests. Check them off as you go.",searchPlaceholder:"Search entries…",allCategories:"All categories",bosses:"Bosses",quests:"Quests",places:"Places",collectibles:"Collectibles",baseAndDlc:"Base game + DLC",baseOnly:"Base game only",resetFilters:"Reset filters",
 progressionGuide:"Progression planner",routeTitle:"Find your next path",routeSub:"Use your current level as a rough guide for your next region.",yourCharacter:"Your character",currentLevel:"Current level",journeyScope:"Journey scope",everything:"Everything",levelDisclaimer:"Level ranges are guidance only, not entry requirements.",routeRecommendation:"Recommendations",nextAreas:"Suggested areas",
 personalLog:"Personal journal",journalTitle:"Your journey, at your own pace",journalSub:"Your checkmarks stay saved on this device. Pick up where you left off.",journeyProgress:"Journey progress",tasksToExplore:"Stops to discover",tapToComplete:"Tap to check off",travelNotes:"Travel notes",notesText:"Write down clues, open questions or your next step.",notesPlaceholder:"Your notes…",autoSaved:"Saved automatically",resetProgress:"Reset progress",
-footerText:"A fan project. Elden Ring and all related content belong to their respective rights holders.",madeFor:"For curious Tarnished",openRegion:"Open region",level:"Suggested level",blessing:"Scadutree Blessing",keyStops:"Key stops",noEntries:"There are no entries for this selection.",completed:"Completed",markDone:"Check off",found:"Found",notFound:"Open",base:"Base game",dlc:"DLC",from:"Level",around:"Suggested",entries:"Entries",routeEmpty:"No matching regions found.",noSearch:"No entries found. Try adjusting your search or filters.",resetConfirm:"Do you really want to clear all checkmarks and notes?",resetDone:"Your local progress has been reset.",countDone:"completed",of:"of",allDone:"All stops checked off. Well done!",startPoint:"A good next stop",typeBoss:"Boss",typeNpc:"NPC",typeQuest:"Quest",typePlace:"Place",typeCollectible:"Collectible",scopeDlc:"DLC",suggestLevel:"Suggested level",levelLow:"This might be a little early for your current level.",levelMatch:"This roughly matches your current level.",levelHigh:"A possible later destination.",blessingShort:"Scadutree Blessing",mapFragment:"Map fragment",mapNote:"The regional layout is heavily simplified. Distances, paths and elevation are not shown."
+footerText:"A fan project. Elden Ring and all related content belong to their respective rights holders.",madeFor:"For curious Tarnished",openRegion:"Open region",level:"Suggested level",blessing:"Scadutree Blessing",keyStops:"Key stops",noEntries:"There are no entries for this selection.",completed:"Completed",markDone:"Check off",found:"Found",notFound:"Open",base:"Base game",dlc:"DLC",from:"Level",around:"Suggested",entries:"Entries",routeEmpty:"No matching regions found.",noSearch:"No entries found. Try adjusting your search or filters.",page:"Page",previous:"Previous",next:"Next",resetConfirm:"Do you really want to clear all checkmarks and notes?",resetDone:"Your local progress has been reset.",countDone:"completed",of:"of",allDone:"All stops checked off. Well done!",startPoint:"A good next stop",typeBoss:"Boss",typeNpc:"NPC",typeQuest:"Quest",typePlace:"Place",typeCollectible:"Collectible",typeArmor:"Armor",typeCreature:"Creature",armor:"Armor",creatures:"Creatures",scopeDlc:"DLC",suggestLevel:"Suggested level",levelLow:"This might be a little early for your current level.",levelMatch:"This roughly matches your current level.",levelHigh:"A possible later destination.",blessingShort:"Scadutree Blessing",mapFragment:"Map fragment",mapNote:"The regional layout is heavily simplified. Distances, paths and elevation are not shown."
 }};
 const regions=[
 {id:"limgrave",de:"Limgrave",en:"Limgrave",x:240,y:240,min:1,max:25,dlc:false,desc:"Der erste große Landstrich der Zwischenlande. Weite Felder, Ruinen und der Weg zum Sturmschleier-Schloss.",descEn:"The first broad stretch of the Lands Between, with open fields, ruins and the road to Stormveil Castle."},
@@ -86,6 +86,49 @@ const entries=[
 { id:"spiritash",type:"collectible",de:"Verehrte Geisterasche",en:"Revered Spirit Ash",region:"gravesite",dlc:true,level:"—",note:"Ein Fortschrittsobjekt, das die Wirkung von Geistersegen verstärkt.",noteEn:"A progression collectible that strengthens the effects of Revered Spirit Ash Blessing."},
 { id:"mapfragments",type:"collectible",de:"Kartenfragmente",en:"Map Fragments",region:"scadu",dlc:true,level:"—",note:"Decken nach und nach die Karte des Schattenlands auf.",noteEn:"Gradually reveal the map of the Realm of Shadow."}
 ];
+
+const catalogue = window.ER_DB || {meta:{},bosses:[],armors:[],locations:[],npcs:[],creatures:[],quests:[]};
+const catalogueRegionLabel = id => { const r=regions.find(x=>x.id===id); return r ? name(r) : ""; };
+function addCatalogueEntries(){
+  const seen=new Set(entries.map(e=>(e.type+":"+String(e.en||e.de||"").toLowerCase())));
+  const add=e=>{const k=e.type+":"+String(e.en||e.de||"").toLowerCase();if(!seen.has(k)){seen.add(k);entries.push(e);}};
+  for(const b of catalogue.bosses||[]){
+    const locs=(b.locations||[]).slice(0,3);
+    const text=(b.hp?("HP: "+Number(b.hp).toLocaleString()):"")+(locs.length?" · "+locs.join(", "):"");
+    add({id:b.id,type:"boss",de:b.de||b.name,en:b.name,region:b.region||"",dlc:!!b.dlc,level:"",note:text||"Boss encounter",noteEn:text||"Boss encounter",source:"community game-data index"});
+  }
+  for(const a of catalogue.armors||[]){
+    const neg=Object.entries(a.negation||{}).slice(0,5).map(([k,v])=>k+" "+v).join(" · ");
+    const typeLabel=({helm:"Helm",chest:"Brustschutz",arms:"Armschutz",legs:"Beinschutz"})[a.type]||a.type||"Rüstungsteil";
+    const typeLabelEn=({helm:"Helm",chest:"Chest",arms:"Arms",legs:"Legs"})[a.type]||a.type||"Armor piece";
+    const details=(a.weight!==null?"Gewicht "+a.weight:"")+(neg?" · Schutz "+neg:"")+(a.acquisition?" · "+a.acquisition:"");
+    const detailsEn=(a.weight!==null?"Weight "+a.weight:"")+(neg?" · Negation "+neg:"")+(a.acquisition?" · "+a.acquisition:"");
+    add({id:a.id,type:"armor",de:a.de||a.name,en:a.name,region:"",dlc:!!a.dlc,level:"",note:typeLabel+" · "+details,noteEn:typeLabelEn+" · "+detailsEn});
+  }
+  for(const l of catalogue.locations||[]){
+    const regionText=l.regionName||"";
+    const people=(l.npcs||[]).slice(0,3).join(", ");
+    const bosses=(l.bosses||[]).slice(0,3).join(", ");
+    const creatures=(l.creatures||[]).slice(0,3).join(", ");
+    const tail=[people?("NPCs: "+people):"",bosses?("Bosses: "+bosses):"",creatures?("Creatures: "+creatures):""].filter(Boolean).join(" · ");
+    add({id:l.id,type:"place",de:l.de||l.name,en:l.name,region:l.region||"",dlc:!!l.dlc,level:"",note:(regionText?"Region: "+regionText:"Location")+(tail?" · "+tail:""),noteEn:(regionText?"Region: "+regionText:"Location")+(tail?" · "+tail:"")});
+  }
+  for(const n of catalogue.npcs||[]){
+    const role=n.role||"NPC";
+    const detail=[role,n.location].filter(Boolean).join(" · ");
+    add({id:n.id,type:"npc",de:n.de||n.name,en:n.name,region:n.region||"",dlc:!!n.dlc,level:"",note:detail,noteEn:detail});
+  }
+  for(const c of catalogue.creatures||[]){
+    const locs=(c.locations||[]).slice(0,4).join(", ");
+    add({id:c.id,type:"creature",de:c.de||c.name,en:c.name,region:"",dlc:!!c.dlc,level:"",note:locs?"Fundorte: "+locs:"Creature",noteEn:locs?"Locations: "+locs:"Creature"});
+  }
+  for(const q of catalogue.quests||[]){
+    add({id:q.id,type:"quest",de:q.de||q.name,en:q.name,region:q.region||"",dlc:!!q.dlc,level:"",note:q.noteDe||"",noteEn:q.note||""});
+  }
+}
+addCatalogueEntries();
+let atlasPage=0;
+const ATLAS_PAGE_SIZE=60;
 const edges=[["limgrave","stormhill"],["limgrave","peninsula"],["stormhill","liurnia"],["liurnia","caelid"],["liurnia","altus"],["altus","gelmir"],["altus","leyndell"],["leyndell","mountains"],["mountains","snowfield"],["mountains","farum"],["liurnia","underground"],["gravesite","belurat"],["gravesite","castle-ensis"],["castle-ensis","scadu"],["scadu","shadowkeep"],["scadu","coast"],["coast","jagged"],["shadowkeep","rauh"],["shadowkeep","hinterland"],["rauh","abyss"],["rauh","enirilim"],["hinterland","enirilim"]];
 const store={get(k,d=""){try{return localStorage.getItem(k)??d}catch{return d}},set(k,v){try{localStorage.setItem(k,v)}catch{}},remove(k){try{localStorage.removeItem(k)}catch{}}};
 const $=s=>document.querySelector(s), queryAll=s=>[...document.querySelectorAll(s)];
@@ -145,11 +188,16 @@ const filtered=entries.filter(e=>{
 const r=region(e.region);const hay=[e.de,e.en,e.note,e.noteEn,r?.de,r?.en].join(" ").toLocaleLowerCase();
 return (!q||hay.includes(q))&&(type==="all"||e.type===type)&&(scope==="all"||(scope==="dlc")===e.dlc);
 });
-$("#resultCount").textContent=filtered.length+" / "+entries.length+" "+t("entries");
-$("#atlasGrid").innerHTML=filtered.length?filtered.map(e=>{
+const pages=Math.max(1,Math.ceil(filtered.length/ATLAS_PAGE_SIZE));
+if(atlasPage>=pages)atlasPage=pages-1;
+const pageItems=filtered.slice(atlasPage*ATLAS_PAGE_SIZE,(atlasPage+1)*ATLAS_PAGE_SIZE);
+$("#resultCount").textContent=filtered.length+" / "+entries.length+" "+t("entries")+" · "+t("page")+" "+(atlasPage+1)+"/"+pages;
+$("#atlasGrid").innerHTML=pageItems.length?pageItems.map(e=>{
 const done=!!state.done[e.id];const r=region(e.region);
-return `<article class="atlas-card"><div class="card-topline"><span class="type-tag">${typeName(e.type)}</span><span class="dlc-tag">${e.dlc?"SHADOW OF THE ERDTREE":"LANDS BETWEEN"}</span></div><h3>${safe(name(e))}</h3><p>${safe(state.lang==="de"?e.note:e.noteEn)}</p><div class="card-bottom"><span>${safe(name(r))} · ${e.level==="—"?"":e.level}</span><button class="check-btn ${done?"done":""}" data-toggle-entry="${e.id}">${done?"✓ "+t("completed"):t("markDone")}</button></div></article>`
+const note=state.lang==="de"?(e.note||e.noteEn):(e.noteEn||e.note);
+return `<article class="atlas-card"><div class="card-topline"><span class="type-tag">${typeName(e.type)}</span><span class="dlc-tag">${e.dlc?"SHADOW OF THE ERDTREE":"LANDS BETWEEN"}</span></div><h3>${safe(name(e))}</h3><p>${safe(note||"")}</p><div class="card-bottom"><span>${r?safe(name(r)):safe(e.region||"")}${e.level?" · "+safe(e.level):""}</span><button class="check-btn ${done?"done":""}" data-toggle-entry="${e.id}">${done?"✓ "+t("completed"):t("markDone")}</button></div></article>`
 }).join(""):`<div class="no-results">${t("noSearch")}</div>`;
+$("#atlasPagination").innerHTML=filtered.length>ATLAS_PAGE_SIZE?`<button class="page-btn" data-page="-1" ${atlasPage===0?"disabled":""}>← ${t("previous")}</button><span>${t("page")} ${atlasPage+1} / ${pages}</span><button class="page-btn" data-page="1" ${atlasPage>=pages-1?"disabled":""}>${t("next")} →</button>`:"";
 }
 function renderRoute(){
 const level=Math.max(1,Math.min(713,Number($("#levelInput").value||35)));
@@ -175,7 +223,7 @@ store.set("gb_done",JSON.stringify(state.done));renderStats();renderAtlas();if($
 function changeLanguage(){state.lang=state.lang==="de"?"en":"de";store.set("gb_lang",state.lang);updateTranslations();renderStats();renderMap();if($("#view-atlas").classList.contains("active"))renderAtlas();if($("#view-route").classList.contains("active"))renderRoute();if($("#view-journal").classList.contains("active"))renderJournal();if(state.selected)selectRegion(state.selected)}
 function init(){
 if("serviceWorker" in navigator && location.protocol!=="file:") navigator.serviceWorker.register("./sw.js").catch(()=>{});
-updateTranslations();renderStats();renderSuggested();renderMap();renderAtlas();renderRoute();
+updateTranslations();$("#sourceNote").textContent=state.lang==="de"?"Datenbasis: normalisierte Community-Wiki-Daten. Gegenprüfung anhand von Eldenpedia-Kategorien zu Bossen, Rüstung, Figuren und Kreaturen. Keine Bilder oder Belohnungslisten übernommen. Bei vielen Eigennamen bleibt die englische Originalbezeichnung erhalten; Datenumfang und Bosszählung sind nicht als vollständig garantiert.":"Data basis: normalized community-wiki data. Cross-checked against Eldenpedia categories for bosses, armor, characters and creatures. Images and reward lists were not imported. Many proper names remain in their original English form; catalogue coverage and boss counts are not guaranteed exhaustive.";renderStats();renderSuggested();renderMap();renderAtlas();renderRoute();
 queryAll("[data-view]").forEach(b=>b.addEventListener("click",()=>selectView(b.dataset.view)));
 queryAll("[data-go]").forEach(b=>b.addEventListener("click",()=>selectView(b.dataset.go)));
 $("#langToggle").addEventListener("click",changeLanguage);
@@ -186,8 +234,9 @@ $("#worldMap").addEventListener("click",e=>{const n=e.target.closest("[data-regi
 $("#worldMap").addEventListener("keydown",e=>{const n=e.target.closest("[data-region]");if(n&&(e.key==="Enter"||e.key===" ")){e.preventDefault();selectRegion(n.dataset.region)}});
 $("#regionChips").addEventListener("click",e=>{const b=e.target.closest("[data-region-chip]");if(b)selectRegion(b.dataset.regionChip)});
 $("#atlasGrid").addEventListener("click",e=>{const b=e.target.closest("[data-toggle-entry]");if(b)toggleEntry(b.dataset.toggleEntry)});
-$("#searchInput").addEventListener("input",renderAtlas);$("#typeFilter").addEventListener("change",renderAtlas);$("#scopeFilter").addEventListener("change",renderAtlas);
-$("#clearFilters").addEventListener("click",()=>{$("#searchInput").value="";$("#typeFilter").value="all";$("#scopeFilter").value="all";renderAtlas()});
+$("#searchInput").addEventListener("input",()=>{atlasPage=0;renderAtlas()});$("#typeFilter").addEventListener("change",()=>{atlasPage=0;renderAtlas()});$("#scopeFilter").addEventListener("change",()=>{atlasPage=0;renderAtlas()});
+$("#atlasPagination").addEventListener("click",e=>{const b=e.target.closest("[data-page]");if(b&&!b.disabled){atlasPage+=Number(b.dataset.page);renderAtlas()}});
+$("#clearFilters").addEventListener("click",()=>{$("#searchInput").value="";$("#typeFilter").value="all";$("#scopeFilter").value="all";atlasPage=0;renderAtlas()});
 $("#levelInput").addEventListener("input",()=>{renderRoute();renderSuggested()});
 queryAll("[data-route-scope]").forEach(b=>b.addEventListener("click",()=>{state.routeScope=b.dataset.routeScope;renderRoute()}));
 document.addEventListener("click",e=>{const b=e.target.closest("[data-open-region]");if(b){state.scope=region(b.dataset.openRegion).dlc?"dlc":"base";selectView("map");selectRegion(b.dataset.openRegion)}});
