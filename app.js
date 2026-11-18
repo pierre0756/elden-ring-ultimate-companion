@@ -151,7 +151,13 @@ function selectView(view){
 queryAll(".view-panel").forEach(p=>p.classList.toggle("active",p.id==="view-"+view));
 queryAll(".nav-link").forEach(b=>b.classList.toggle("active",b.dataset.view===view));
 window.scrollTo({top:0,behavior:"smooth"});
-if(view==="map")renderMap();if(view==="atlas")renderAtlas();if(view==="route")renderRoute();if(view==="journal")renderJournal();
+if(view==="overview")renderGallery();
+if(view==="map"){renderMap();if(state.selected)selectRegion(state.selected)}
+if(view==="quests")renderQuests();
+if(view==="atlas")renderAtlas();
+if(view==="route"){renderRoute();renderRuneFarms()}
+if(view==="armor")renderArmorPlanner();
+if(view==="journal")renderJournal();
 }
 function getProgress(){const total=entries.length;const done=Object.values(state.done).filter(Boolean).length;return {total,done,pct:total?Math.round(done/total*100):0}}
 function updateProgress(){
@@ -172,17 +178,43 @@ $("#statRegions").textContent=regions.length;$("#statEntries").textContent=entri
 function renderMap(){
 const scope=state.scope;
 const svg=$("#worldMap");
+const level=Math.max(1,Math.min(200,Number($("#mapLevel")?.value||35)));
+$("#mapLevelValue").textContent=level;
+const matching=regions.filter(r=>level>=r.min-8&&level<=r.max+8).length;
+$("#mapLevelHint").textContent=matching+" "+t("levelMatches");
 let paths=edges.map(([a,b])=>{const A=region(a),B=region(b);return A&&B?`<path class="map-path" d="M ${A.x} ${A.y} Q ${(A.x+B.x)/2+12} ${(A.y+B.y)/2-8} ${B.x} ${B.y}"/>`:""}).join("");
-let nodes=regions.filter(r=>scope==="all"||(scope==="dlc")===r.dlc).map(r=>`<g class="map-region ${r.dlc?"dlc":""} ${state.selected===r.id?"selected":""}" data-region="${r.id}" tabindex="0" role="button" aria-label="${safe(name(r))}"><circle cx="${r.x}" cy="${r.y}" r="8"/><text x="${r.x}" y="${r.y-17}" text-anchor="middle">${safe(name(r))}</text></g>`).join("");
+let nodes=regions.filter(r=>scope==="all"||(scope==="dlc")===r.dlc).map(r=>{
+const fit=level>=r.min-8&&level<=r.max+8?"level-match":level<r.min-8?"level-later":"level-earlier";
+return `<g class="map-region ${r.dlc?"dlc":""} ${fit} ${state.selected===r.id?"selected":""}" data-region="${r.id}" tabindex="0" role="button" aria-label="${safe(name(r))}"><circle cx="${r.x}" cy="${r.y}" r="8"/><text x="${r.x}" y="${r.y-17}" text-anchor="middle">${safe(name(r))}</text></g>`;
+}).join("");
 svg.innerHTML=`<defs><radialGradient id="mapGlow"><stop offset="0" stop-color="#bda56d" stop-opacity=".18"/><stop offset="1" stop-color="#bda56d" stop-opacity="0"/></radialGradient></defs><ellipse cx="450" cy="320" rx="390" ry="290" fill="url(#mapGlow)"/>${paths}${nodes}`;
 queryAll("[data-map-scope]").forEach(b=>b.classList.toggle("active",b.dataset.mapScope===scope));
 $("#regionChips").innerHTML=regions.filter(r=>scope==="all"||(scope==="dlc")===r.dlc).map(r=>`<button class="region-chip ${state.selected===r.id?"active":""}" data-region-chip="${r.id}">${safe(name(r))}</button>`).join("");
 }
+
 function selectRegion(id){
-state.selected=id;const r=region(id);if(!r)return;
-const list=entries.filter(e=>e.region===id).slice(0,5);
+state.selected=id;
+const r=region(id);if(!r)return;
+const level=Math.max(1,Math.min(200,Number($("#mapLevel")?.value||35)));
 const range=r.dlc?("RL 150+ · "+t("blessingShort")+" "+(r.blessing||"—")):(t("level")+" "+r.min+"–"+r.max);
-$("#regionPanel").innerHTML=`<div class="region-detail"><div class="eyebrow"><span class="eyebrow-line"></span>${r.dlc?t("dlc"):t("base")}</div><h3>${safe(name(r))}</h3><p>${safe(state.lang==="de"?r.desc:r.descEn)}</p><div class="region-badges"><span>${range}</span><span>${entries.filter(e=>e.region===id).length} ${t("entries")}</span></div><h4>${t("keyStops")}</h4>${list.length?list.map(e=>`<div class="region-entry"><span>${safe(name(e))}</span><small>${typeName(e.type)}</small></div>`).join(""):`<p class="muted">${t("noEntries")}</p>`}</div>`;
+const fit=level<r.min-8?t("laterLevel"):level>r.max+8?t("earlierLevel"):t("currentLevelFit");
+const scene=guides.imageGallery.find(x=>x.region===id);
+const mapData=guides.regionMaps.find(x=>x.region===id);
+const locations=catalogue.locations.filter(x=>x.region===id);
+const locationPriority=locations.sort((a,b)=>{
+ const rank=x=>/castle|manor|academy|cathedral|fort|village|ruins|church|altar|palace|keep|temple|gate|tower|cross|plaza|river|cave|tunnel|shack|rise/i.test(x.name)?0:1;
+ return rank(a)-rank(b)||a.name.localeCompare(b.name);
+});
+const bossList=entries.filter(e=>e.type==="boss"&&e.region===id).slice(0,8);
+const questList=guides.questlines.filter(q=>q.region===id);
+const focus=state.mapFocusLocation? `<p class="map-focus-note">⌖ ${t("mapFocus")}: <strong>${safe(state.mapFocusLocation)}</strong></p>`:"";
+const sceneHtml=scene?`<figure class="region-scene"><img loading="lazy" src="${safe(scene.image)}" alt="${safe(state.lang==="de"?scene.caption:scene.captionEn)}"><figcaption>${safe(state.lang==="de"?scene.caption:scene.captionEn)} · ${t("regionImageCredit")}: <a href="${safe(scene.source)}" target="_blank" rel="noopener">${safe(scene.credit)}</a></figcaption></figure>`:"";
+const mapHtml=mapData&&mapData.image?`<div class="region-map-card"><div class="region-map-heading"><strong>${t("regionalMap")}</strong><a href="${safe(mapData.mapUrl)}" target="_blank" rel="noopener">${t("openRegionalMap")} ↗</a></div><a href="${safe(mapData.image)}" target="_blank" rel="noopener"><img loading="lazy" src="${safe(mapData.image)}" alt="${safe(name(r))} map fragment"></a><p><strong>${t("fragmentFind")}:</strong> ${safe(state.lang==="de"?mapData.fragment:mapData.fragmentEn||mapData.fragment)}</p><small>${t("regionImageCredit")}: <a href="${safe(mapData.source)}" target="_blank" rel="noopener">${safe(mapData.credit)}</a></small></div>`:"";
+const stops=locationPriority.slice(0,10);
+const stopHtml=stops.length?stops.map(l=>`<button class="map-stop" data-open-entry="${l.id}"><span>⌖</span><span>${safe(l.name)}</span><small>${safe(l.regionName||"")}</small><b>↗</b></button>`).join(""):`<p class="muted">${t("noStations")}</p>`;
+const bossHtml=bossList.map(b=>`<button class="map-stop boss-stop" data-open-entry="${b.id}"><span>✧</span><span>${safe(name(b))}</span><small>${t("bossOverview")}</small><b>↗</b></button>`).join("");
+const questHtml=questList.map(q=>`<button class="quest-jump" data-open-quest="${q.id}"><span>▤</span>${safe(state.lang==="de"?q.de:q.name)}<b>↗</b></button>`).join("");
+$("#regionPanel").innerHTML=`<div class="region-detail"><div class="eyebrow"><span class="eyebrow-line"></span>${r.dlc?t("dlc"):t("base")}</div><h3>${safe(name(r))}</h3><p>${safe(state.lang==="de"?r.desc:r.descEn)}</p><div class="region-badges"><span>${range}</span><span>${fit}</span><span>${entries.filter(e=>e.region===id).length} ${t("entries")}</span></div>${focus}${sceneHtml}${mapHtml}<h4>${t("stationList")}</h4><div class="map-stop-list">${stopHtml}</div>${bossHtml?`<h4>${t("bossOverview")}</h4><div class="map-stop-list">${bossHtml}</div>`:""}${questHtml?`<h4>${t("associatedQuests")}</h4><div class="quest-jumps">${questHtml}</div>`:""}</div>`;
 renderMap();
 }
 function renderAtlas(){
@@ -198,7 +230,7 @@ $("#resultCount").textContent=filtered.length+" / "+entries.length+" "+t("entrie
 $("#atlasGrid").innerHTML=pageItems.length?pageItems.map(e=>{
 const done=!!state.done[e.id];const r=region(e.region);
 const note=state.lang==="de"?(e.note||e.noteEn):(e.noteEn||e.note);
-return `<article class="atlas-card"><div class="card-topline"><span class="type-tag">${typeName(e.type)}</span><span class="dlc-tag">${e.dlc?"SHADOW OF THE ERDTREE":"LANDS BETWEEN"}</span></div><h3>${safe(name(e))}</h3><p>${safe(note||"")}</p><div class="card-bottom"><span>${r?safe(name(r)):safe(e.region||"")}${e.level?" · "+safe(e.level):""}</span><button class="check-btn ${done?"done":""}" data-toggle-entry="${e.id}">${done?"✓ "+t("completed"):t("markDone")}</button></div></article>`
+return `<article class="atlas-card"><div class="card-topline"><span class="type-tag">${typeName(e.type)}</span><span class="dlc-tag">${e.dlc?"SHADOW OF THE ERDTREE":"LANDS BETWEEN"}</span></div><h3>${safe(name(e))}</h3><p>${safe(note||"")}</p><div class="card-bottom"><span>${r?safe(name(r)):safe(e.region||"")}${e.level?" · "+safe(e.level):""}</span><div class="card-actions"><button class="text-btn" data-open-entry="${e.id}">${t("details")} ↗</button><button class="check-btn ${done?"done":""}" data-toggle-entry="${e.id}">${done?"✓ "+t("completed"):t("markDone")}</button></div></div></article>`
 }).join(""):`<div class="no-results">${t("noSearch")}</div>`;
 $("#atlasPagination").innerHTML=filtered.length>ATLAS_PAGE_SIZE?`<button class="page-btn" data-page="-1" ${atlasPage===0?"disabled":""}>← ${t("previous")}</button><span>${t("page")} ${atlasPage+1} / ${pages}</span><button class="page-btn" data-page="1" ${atlasPage>=pages-1?"disabled":""}>${t("next")} →</button>`:"";
 }
