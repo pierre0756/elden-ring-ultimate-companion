@@ -28,7 +28,7 @@ Wichtig: Ein Community-Export und ein Wiki, aus dem der Export abgeleitet wurde,
 | Orte | 285 | Alle Einträge einer Hauptregion zugeordnet |
 | NPCs | 109 | Name, Standort und Rolle |
 | Kreaturen | 196 | Varianten zu allgemeinen Kreaturentypen zusammengefasst |
-| Questübersichten | 5 | Eigene kurze Zusammenfassungen wichtiger NPC-Handlungsstränge |
+| Importierte Questzusammenfassungen | 5 | Kurze Zusammenfassungen im Ausgangskatalog |
 
 ## 4. Auffälligkeiten und Korrekturen
 
@@ -64,7 +64,7 @@ Die folgenden Questverläufe wurden als redaktionelle Schrittfolgen zusammengefa
 - Eldenpedia — Igon (Zackengipfel-Fortschritt)
 - Eldenpedia — Alexander, das Kriegergefäß (Begegnungsorte und Abschluss)
 
-Die Questübersichten wurden in eigene Zwischenstationen aufgeteilt. Fortschritt wird pro Station lokal im Browser gespeichert. Einige Dialogbedingungen können abhängig von der vorherigen Spielreihenfolge abweichen.
+Die Questübersichten wurden in sechs eigene Questverläufe mit insgesamt 36 Zwischenstationen ausgebaut. Fortschritt wird pro Station lokal im Browser gespeichert. Einige Dialogbedingungen können abhängig von der vorherigen Spielreihenfolge abweichen. Zusätzlich gibt es 18 redaktionelle Bossprofile mit Rolle und Kontext; die Bossliste selbst ist weiterhin nicht vollständig.
 
 ### Kartenfragmente
 Die regionale Karte verlinkt die 19 Fragmente des Grundspiels und die 5 Fragmente von Shadow of the Erdtree. Fundorttexte sind kurze Zusammenfassungen der Wiki-Kartenübersicht:
