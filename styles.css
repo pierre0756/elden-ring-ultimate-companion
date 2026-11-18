@@ -20,3 +20,7 @@ footer{max-width:1420px;margin:0 auto;padding:25px clamp(20px,5vw,78px) 35px;bor
 .page-btn{border:1px solid var(--line);background:var(--panel);color:var(--gold2);padding:9px 13px;font-size:10px}
 .page-btn:hover:not(:disabled){border-color:var(--gold);background:var(--panel2)}
 .page-btn:disabled{opacity:.35;cursor:not-allowed}
+
+#journalFilter{max-width:165px;border:1px solid var(--line);background:var(--panel2);color:var(--muted);padding:8px 9px;font-size:9px;outline:0}
+#journalFilter:focus{border-color:var(--gold)}
+@media(max-width:700px){#journalFilter{max-width:100%;width:100%}}
