@@ -2,11 +2,19 @@
 
 A responsive German/English fan companion for Elden Ring and Shadow of the Erdtree.
 
-## Current features
+## Current features (v0.3)
+
+- Detailed quest atlas with 6 questlines and 36 intermediate stops, optional steps, branching notes and local checkmarks
+- Direct map jumps from quest stops, regional station lists and Atlas details
+- 18 extended boss profiles with story context and known encounter locations
+- 24 map-fragment records (19 base game + 5 DLC), pickup notes and individual map links
+- Sourced screenshot gallery with publisher/source credits
+- Rune-farming area guide with one-time vs repeatable spots and level notes
+- Defensive armor comparison based on weight, damage negation and resistance values (rule-based; not AI)
 
 - Schematic regional overview for the Lands Between and the Realm of Shadow
 - Region panels with relevant locations and connected entries
-- Searchable atlas with pagination (60 entries per page)
+- Searchable atlas with pagination (60 entries per page) and detail dialogs
 - Catalogue entries for bosses, armor pieces, locations, NPCs and creature families
 - Five major NPC questline outlines, marked as spoiler-heavy
 - Suggested progression ranges and DLC Scadutree Blessing guidance
@@ -18,7 +26,7 @@ A responsive German/English fan companion for Elden Ring and Shadow of the Erdtr
 
 ## Data and source quality
 
-See [SOURCES.md](SOURCES.md) for the source review, normalization method, data counts and limitations.
+See [SOURCES.md](SOURCES.md) for the source review, normalization method, data counts, quest/map references and image credits.
 
 The catalogue is derived from structured community-wiki data and normalized for this project. The public reference checks include Elden Ring Wiki community pages for armor, boss encounters, characters and the bestiary.
 
