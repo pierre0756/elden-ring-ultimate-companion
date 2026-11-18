@@ -55,7 +55,6 @@ const entries=[
 { id:"radahn",type:"boss",de:"Sternengeißel Radahn",en:"Starscourge Radahn",region:"caelid",dlc:false,level:"60–80",note:"Ein bedeutender Schauplatz im Südosten Caelids.",noteEn:"A major encounter in southeastern Caelid."},
 { id:"morgott",type:"boss",de:"Morgott, König des Mals",en:"Morgott, the Omen King",region:"leyndell",dlc:false,level:"75–95",note:"Tief im Zentrum der königlichen Hauptstadt.",noteEn:"Deep within the royal capital."},
 { id:"firegiant",type:"boss",de:"Feuerriese",en:"Fire Giant",region:"mountains",dlc:false,level:"90–115",note:"Auf den Berggipfeln der Riesen.",noteEn:"Found in the Mountaintops of the Giants."},
-{ id:"maliketh",type:"boss",de:"Maliketh, die Schwarze Klinge",en:"Maliketh, the Black Blade",region:"farum",dlc:false,level:"105–130",note:"Ein zentraler Schauplatz im Zerfallenen Farum Azula.",noteEn:"A key encounter in Crumbling Farum Azula."},
 { id:"mohg",type:"boss",de:"Mohg, Fürst der Bluts",en:"Mohg, Lord of Blood",region:"underground",dlc:false,level:"100–130",note:"In einem verborgenen Palast unter der Erde.",noteEn:"Found in a hidden underground palace."},
 { id:"dancinglion",type:"boss",de:"Göttlicher Bestien-Löwentänzer",en:"Divine Beast Dancing Lion",region:"belurat",dlc:true,level:"150+ · Segen 2–4",note:"Ein wichtiger Schauplatz in Belurat.",noteEn:"A major encounter in Belurat."},
 { id:"rellana",type:"boss",de:"Rellana, Zwillingsmondritterin",en:"Rellana, Twin Moon Knight",region:"castle-ensis",dlc:true,level:"150+ · Segen 3–5",note:"Im Schloss Ensis.",noteEn:"Found in Castle Ensis."},
@@ -86,8 +85,6 @@ const entries=[
 { id:"spiritash",type:"collectible",de:"Verehrte Geisterasche",en:"Revered Spirit Ash",region:"gravesite",dlc:true,level:"—",note:"Ein Fortschrittsobjekt, das die Wirkung von Geistersegen verstärkt.",noteEn:"A progression collectible that strengthens the effects of Revered Spirit Ash Blessing."},
 { id:"mapfragments",type:"collectible",de:"Kartenfragmente",en:"Map Fragments",region:"scadu",dlc:true,level:"—",note:"Decken nach und nach die Karte des Schattenlands auf.",noteEn:"Gradually reveal the map of the Realm of Shadow."}
 ];
-const filteredEntryIndex=entries.findIndex(e=>e.id==="maliketh");
-if(filteredEntryIndex>=0)entries.splice(filteredEntryIndex,1);
 
 const catalogue = window.ER_DB || {meta:{},bosses:[],armors:[],locations:[],npcs:[],creatures:[],quests:[]};
 const catalogueRegionLabel = id => { const r=regions.find(x=>x.id===id); return r ? name(r) : ""; };
