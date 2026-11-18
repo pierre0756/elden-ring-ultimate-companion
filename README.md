@@ -56,3 +56,13 @@ Open `index.html` in a modern browser. Core catalogue, search and local progress
 ## Credits and rights
 
 Unofficial fan project, not affiliated with FromSoftware or Bandai Namco. Elden Ring, Shadow of the Erdtree and all related names and assets belong to their respective rights holders. This project does not bundle original game artwork.
+
+
+## Version 0.4.0
+
+- Interactive tiled map for the Lands Between, underground areas and the Realm of Shadow.
+- Dedicated boss-location view with searchable map markers.
+- Map filters for Sites of Grace, NPC locations and selected non-equipment collectibles.
+- Personal named waypoints with notes, saved in the current browser.
+- Searchable index of 31 NPC questlines and 280 location steps.
+- Map tiles are loaded online; personal progress and waypoint data remain local to the browser.
