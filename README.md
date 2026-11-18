@@ -18,6 +18,8 @@ A responsive German/English fan companion for Elden Ring and Shadow of the Erdtr
 
 ## Data and source quality
 
+See [SOURCES.md](SOURCES.md) for the source review, normalization method, data counts and limitations.
+
 The catalogue is derived from structured community-wiki data and normalized for this project. The public reference checks include Elden Ring Wiki community pages for armor, boss encounters, characters and the bestiary.
 
 The source data is secondary-reference material, not official game files. The project does not treat one wiki export as independent confirmation. Entries were normalized, duplicate boss aliases and creature variants were merged where identifiable, and the DLC flag for several boss entries was inferred from their named Realm of Shadow locations.
