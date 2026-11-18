@@ -102,3 +102,15 @@ Die Galerie verwendet externe Screenshots/Spielansichten. Sie werden nicht als e
 
 ### Defensiver Rüstungsvergleich
 Der Rüstungs-Check nutzt ausschließlich importierte Gewicht-, Schadensnegations- und Widerstandswerte. Er ist eine regelbasierte Sortierung der vorhandenen Daten, kein KI-Modell und keine Garantie für optimale Ausrüstung.
+
+## 8. Erweiterung v0.4 — Interaktive Karte und NPC-Questübersicht
+
+Die schematische Regionsgrafik wurde durch eine kachelbasierte Kartenansicht mit drei Ebenen ersetzt: Zwischenlande, Untergrund und Schattenland. Die Darstellung basiert auf Community-Kartenkoordinaten und extern bereitgestellten Kartenkacheln. Die Kacheln werden online geladen; die Kartendaten sind daher nicht vollständig offline verfügbar.
+
+Für die eigenen Markierungen werden nur folgende Kategorien in Gracebound importiert: Gnadenorte, Boss-Standorte, NPC-Standorte, Goldene Saat, Heilige Tränen, Kristalltränen, Große Runen, Larventränen und Gedächtnissteine. Die gefilterte Datei enthält 1.026 Marker: 413 Gnadenort-Marker, 195 Boss-Marker, 312 NPC-Marker sowie 106 weitere Sammel-/Schlüsselobjekt-Marker. Die Kategorisierung und Ortsangaben stammen aus Community-Daten und wurden nicht einzeln im Spiel verifiziert.
+
+Die Boss-Ansicht ist ein eigener Reiter mit einer reinen Standortkarte und einer durchsuchbaren Ortsliste. Sie enthält keine redaktionellen Lore-Profile. Eigene Wegpunkte können mit Name und Notiz auf der Karte gesetzt, bearbeitet bzw. gelöscht werden; sie werden ausschließlich im lokalen Browser-Speicher des jeweiligen Geräts gespeichert und nicht zwischen Geräten synchronisiert.
+
+Die NPC-Questübersicht bündelt 31 Questlinien mit 280 Orts-/NPC-Stationen. Dargestellt werden Schrittname, Gebiet und Kartenposition; es handelt sich um eine gekürzte Orientierungshilfe, nicht um eine vollständige Dialog- oder Triggerdatenbank. Questfortschritt und eigene Kartenmarkierungen bleiben lokal im Browser.
+
+Nicht Bestandteil dieser Version sind Waffen-Buildempfehlungen und Fundortlisten für Waffen-Aufwertungsmaterialien. Der vorhandene Rüstungs-Check bleibt ein rein defensiver Rüstungsvergleich.
