@@ -139,3 +139,65 @@ footer{max-width:1420px;margin:0 auto;padding:25px clamp(20px,5vw,78px) 35px;bor
 .map-stop:focus-visible,.quest-jump:focus-visible,.quest-select:focus-visible,.page-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 @media(max-width:900px){.scene-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.quest-hub-layout{grid-template-columns:1fr}.quest-list{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.quest-list-heading{grid-column:1/-1}.quest-select{margin:0}.armor-planner-layout{grid-template-columns:1fr}.armor-controls{position:static}}
 @media(max-width:600px){.map-level-control{grid-template-columns:1fr;gap:10px}.scene-grid,.farm-grid{grid-template-columns:1fr}.scene-card img{height:190px}.quest-list{grid-template-columns:1fr}.quest-detail{padding:16px}.quest-step{grid-template-columns:28px minmax(0,1fr);gap:8px}.quest-step-marker{width:27px;height:27px}.quest-step:not(:last-child):before{left:13px;top:28px}.quest-step-content{padding:11px}.quest-step-title{display:block}.step-tag{display:inline-block;margin-top:5px}.quest-step-actions{display:block}.quest-step-actions .text-btn{margin-top:7px;display:block}.armor-pieces{grid-template-columns:1fr}.detail-dialog-inner{padding:17px}}
+
+
+/* v0.4 — interactive maps, filtered map markers and personal waypoints */
+.interactive-map-layout{display:grid;grid-template-columns:minmax(250px,310px) minmax(0,1fr);gap:18px;align-items:start;margin:22px 0 34px}
+.map-sidebar{padding:18px;display:flex;flex-direction:column;gap:22px;min-width:0}
+.map-search-block,.map-category-block,.custom-pin-block{min-width:0}
+.map-sidebar input[type="search"],.map-sidebar input[type="text"],.map-sidebar textarea,.boss-map-toolbar input{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:11px 12px;outline:none}
+.map-sidebar input:focus,.map-sidebar textarea:focus,.boss-map-toolbar input:focus{border-color:var(--gold)}
+.map-search-results{display:grid;gap:5px;margin-top:7px;max-height:280px;overflow:auto}
+.map-result{display:flex;flex-direction:column;gap:3px;text-align:left;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel2);color:var(--text)}
+.map-result:hover,.boss-location-row:hover{border-color:var(--gold)}
+.map-result small,.boss-location-row small{font-size:11px;color:var(--muted)}
+.map-category-list{display:grid;grid-template-columns:1fr 1fr;gap:9px 6px;margin-top:12px}
+.map-category-list label{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text);cursor:pointer;min-width:0}
+.map-category-list input{accent-color:var(--gold);margin:0}
+.map-cat-dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex:0 0 auto}
+.map-cat-dot.grace{background:#d9b66f}.map-cat-dot.boss{background:#c9786a}.map-cat-dot.golden{background:#d6c45b}.map-cat-dot.npc{background:#9a85c4}.map-cat-dot.tear{background:#83b7d8}.map-cat-dot.crystal{background:#b18bc9}.map-cat-dot.greatrune{background:#c9a85b}.map-cat-dot.memory{background:#81a6bd}.map-cat-dot.larval{background:#bd8eb8}
+.custom-pin-block{border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:9px}
+.custom-pin-block textarea{resize:vertical;min-height:58px}
+.custom-pin-block .primary-btn{width:100%;justify-content:center}
+.custom-pin-block .muted{font-size:11px;line-height:1.55;margin:0}
+.placing-pin{background:var(--green)!important;color:#10120f!important}
+.custom-pin-list{display:grid;gap:5px;max-height:170px;overflow:auto}
+.custom-pin-row{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--panel2);border:1px solid var(--line);padding:6px 8px;border-radius:7px}
+.custom-pin-row button{border:0;background:transparent;color:var(--text);text-align:left;font-size:12px}
+.custom-pin-row .remove-pin{font-size:18px;color:var(--muted);padding:0 4px}
+.interactive-map-main{min-width:0}
+.map-layer-tabs{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin:0 0 10px}
+.map-layer-tabs .chip{padding:8px 13px}
+.er-map{width:100%;height:690px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#1b1d1a;z-index:1}
+.map-footnote{font-size:11px;color:var(--muted);line-height:1.5;margin:9px 2px}
+.er-map .leaflet-container{background:#1d211d;font-family:Inter,system-ui,sans-serif}
+.er-map .leaflet-control-zoom a{background:var(--panel);color:var(--text);border-color:var(--line)}
+.er-map .leaflet-control-attribution{font-size:9px}
+.er-map-pin{display:flex;align-items:center;justify-content:center;width:25px;height:25px;border:2px solid #24251f;border-radius:50%;background:var(--pin-color);color:#171810;font-size:13px;font-weight:800;box-shadow:0 2px 7px #0008}
+.pin-boss{border-radius:6px;transform:rotate(45deg);font-size:13px}.pin-boss::first-letter{transform:rotate(-45deg)}
+.pin-golden{border-radius:50% 50% 50% 0;transform:rotate(-45deg)}
+.pin-golden::first-letter{transform:rotate(45deg)}
+.er-custom-pin{display:flex;align-items:center;justify-content:center;width:27px;height:27px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#f0d28a;color:#292216;border:2px solid #201b13;font-size:15px;font-weight:900;box-shadow:0 2px 8px #0008}
+.er-popup{display:flex;flex-direction:column;gap:4px;min-width:145px;color:#24231f}
+.er-popup span,.er-popup small{font-size:11px;color:#696558}.er-popup p{font-size:11px;margin:3px 0}
+.popup-delete{margin-top:5px;border:1px solid #b36f62;border-radius:6px;padding:5px 7px;background:#fff3ef;color:#7e332b;font-size:11px}
+.pin-placement-mode{cursor:crosshair!important}
+.boss-map-card{padding:18px}
+.boss-map-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.boss-map-toolbar input{max-width:290px}
+.boss-map{height:600px}
+.boss-list-heading{margin:18px 0 10px}
+.boss-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;max-height:420px;overflow:auto}
+.boss-location-row{display:flex;align-items:center;gap:10px;text-align:left;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel2);color:var(--text);min-width:0}
+.boss-location-row>span:nth-child(2){display:flex;flex-direction:column;gap:3px;min-width:0}
+.boss-location-row b{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.boss-row-icon{font-size:16px;color:var(--danger)}
+.boss-row-arrow{margin-left:auto;color:var(--gold)}
+.quest-search-toolbar{margin:0 0 14px}
+.quest-search-toolbar .search-box{max-width:460px}
+.quest-list-heading p{margin:6px 0 0}
+.quest-step-content>p{margin:5px 0 8px;font-size:12px;color:var(--muted)}
+/* Keep the old diagram markup hidden; the real tiled map above replaces it. */
+#view-map>.map-layout,#view-map>.map-level-control,#view-map>.region-list-wrap{display:none!important}
+@media(max-width:1080px){.interactive-map-layout{grid-template-columns:1fr}.interactive-map-main{order:1}.map-sidebar{order:2}.er-map{height:620px}}
+@media(max-width:700px){.er-map{height:470px}.boss-map{height:440px}.boss-results{grid-template-columns:1fr}.map-category-list{grid-template-columns:1fr 1fr}.map-sidebar,.boss-map-card{padding:14px}.map-layer-tabs .chip{font-size:11px;padding:7px 9px}}
