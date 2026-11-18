@@ -24,3 +24,118 @@ footer{max-width:1420px;margin:0 auto;padding:25px clamp(20px,5vw,78px) 35px;bor
 #journalFilter{max-width:165px;border:1px solid var(--line);background:var(--panel2);color:var(--muted);padding:8px 9px;font-size:9px;outline:0}
 #journalFilter:focus{border-color:var(--gold)}
 @media(max-width:700px){#journalFilter{max-width:100%;width:100%}}
+
+
+/* v0.3 — quest routes, regional media and defensive planner */
+.map-region.level-match circle{stroke:#d5c17f;stroke-width:3;filter:drop-shadow(0 0 10px #d7bf78aa)}
+.map-region.level-later circle{opacity:.55}
+.map-region.level-earlier circle{opacity:.8;stroke-dasharray:2 2}
+.map-level-control{display:grid;grid-template-columns:1fr minmax(180px,38%);align-items:center;gap:24px;margin-top:15px}
+.level-readout{display:flex;align-items:baseline;gap:8px;margin-top:6px}.level-readout strong{font:600 25px Cinzel;color:var(--gold2)}.map-level-control input{width:100%;accent-color:var(--gold)}
+.map-focus-note{padding:9px 11px;border-left:2px solid var(--gold);background:var(--panel2);font-size:10px;color:var(--muted)}
+.region-scene,.region-map-card{margin:16px 0 20px;border:1px solid var(--line);background:var(--panel2);padding:9px}
+.region-scene img{width:100%;height:155px;object-fit:cover;display:block}
+.region-scene figcaption,.region-map-card small{font-size:8px;line-height:1.55;color:var(--muted);display:block;padding:8px 3px 2px}
+.region-scene a,.region-map-card a{color:var(--gold2)}
+.region-map-heading{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:10px;padding:2px 2px 8px}
+.region-map-heading a{font-size:9px}
+.region-map-card img{width:100%;max-height:160px;object-fit:contain;background:#ede8d6;display:block}
+.region-map-card p{font-size:9px;line-height:1.6;color:var(--muted);margin:9px 2px 3px}
+.region-detail h4{margin-top:22px}
+.map-stop-list{display:grid;gap:6px;margin-top:10px}
+.map-stop{display:grid;grid-template-columns:22px minmax(0,1fr) auto 16px;align-items:center;gap:8px;width:100%;text-align:left;padding:10px 9px;border:1px solid var(--line);background:var(--panel2);font-size:9px;color:var(--text)}
+.map-stop>span:first-child{color:var(--gold);font-size:13px}.map-stop small{color:var(--muted);font-size:8px}.map-stop b{color:var(--gold2)}.map-stop:hover,.quest-jump:hover{border-color:var(--gold)}
+.boss-stop{border-left:2px solid var(--gold)}
+.quest-jumps{display:grid;gap:6px;margin-top:10px}
+.quest-jump{display:flex;align-items:center;gap:9px;width:100%;text-align:left;padding:10px;border:1px solid var(--line);background:var(--panel2);font-size:9px;color:var(--text)}
+.quest-jump span,.quest-jump b{color:var(--gold)}.quest-jump b{margin-left:auto}
+.gallery-section{margin:28px 0 0;padding:22px 0 5px;border-top:1px solid var(--line)}
+.gallery-section .panel-top{margin-bottom:16px}
+.scene-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.scene-card{border:1px solid var(--line);background:var(--panel);overflow:hidden}
+.scene-image-link{display:block;overflow:hidden;background:var(--panel2)}
+.scene-card img{display:block;width:100%;height:160px;object-fit:cover;transition:transform .3s}
+.scene-card:hover img{transform:scale(1.035)}
+.scene-caption{display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:12px}
+.scene-caption strong{font:500 13px Cinzel}
+.scene-caption span{font-size:9px;line-height:1.5;color:var(--muted)}
+.scene-caption small{font-size:8px;color:var(--muted)}
+.scene-caption small a{color:var(--gold2)}
+.scene-caption .text-btn{padding:3px 0;margin:2px 0 0}
+.quest-hub-layout{display:grid;grid-template-columns:minmax(230px,.65fr) minmax(0,1.6fr);gap:14px;align-items:start}
+.quest-list{padding:18px;position:sticky;top:98px}
+.quest-list-heading h3{font:500 18px Cinzel;margin:8px 0 17px}
+.quest-select{display:block;width:100%;text-align:left;padding:12px 10px;margin:0 0 7px;border:1px solid var(--line);background:var(--panel2);color:var(--text)}
+.quest-select.active{border-color:var(--gold);background:linear-gradient(105deg,#c8a86a16,var(--panel2))}
+.quest-select-title{display:block;font:500 12px Cinzel;margin-bottom:6px}
+.quest-select small{display:block;color:var(--muted);font-size:8px}
+.mini-progress,.quest-progress-track{display:block;height:3px;background:var(--panel2);overflow:hidden;margin-top:9px}
+.mini-progress i,.quest-progress-track i{display:block;height:100%;background:var(--gold)}
+.quest-detail{min-width:0}
+.quest-detail-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.quest-detail h3{font:500 26px Cinzel;margin:13px 0}
+.quest-summary{font-size:11px;line-height:1.75;color:var(--muted);max-width:780px}
+.quest-detail h4{font:500 15px Cinzel;margin:24px 0 16px}
+.quest-timeline{display:grid;gap:0}
+.quest-step{position:relative;display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:0 0 21px}
+.quest-step:not(:last-child):before{content:"";position:absolute;left:15px;top:33px;bottom:0;width:1px;background:var(--line)}
+.quest-step-marker{width:31px;height:31px;display:grid;place-items:center;border:1px solid var(--gold);border-radius:50%;font:12px Cinzel;color:var(--gold2);background:var(--panel);z-index:1}
+.quest-step.done .quest-step-marker{background:var(--gold);color:#18170f}
+.quest-step-content{border:1px solid var(--line);background:var(--panel2);padding:14px 15px;min-width:0}
+.quest-step.done .quest-step-content{border-color:#8d9b6c66}
+.quest-step-title{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.quest-step-title strong{font:500 13px Cinzel}
+.step-tag{font-size:8px;color:var(--muted);white-space:nowrap}
+.quest-step-content>p{font-size:10px;line-height:1.75;color:var(--muted);margin:9px 0 13px}
+.quest-step-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.quest-check{display:flex;align-items:center;gap:7px;font-size:9px;color:var(--muted)}
+.quest-check input{accent-color:var(--gold)}
+.quest-step-actions .text-btn{padding:4px 0;font-size:9px;text-align:left}
+.quest-reference{border-top:1px solid var(--line);padding-top:12px;margin-top:7px}
+.spoiler-note{font-size:9px;color:var(--muted);margin-top:14px}
+.farm-section{margin-top:17px}
+.farm-section>.muted{margin:13px 0}
+.farm-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+.farm-card{border:1px solid var(--line);background:var(--panel2);padding:15px;min-width:0}
+.farm-card-top{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.farm-card h4{font:500 14px Cinzel;margin:13px 0 5px}
+.farm-card>p{font-size:9px;line-height:1.6;color:var(--muted)}
+.farm-card .farm-level{margin:5px 0 10px}
+.farm-yield{display:block;color:var(--gold2);font-size:11px;line-height:1.5;margin:8px 0 10px}
+.farm-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;border-top:1px solid var(--line);padding-top:9px;font-size:8px;color:var(--muted)}
+.farm-meta .text-btn{font-size:8px;white-space:nowrap}
+.farm-card>small{font-size:8px;color:var(--muted);display:block;margin-top:9px}
+.armor-planner-layout{display:grid;grid-template-columns:minmax(220px,.55fr) minmax(0,1.45fr);gap:14px;align-items:start}
+.armor-controls{position:sticky;top:98px}
+.armor-controls h3{font:500 17px Cinzel;margin-bottom:17px}
+.armor-controls select{width:100%;height:41px;padding:0 11px;background:var(--panel2);border:1px solid var(--line);color:var(--text);font-size:10px}
+.armor-controls .primary-btn{width:100%;justify-content:space-between;margin-top:20px}
+.armor-controls .muted{margin-top:14px}
+.armor-result-list{display:grid;gap:10px;margin-top:17px}
+.armor-result{border:1px solid var(--line);background:var(--panel2);padding:15px}
+.armor-result-top{display:flex;justify-content:space-between;align-items:center;font-size:10px}
+.armor-result-top strong{font:500 18px Cinzel;color:var(--gold2)}
+.armor-result-score{font-size:9px;color:var(--muted);margin:10px 0}
+.armor-result-score b{color:var(--gold2);font-size:13px}
+.armor-pieces{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.armor-pieces>div{background:var(--panel);border:1px solid var(--line);padding:9px;min-width:0}
+.armor-pieces small,.armor-pieces strong,.armor-pieces span{display:block;overflow-wrap:anywhere}
+.armor-pieces small{font-size:8px;color:var(--muted);margin-bottom:5px}
+.armor-pieces strong{font:500 10px Cinzel}
+.armor-pieces span{font-size:8px;color:var(--gold2);margin-top:5px}
+.detail-dialog{width:min(720px,calc(100% - 28px));max-height:86vh;overflow:auto;padding:0;border:1px solid var(--gold);background:var(--panel);color:var(--text);box-shadow:var(--shadow)}
+.detail-dialog::backdrop{background:#050704cc;backdrop-filter:blur(3px)}
+.detail-dialog-inner{padding:23px}
+.detail-dialog-header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.detail-dialog h2{font:500 clamp(22px,4vw,32px) Cinzel;margin:17px 0}
+.detail-body{font-size:11px;line-height:1.75;color:var(--muted)}
+.detail-body h4{font:500 14px Cinzel;color:var(--text);margin:19px 0 6px}
+.detail-body p{margin:4px 0 12px}
+.detail-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:16px;margin-top:20px}
+.detail-actions .primary-btn{font-size:9px}
+.detail-actions a[hidden],.detail-actions button[hidden]{display:none}
+.card-actions{display:flex;align-items:center;gap:8px}
+.card-actions .text-btn{font-size:9px;white-space:nowrap}
+.map-stop:focus-visible,.quest-jump:focus-visible,.quest-select:focus-visible,.page-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media(max-width:900px){.scene-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.quest-hub-layout{grid-template-columns:1fr}.quest-list{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.quest-list-heading{grid-column:1/-1}.quest-select{margin:0}.armor-planner-layout{grid-template-columns:1fr}.armor-controls{position:static}}
+@media(max-width:600px){.map-level-control{grid-template-columns:1fr;gap:10px}.scene-grid,.farm-grid{grid-template-columns:1fr}.scene-card img{height:190px}.quest-list{grid-template-columns:1fr}.quest-detail{padding:16px}.quest-step{grid-template-columns:28px minmax(0,1fr);gap:8px}.quest-step-marker{width:27px;height:27px}.quest-step:not(:last-child):before{left:13px;top:28px}.quest-step-content{padding:11px}.quest-step-title{display:block}.step-tag{display:inline-block;margin-top:5px}.quest-step-actions{display:block}.quest-step-actions .text-btn{margin-top:7px;display:block}.armor-pieces{grid-template-columns:1fr}.detail-dialog-inner{padding:17px}}
