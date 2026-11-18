@@ -379,29 +379,81 @@ function updateSourceNote(){
     ?"Datenbasis: normalisierte Community-Wiki-Daten. Gegenprüfung anhand von Wiki-Übersichten zu Bossen, Rüstung, Figuren und Kreaturen. Keine Bilder oder Belohnungslisten übernommen. Viele Eigennamen bleiben in der englischen Originalform; Vollständigkeit und DLC-Markierungen sind nicht für jeden Eintrag unabhängig bestätigt."
     :"Data basis: normalized community-wiki data. Cross-checks used wiki indexes for bosses, armor, characters and creatures. Images and reward lists were not imported. Many proper names remain in their original English form; completeness and DLC flags have not been independently confirmed for every entry.";
 }
-function changeLanguage(){state.lang=state.lang==="de"?"en":"de";store.set("gb_lang",state.lang);updateTranslations();updateSourceNote();renderStats();renderMap();if($("#view-atlas").classList.contains("active"))renderAtlas();if($("#view-route").classList.contains("active"))renderRoute();if($("#view-journal").classList.contains("active"))renderJournal();if(state.selected)selectRegion(state.selected)}
+function changeLanguage(){
+ state.lang=state.lang==="de"?"en":"de";store.set("gb_lang",state.lang);
+ updateTranslations();updateSourceNote();renderStats();renderMap();renderGallery();
+ if($("#view-quests").classList.contains("active"))renderQuests();
+ if($("#view-atlas").classList.contains("active"))renderAtlas();
+ if($("#view-route").classList.contains("active")){renderRoute();renderRuneFarms()}
+ if($("#view-armor").classList.contains("active"))renderArmorPlanner();
+ if($("#view-journal").classList.contains("active"))renderJournal();
+ if(state.selected)selectRegion(state.selected);
+}
 function init(){
-if("serviceWorker" in navigator && location.protocol!=="file:") navigator.serviceWorker.register("./sw.js").catch(()=>{});
-updateTranslations();updateSourceNote();renderStats();renderSuggested();renderMap();renderAtlas();renderRoute();
-queryAll("[data-view]").forEach(b=>b.addEventListener("click",()=>selectView(b.dataset.view)));
-queryAll("[data-go]").forEach(b=>b.addEventListener("click",()=>selectView(b.dataset.go)));
-$("#langToggle").addEventListener("click",changeLanguage);
-$("#themeToggle").addEventListener("click",()=>{document.body.classList.toggle("light");store.set("gb_theme",document.body.classList.contains("light")?"light":"dark")});
-if(store.get("gb_theme")==="light")document.body.classList.add("light");
-$("#mapBase").addEventListener("click",()=>{state.scope="base";renderMap()});$("#mapDlc").addEventListener("click",()=>{state.scope="dlc";renderMap()});$("#mapAll").addEventListener("click",()=>{state.scope="all";renderMap()});
-$("#worldMap").addEventListener("click",e=>{const n=e.target.closest("[data-region]");if(n)selectRegion(n.dataset.region)});
-$("#worldMap").addEventListener("keydown",e=>{const n=e.target.closest("[data-region]");if(n&&(e.key==="Enter"||e.key===" ")){e.preventDefault();selectRegion(n.dataset.region)}});
-$("#regionChips").addEventListener("click",e=>{const b=e.target.closest("[data-region-chip]");if(b)selectRegion(b.dataset.regionChip)});
-$("#atlasGrid").addEventListener("click",e=>{const b=e.target.closest("[data-toggle-entry]");if(b)toggleEntry(b.dataset.toggleEntry)});
-$("#searchInput").addEventListener("input",()=>{atlasPage=0;renderAtlas()});$("#typeFilter").addEventListener("change",()=>{atlasPage=0;renderAtlas()});$("#scopeFilter").addEventListener("change",()=>{atlasPage=0;renderAtlas()});
-$("#atlasPagination").addEventListener("click",e=>{const b=e.target.closest("[data-page]");if(b&&!b.disabled){atlasPage+=Number(b.dataset.page);renderAtlas()}});
-$("#clearFilters").addEventListener("click",()=>{$("#searchInput").value="";$("#typeFilter").value="all";$("#scopeFilter").value="all";atlasPage=0;renderAtlas()});
-$("#levelInput").addEventListener("input",()=>{renderRoute();renderSuggested()});
-queryAll("[data-route-scope]").forEach(b=>b.addEventListener("click",()=>{state.routeScope=b.dataset.routeScope;renderRoute()}));
-document.addEventListener("click",e=>{const b=e.target.closest("[data-open-region]");if(b){state.scope=region(b.dataset.openRegion).dlc?"dlc":"base";selectView("map");selectRegion(b.dataset.openRegion)}});
-$("#journalFilter").addEventListener("change",renderJournal);
-$("#journalTasks").addEventListener("change",e=>{const i=e.target.closest("[data-journal-check]");if(i){state.done[i.dataset.journalCheck]=i.checked;if(!i.checked)delete state.done[i.dataset.journalCheck];store.set("gb_done",JSON.stringify(state.done));renderStats();renderJournal()}});
-$("#notesInput").addEventListener("input",()=>{store.set("gb_notes",$("#notesInput").value);$("#saveHint").textContent=t("autoSaved")});
-$("#resetProgress").addEventListener("click",()=>{if(confirm(t("resetConfirm"))){state.done={};store.remove("gb_done");store.remove("gb_notes");renderStats();renderJournal();if($("#view-atlas").classList.contains("active"))renderAtlas();alert(t("resetDone"))}});
+ if("serviceWorker" in navigator && location.protocol!=="file:") navigator.serviceWorker.register("./sw.js").catch(()=>{});
+ updateTranslations();updateSourceNote();renderStats();renderSuggested();renderMap();renderAtlas();renderRoute();renderGallery();
+ queryAll("[data-view]").forEach(b=>b.addEventListener("click",()=>selectView(b.dataset.view)));
+ queryAll("[data-go]").forEach(b=>b.addEventListener("click",()=>selectView(b.dataset.go)));
+ $("#langToggle").addEventListener("click",changeLanguage);
+ $("#themeToggle").addEventListener("click",()=>{document.body.classList.toggle("light");store.set("gb_theme",document.body.classList.contains("light")?"light":"dark")});
+ if(store.get("gb_theme")==="light")document.body.classList.add("light");
+ $("#mapBase").addEventListener("click",()=>{state.scope="base";renderMap()});
+ $("#mapDlc").addEventListener("click",()=>{state.scope="dlc";renderMap()});
+ $("#mapAll").addEventListener("click",()=>{state.scope="all";renderMap()});
+ $("#worldMap").addEventListener("click",e=>{const n=e.target.closest("[data-region]");if(n)selectRegion(n.dataset.region)});
+ $("#worldMap").addEventListener("keydown",e=>{const n=e.target.closest("[data-region]");if(n&&(e.key==="Enter"||e.key===" ")){e.preventDefault();selectRegion(n.dataset.region)}});
+ $("#regionChips").addEventListener("click",e=>{const n=e.target.closest("[data-region-chip]");if(n)selectRegion(n.dataset.regionChip)});
+ $("#mapLevel").addEventListener("input",()=>{renderMap();if(state.selected)selectRegion(state.selected)});
+ $("#atlasGrid").addEventListener("click",e=>{
+  const toggle=e.target.closest("[data-toggle-entry]");
+  const details=e.target.closest("[data-open-entry]");
+  if(toggle)toggleEntry(toggle.dataset.toggleEntry);
+  else if(details)openEntryDetails(details.dataset.openEntry);
+ });
+ $("#searchInput").addEventListener("input",()=>{atlasPage=0;renderAtlas()});
+ $("#typeFilter").addEventListener("change",()=>{atlasPage=0;renderAtlas()});
+ $("#scopeFilter").addEventListener("change",()=>{atlasPage=0;renderAtlas()});
+ $("#atlasPagination").addEventListener("click",e=>{const n=e.target.closest("[data-page]");if(n&&!n.disabled){atlasPage+=Number(n.dataset.page);renderAtlas()}});
+ $("#clearFilters").addEventListener("click",()=>{$("#searchInput").value="";$("#typeFilter").value="all";$("#scopeFilter").value="all";atlasPage=0;renderAtlas()});
+ $("#levelInput").addEventListener("input",()=>{renderRoute();renderSuggested();renderRuneFarms()});
+ queryAll("[data-route-scope]").forEach(b=>b.addEventListener("click",()=>{state.routeScope=b.dataset.routeScope;renderRoute();renderRuneFarms()}));
+ $("#questList").addEventListener("click",e=>{const n=e.target.closest("[data-select-quest]");if(n){state.selectedQuest=n.dataset.selectQuest;renderQuests()}});
+ $("#questDetail").addEventListener("change",e=>{
+  const n=e.target.closest("[data-quest-check]");if(!n)return;
+  state.questDone[n.dataset.questCheck]=n.checked;
+  if(!n.checked)delete state.questDone[n.dataset.questCheck];
+  store.set("gb_qdone",JSON.stringify(state.questDone));renderQuests();
+ });
+ $("#armorPriority").addEventListener("change",renderArmorPlanner);
+ $("#armorBudget").addEventListener("change",renderArmorPlanner);
+ $("#runArmorPlanner").addEventListener("click",renderArmorPlanner);
+ $("#detailMapButton").addEventListener("click",()=>{
+  const regionId=$("#detailMapButton").dataset.region;
+  const locationName=$("#detailMapButton").dataset.location;
+  $("#detailDialog").close();openQuestMap(regionId,locationName);
+ });
+ $("#closeDetail").addEventListener("click",()=>$("#detailDialog").close());
+ document.addEventListener("click",e=>{
+  const quest=e.target.closest("[data-open-quest]");
+  if(quest){state.selectedQuest=quest.dataset.openQuest;selectView("quests");renderQuests();return;}
+  const questMap=e.target.closest("[data-quest-map]");
+  if(questMap){openQuestMap(questMap.dataset.questMap,questMap.dataset.questLocation);return;}
+  const farmMap=e.target.closest("[data-farm-map]");
+  if(farmMap){openQuestMap(farmMap.dataset.farmMap,farmMap.dataset.farmLocation);return;}
+  const entry=e.target.closest("[data-open-entry]");
+  if(entry){openAtlasEntry(entry.dataset.openEntry);return;}
+  const openRegion=e.target.closest("[data-open-region]");
+  if(openRegion){const r=region(openRegion.dataset.openRegion);if(r){state.scope=r.dlc?"dlc":"base";selectView("map");selectRegion(r.id)}return;}
+ });
+ $("#journalFilter").addEventListener("change",renderJournal);
+ $("#journalTasks").addEventListener("change",e=>{
+  const n=e.target.closest("[data-journal-check]");if(!n)return;
+  state.done[n.dataset.journalCheck]=n.checked;if(!n.checked)delete state.done[n.dataset.journalCheck];
+  store.set("gb_done",JSON.stringify(state.done));renderStats();renderJournal();
+ });
+ $("#notesInput").addEventListener("input",()=>{store.set("gb_notes",$("#notesInput").value);$("#saveHint").textContent=t("autoSaved")});
+ $("#resetProgress").addEventListener("click",()=>{
+  if(confirm(t("resetConfirm"))){state.done={};state.questDone={};store.remove("gb_done");store.remove("gb_qdone");store.remove("gb_notes");renderStats();renderJournal();renderQuests();if($("#view-atlas").classList.contains("active"))renderAtlas();alert(t("resetDone"))}
+ });
 }
 document.addEventListener("DOMContentLoaded",init);
