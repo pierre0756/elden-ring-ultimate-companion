@@ -183,7 +183,7 @@ $("#statRegions").textContent=regions.length;$("#statEntries").textContent=entri
 function renderMap(){
 const scope=state.scope;
 const svg=$("#worldMap");
-const level=Math.max(1,Math.min(200,Number($("#mapLevel")?.value||35)));
+const level=Math.max(1,Math.min(713,Number($("#mapLevel")?.value||35)));
 $("#mapLevelValue").textContent=level;
 const matching=regions.filter(r=>level>=r.min-8&&level<=r.max+8).length;
 $("#mapLevelHint").textContent=matching+" "+t("levelMatches");
@@ -405,10 +405,10 @@ function init(){
  $("#mapBase").addEventListener("click",()=>{state.scope="base";renderMap()});
  $("#mapDlc").addEventListener("click",()=>{state.scope="dlc";renderMap()});
  $("#mapAll").addEventListener("click",()=>{state.scope="all";renderMap()});
- $("#worldMap").addEventListener("click",e=>{const n=e.target.closest("[data-region]");if(n)selectRegion(n.dataset.region)});
+ $("#worldMap").addEventListener("click",e=>{const n=e.target.closest("[data-region]");if(n){state.mapFocusLocation="";selectRegion(n.dataset.region)}});
  $("#worldMap").addEventListener("keydown",e=>{const n=e.target.closest("[data-region]");if(n&&(e.key==="Enter"||e.key===" ")){e.preventDefault();selectRegion(n.dataset.region)}});
- $("#regionChips").addEventListener("click",e=>{const n=e.target.closest("[data-region-chip]");if(n)selectRegion(n.dataset.regionChip)});
- $("#mapLevel").addEventListener("input",()=>{renderMap();if(state.selected)selectRegion(state.selected)});
+ $("#regionChips").addEventListener("click",e=>{const n=e.target.closest("[data-region-chip]");if(n){state.mapFocusLocation="";selectRegion(n.dataset.regionChip)}});
+ $("#mapLevel").addEventListener("input",()=>{$("#levelInput").value=$("#mapLevel").value;renderMap();renderRoute();renderSuggested();renderRuneFarms();if(state.selected)selectRegion(state.selected)});
  $("#atlasGrid").addEventListener("click",e=>{
   const toggle=e.target.closest("[data-toggle-entry]");
   const details=e.target.closest("[data-open-entry]");
@@ -420,7 +420,7 @@ function init(){
  $("#scopeFilter").addEventListener("change",()=>{atlasPage=0;renderAtlas()});
  $("#atlasPagination").addEventListener("click",e=>{const n=e.target.closest("[data-page]");if(n&&!n.disabled){atlasPage+=Number(n.dataset.page);renderAtlas()}});
  $("#clearFilters").addEventListener("click",()=>{$("#searchInput").value="";$("#typeFilter").value="all";$("#scopeFilter").value="all";atlasPage=0;renderAtlas()});
- $("#levelInput").addEventListener("input",()=>{renderRoute();renderSuggested();renderRuneFarms()});
+ $("#levelInput").addEventListener("input",()=>{$("#mapLevel").value=Math.min(713,Number($("#levelInput").value||1));renderMap();renderRoute();renderSuggested();renderRuneFarms()});
  queryAll("[data-route-scope]").forEach(b=>b.addEventListener("click",()=>{state.routeScope=b.dataset.routeScope;renderRoute();renderRuneFarms()}));
  $("#questList").addEventListener("click",e=>{const n=e.target.closest("[data-select-quest]");if(n){state.selectedQuest=n.dataset.selectQuest;renderQuests()}});
  $("#questDetail").addEventListener("change",e=>{
@@ -448,7 +448,7 @@ function init(){
   const entry=e.target.closest("[data-open-entry]");
   if(entry){openAtlasEntry(entry.dataset.openEntry);return;}
   const openRegion=e.target.closest("[data-open-region]");
-  if(openRegion){const r=region(openRegion.dataset.openRegion);if(r){state.scope=r.dlc?"dlc":"base";selectView("map");selectRegion(r.id)}return;}
+  if(openRegion){const r=region(openRegion.dataset.openRegion);if(r){state.mapFocusLocation="";state.scope=r.dlc?"dlc":"base";selectView("map");selectRegion(r.id)}return;}
  });
  $("#journalFilter").addEventListener("change",renderJournal);
  $("#journalTasks").addEventListener("change",e=>{
