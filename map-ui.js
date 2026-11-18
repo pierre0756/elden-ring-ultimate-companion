@@ -118,8 +118,8 @@
     if(!name){document.getElementById("customPinName")?.focus();if(status)status.textContent="Bitte zuerst einen Namen eingeben.";return;}
     pendingPin=true;
     const button=document.getElementById("startCustomPin");
-    if(button){button.textContent="Jetzt auf die Karte klicken";button.classList.add("placing-pin");}
-    if(status)status.textContent="Wähle jetzt die Stelle auf der Karte.";
+    if(button){button.textContent=document.documentElement.lang==="de"?"Jetzt auf die Karte klicken":"Click on the map now";button.classList.add("placing-pin");}
+    if(status)status.textContent=document.documentElement.lang==="de"?"Wähle jetzt die Stelle auf der Karte.":"Now choose a spot on the map.";
     main.map.getContainer().classList.add("pin-placement-mode");
   }
   function finishPinPlacement(e){
@@ -134,8 +134,8 @@
     document.getElementById("customPinNote").value="";
     pendingPin=false;
     const button=document.getElementById("startCustomPin");
-    if(button){button.textContent="Auf Karte platzieren ↗";button.classList.remove("placing-pin");}
-    const status=document.getElementById("customPinStatus");if(status)status.textContent="Wegpunkt gespeichert.";
+    if(button){button.textContent=document.documentElement.lang==="de"?"Auf Karte platzieren ↗":"Place on map ↗";button.classList.remove("placing-pin");}
+    const status=document.getElementById("customPinStatus");if(status)status.textContent=document.documentElement.lang==="de"?"Wegpunkt gespeichert.":"Waypoint saved.";
     main.map.getContainer().classList.remove("pin-placement-mode");
   }
   function drawBossMarkers(){
@@ -164,8 +164,16 @@
   }
 
   window.focusGraceboundMap=(master,px,py,label)=>{
-    const point={master,px:Number(px),py:Number(py),name:label||"Queststation",id:"quest-"+Date.now(),cat:"npc",desc:"Queststation"};
-    focusMainMarker(point);
+    if(!main)return;
+    const point=xy(Number(px),Number(py));
+    document.querySelector('[data-view="map"]')?.click();
+    setTimeout(()=>{
+      changeMainBase(master);
+      main.map.setView(point,5);
+      const pin=L.marker(point,{icon:markerIcon("npc")}).addTo(main.map);
+      pin.bindPopup(`<div class="er-popup"><b>${safe(label||"Queststation")}</b><span>${document.documentElement.lang==="de"?"Queststation":"Quest stop"}</span></div>`).openPopup();
+      setTimeout(()=>main.map.removeLayer(pin),12000);
+    },140);
   };
 
   document.addEventListener("DOMContentLoaded",()=>{
