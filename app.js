@@ -273,13 +273,13 @@ function renderQuests(){
  const all=window.ER_NPC_QUESTS||guides.questlines||[];
  const query=($("#questSearch")?.value||"").trim().toLocaleLowerCase();
  const quests=all.filter(q=>(q.name+" "+(q.steps||[]).map(s=>s.title+" "+s.location).join(" ")).toLocaleLowerCase().includes(query));
- if(!state.selectedQuest||!all.some(q=>q.id===state.selectedQuest))state.selectedQuest=quests[0]?.id||all[0]?.id||null;
+ if(!state.selectedQuest||!quests.some(q=>q.id===state.selectedQuest))state.selectedQuest=quests[0]?.id||null;
  list.innerHTML=`<div class="quest-list-heading"><div class="eyebrow"><span class="eyebrow-line"></span>${t("questSteps")}</div><h3>${state.lang==="de"?"NPC-Questlinien":"NPC questlines"}</h3><p class="muted">${all.length} ${state.lang==="de"?"Questlinien":"questlines"}</p></div>`+
  (quests.length?quests.map(q=>{
   const done=(q.steps||[]).filter((step,i)=>!!state.questDone[q.id+"_"+i]).length;
   return `<button class="quest-select ${state.selectedQuest===q.id?"active":""}" data-select-quest="${q.id}"><span class="quest-select-title">${safe(q.de||q.name)}</span><small>${done}/${q.steps.length} ${t("stepDone")}</small><span class="mini-progress"><i style="width:${Math.round(done/q.steps.length*100)}%"></i></span></button>`;
  }).join(""):`<p class="muted">Keine passende Questreihe gefunden.</p>`);
- const q=all.find(x=>x.id===state.selectedQuest);
+ const q=quests.find(x=>x.id===state.selectedQuest);
  if(!q){detail.innerHTML=`<div class="empty-region"><span>✧</span><h3>${t("chooseQuest")}</h3><p>${t("chooseQuestText")}</p></div>`;return;}
  const done=q.steps.filter((step,i)=>!!state.questDone[q.id+"_"+i]).length;
  detail.innerHTML=`<div class="quest-detail-top"><div class="eyebrow"><span class="eyebrow-line"></span>${q.steps.length} ${state.lang==="de"?"Stationen":"stops"}</div><span class="pill">${done}/${q.steps.length} ${t("questProgress")}</span></div><h3>${safe(q.de||q.name)}</h3><p class="quest-summary">${state.lang==="de"?"Die Übersicht zeigt die wichtigen NPC-Begegnungen und Ortswechsel in Reihenfolge.":"This overview lists key NPC encounters and locations in order."}</p><div class="quest-progress-track"><i style="width:${Math.round(done/q.steps.length*100)}%"></i></div><h4>${t("questSteps")}</h4><div class="quest-timeline">${q.steps.map((step,i)=>{
