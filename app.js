@@ -88,7 +88,7 @@ const entries=[
 ];
 const edges=[["limgrave","stormhill"],["limgrave","peninsula"],["stormhill","liurnia"],["liurnia","caelid"],["liurnia","altus"],["altus","gelmir"],["altus","leyndell"],["leyndell","mountains"],["mountains","snowfield"],["mountains","farum"],["liurnia","underground"],["gravesite","belurat"],["gravesite","ens is"],["ens is","scadu"],["scadu","shadowkeep"],["scadu","coast"],["coast","jagged"],["shadowkeep","rauh"],["shadowkeep","hinterland"],["rauh","abyss"],["rauh","enirilim"],["hinterland","enirilim"]];
 const store={get(k,d=""){try{return localStorage.getItem(k)??d}catch{return d}},set(k,v){try{localStorage.setItem(k,v)}catch{}},remove(k){try{localStorage.removeItem(k)}catch{}}};
-const $=s=>document.querySelector(s), $=s=>[...document.querySelectorAll(s)];
+const $=s=>document.querySelector(s), queryAll=s=>[...document.querySelectorAll(s)];
 const state={lang:store.get("gb_lang")||"de",scope:"base",routeScope:"base",selected:null,done:JSON.parse(store.get("gb_done")||"{}")};
 function t(key){return I18N[state.lang][key]||I18N.de[key]||key}
 function name(obj){return obj[state.lang]||obj.de}
@@ -97,13 +97,13 @@ function typeName(type){return t("type"+type[0].toUpperCase()+type.slice(1))}
 function safe(text){return String(text).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function updateTranslations(){
 document.documentElement.lang=state.lang;
-$$("[data-i18n]").forEach(el=>{const value=t(el.dataset.i18n);if(el.dataset.i18n==="heroTitle")el.innerHTML=value;else el.textContent=value});
-$$("[data-i18n-placeholder]").forEach(el=>el.placeholder=t(el.dataset.i18nPlaceholder));
+queryAll("[data-i18n]").forEach(el=>{const value=t(el.dataset.i18n);if(el.dataset.i18n==="heroTitle")el.innerHTML=value;else el.textContent=value});
+queryAll("[data-i18n-placeholder]").forEach(el=>el.placeholder=t(el.dataset.i18nPlaceholder));
 $("#langToggle").textContent=state.lang==="de"?"EN":"DE";
 }
 function selectView(view){
-$$(".view-panel").forEach(p=>p.classList.toggle("active",p.id==="view-"+view));
-$$(".nav-link").forEach(b=>b.classList.toggle("active",b.dataset.view===view));
+queryAll(".view-panel").forEach(p=>p.classList.toggle("active",p.id==="view-"+view));
+queryAll(".nav-link").forEach(b=>b.classList.toggle("active",b.dataset.view===view));
 window.scrollTo({top:0,behavior:"smooth"});
 if(view==="map")renderMap();if(view==="atlas")renderAtlas();if(view==="route")renderRoute();if(view==="journal")renderJournal();
 }
@@ -129,7 +129,7 @@ const svg=$("#worldMap");
 let paths=edges.map(([a,b])=>{const A=region(a),B=region(b);return A&&B?`<path class="map-path" d="M ${A.x} ${A.y} Q ${(A.x+B.x)/2+12} ${(A.y+B.y)/2-8} ${B.x} ${B.y}"/>`:""}).join("");
 let nodes=regions.filter(r=>scope==="all"||(scope==="dlc")===r.dlc).map(r=>`<g class="map-region ${r.dlc?"dlc":""} ${state.selected===r.id?"selected":""}" data-region="${r.id}" tabindex="0" role="button" aria-label="${safe(name(r))}"><circle cx="${r.x}" cy="${r.y}" r="8"/><text x="${r.x}" y="${r.y-17}" text-anchor="middle">${safe(name(r))}</text></g>`).join("");
 svg.innerHTML=`<defs><radialGradient id="mapGlow"><stop offset="0" stop-color="#bda56d" stop-opacity=".18"/><stop offset="1" stop-color="#bda56d" stop-opacity="0"/></radialGradient></defs><ellipse cx="450" cy="320" rx="390" ry="290" fill="url(#mapGlow)"/>${paths}${nodes}`;
-$$("[data-map-scope]").forEach(b=>b.classList.toggle("active",b.dataset.mapScope===scope));
+queryAll("[data-map-scope]").forEach(b=>b.classList.toggle("active",b.dataset.mapScope===scope));
 $("#regionChips").innerHTML=regions.filter(r=>scope==="all"||(scope==="dlc")===r.dlc).map(r=>`<button class="region-chip ${state.selected===r.id?"active":""}" data-region-chip="${r.id}">${safe(name(r))}</button>`).join("");
 }
 function selectRegion(id){
@@ -161,7 +161,7 @@ const range=r.dlc?("RL 150+ · "+t("blessingShort")+" "+r.blessing):(t("level")+
 let hint= r.dlc?(level<140?t("levelLow"):t("levelMatch")):level<r.min?t("levelHigh"):level>r.max?t("levelLow"):t("levelMatch");
 return `<div class="route-item"><span class="route-number">${i+1}</span><div><h4>${safe(name(r))}</h4><p>${hint} · ${safe(state.lang==="de"?r.desc:r.descEn)}</p></div><span class="route-level">${range}</span><button class="route-open" data-open-region="${r.id}">↗</button></div>`;
 }).join("")||`<p class="muted">${t("routeEmpty")}</p>`;
-$$("[data-route-scope]").forEach(b=>b.classList.toggle("active",b.dataset.routeScope===scope));
+queryAll("[data-route-scope]").forEach(b=>b.classList.toggle("active",b.dataset.routeScope===scope));
 }
 function renderJournal(){
 $("#journalTasks").innerHTML=entries.map(e=>`<label class="journal-task ${state.done[e.id]?"done":""}"><input type="checkbox" data-journal-check="${e.id}" ${state.done[e.id]?"checked":""}><span>${safe(name(e))}</span><small>${typeName(e.type)}</small></label>`).join("");
@@ -176,8 +176,8 @@ function changeLanguage(){state.lang=state.lang==="de"?"en":"de";store.set("gb_l
 function init(){
 if("serviceWorker" in navigator && location.protocol!=="file:") navigator.serviceWorker.register("./sw.js").catch(()=>{});
 updateTranslations();renderStats();renderSuggested();renderMap();renderAtlas();renderRoute();
-$$("[data-view]").forEach(b=>b.addEventListener("click",()=>selectView(b.dataset.view)));
-$$("[data-go]").forEach(b=>b.addEventListener("click",()=>selectView(b.dataset.go)));
+queryAll("[data-view]").forEach(b=>b.addEventListener("click",()=>selectView(b.dataset.view)));
+queryAll("[data-go]").forEach(b=>b.addEventListener("click",()=>selectView(b.dataset.go)));
 $("#langToggle").addEventListener("click",changeLanguage);
 $("#themeToggle").addEventListener("click",()=>{document.body.classList.toggle("light");store.set("gb_theme",document.body.classList.contains("light")?"light":"dark")});
 if(store.get("gb_theme")==="light")document.body.classList.add("light");
@@ -189,7 +189,7 @@ $("#atlasGrid").addEventListener("click",e=>{const b=e.target.closest("[data-tog
 $("#searchInput").addEventListener("input",renderAtlas);$("#typeFilter").addEventListener("change",renderAtlas);$("#scopeFilter").addEventListener("change",renderAtlas);
 $("#clearFilters").addEventListener("click",()=>{$("#searchInput").value="";$("#typeFilter").value="all";$("#scopeFilter").value="all";renderAtlas()});
 $("#levelInput").addEventListener("input",()=>{renderRoute();renderSuggested()});
-$$("[data-route-scope]").forEach(b=>b.addEventListener("click",()=>{state.routeScope=b.dataset.routeScope;renderRoute()}));
+queryAll("[data-route-scope]").forEach(b=>b.addEventListener("click",()=>{state.routeScope=b.dataset.routeScope;renderRoute()}));
 document.addEventListener("click",e=>{const b=e.target.closest("[data-open-region]");if(b){state.scope=region(b.dataset.openRegion).dlc?"dlc":"base";selectView("map");selectRegion(b.dataset.openRegion)}});
 $("#journalTasks").addEventListener("change",e=>{const i=e.target.closest("[data-journal-check]");if(i){state.done[i.dataset.journalCheck]=i.checked;if(!i.checked)delete state.done[i.dataset.journalCheck];store.set("gb_done",JSON.stringify(state.done));renderStats();renderJournal()}});
 $("#notesInput").addEventListener("input",()=>{store.set("gb_notes",$("#notesInput").value);$("#saveHint").textContent=t("autoSaved")});
