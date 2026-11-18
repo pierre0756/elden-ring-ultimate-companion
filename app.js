@@ -87,7 +87,7 @@ const entries=[
 { id:"mapfragments",type:"collectible",de:"Kartenfragmente",en:"Map Fragments",region:"scadu",dlc:true,level:"—",note:"Decken nach und nach die Karte des Schattenlands auf.",noteEn:"Gradually reveal the map of the Realm of Shadow."}
 ];
 const edges=[["limgrave","stormhill"],["limgrave","peninsula"],["stormhill","liurnia"],["liurnia","caelid"],["liurnia","altus"],["altus","gelmir"],["altus","leyndell"],["leyndell","mountains"],["mountains","snowfield"],["mountains","farum"],["liurnia","underground"],["gravesite","belurat"],["gravesite","ens is"],["ens is","scadu"],["scadu","shadowkeep"],["scadu","coast"],["coast","jagged"],["shadowkeep","rauh"],["shadowkeep","hinterland"],["rauh","abyss"],["rauh","enirilim"],["hinterland","enirilim"]];
-const store={get(k,d=""){try{return store.get(k)??d}catch{return d}},set(k,v){try{store.set(k,v)}catch{}},remove(k){try{store.remove(k)}catch{}}};
+const store={get(k,d=""){try{return localStorage.getItem(k)??d}catch{return d}},set(k,v){try{localStorage.setItem(k,v)}catch{}},remove(k){try{localStorage.removeItem(k)}catch{}}};
 const $=s=>document.querySelector(s), $=s=>[...document.querySelectorAll(s)];
 const state={lang:store.get("gb_lang")||"de",scope:"base",routeScope:"base",selected:null,done:JSON.parse(store.get("gb_done")||"{}")};
 function t(key){return I18N[state.lang][key]||I18N.de[key]||key}
