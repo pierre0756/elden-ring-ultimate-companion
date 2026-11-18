@@ -199,7 +199,7 @@ const level=Math.max(1,Math.min(200,Number($("#mapLevel")?.value||35)));
 const range=r.dlc?("RL 150+ · "+t("blessingShort")+" "+(r.blessing||"—")):(t("level")+" "+r.min+"–"+r.max);
 const fit=level<r.min-8?t("laterLevel"):level>r.max+8?t("earlierLevel"):t("currentLevelFit");
 const scene=guides.imageGallery.find(x=>x.region===id);
-const mapData=guides.regionMaps.find(x=>x.region===id);
+const mapData=(guides.regionMaps||[]).filter(x=>x.region===id);
 const locations=catalogue.locations.filter(x=>x.region===id);
 const locationPriority=locations.sort((a,b)=>{
  const rank=x=>/castle|manor|academy|cathedral|fort|village|ruins|church|altar|palace|keep|temple|gate|tower|cross|plaza|river|cave|tunnel|shack|rise/i.test(x.name)?0:1;
@@ -209,7 +209,7 @@ const bossList=entries.filter(e=>e.type==="boss"&&e.region===id).slice(0,8);
 const questList=guides.questlines.filter(q=>q.region===id);
 const focus=state.mapFocusLocation? `<p class="map-focus-note">⌖ ${t("mapFocus")}: <strong>${safe(state.mapFocusLocation)}</strong></p>`:"";
 const sceneHtml=scene?`<figure class="region-scene"><img loading="lazy" src="${safe(scene.image)}" alt="${safe(state.lang==="de"?scene.caption:scene.captionEn)}"><figcaption>${safe(state.lang==="de"?scene.caption:scene.captionEn)} · ${t("regionImageCredit")}: <a href="${safe(scene.source)}" target="_blank" rel="noopener">${safe(scene.credit)}</a></figcaption></figure>`:"";
-const mapHtml=mapData&&mapData.image?`<div class="region-map-card"><div class="region-map-heading"><strong>${t("regionalMap")}</strong><a href="${safe(mapData.mapUrl)}" target="_blank" rel="noopener">${t("openRegionalMap")} ↗</a></div><a href="${safe(mapData.image)}" target="_blank" rel="noopener"><img loading="lazy" src="${safe(mapData.image)}" alt="${safe(name(r))} map fragment"></a><p><strong>${t("fragmentFind")}:</strong> ${safe(state.lang==="de"?mapData.fragment:mapData.fragmentEn||mapData.fragment)}</p><small>${t("regionImageCredit")}: <a href="${safe(mapData.source)}" target="_blank" rel="noopener">${safe(mapData.credit)}</a></small></div>`:"";
+const mapHtml=mapData.length?`<div class="region-maps-wrap"><h4>${t("regionalMap")}</h4>${mapData.map(m=>`<div class="region-map-card"><div class="region-map-heading"><strong>${safe(m.de||m.title||m.name)}</strong><a href="${safe(m.mapUrl||m.source)}" target="_blank" rel="noopener">${t("openRegionalMap")} ↗</a></div>${m.image?`<a href="${safe(m.image)}" target="_blank" rel="noopener"><img loading="lazy" src="${safe(m.image)}" alt="${safe(m.de||m.title||m.name)}"></a>`:`<div class="map-fragment-placeholder"><span>⌖</span><small>${t("mapNote")}</small></div>`}<p><strong>${t("fragmentFind")}:</strong> ${safe(state.lang==="de"?m.fragment:m.fragmentEn||m.fragment)}</p><small>${t("regionImageCredit")}: <a href="${safe(m.source||m.mapUrl)}" target="_blank" rel="noopener">${safe(m.credit||"Elden Ring Wiki")}</a></small></div>`).join("")}</div>`:"";
 const stops=locationPriority.slice(0,10);
 const stopHtml=stops.length?stops.map(l=>`<button class="map-stop" data-open-entry="${l.id}"><span>⌖</span><span>${safe(l.name)}</span><small>${safe(l.regionName||"")}</small><b>↗</b></button>`).join(""):`<p class="muted">${t("noStations")}</p>`;
 const bossHtml=bossList.map(b=>`<button class="map-stop boss-stop" data-open-entry="${b.id}"><span>✧</span><span>${safe(name(b))}</span><small>${t("bossOverview")}</small><b>↗</b></button>`).join("");
