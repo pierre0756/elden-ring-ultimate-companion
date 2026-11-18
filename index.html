@@ -81,42 +81,42 @@
       <div class="interactive-map-layout">
         <aside class="map-sidebar panel-card">
           <div class="map-search-block">
-            <label class="field-label" for="mapSearch">Karte durchsuchen</label>
-            <input id="mapSearch" type="search" placeholder="Gnadenort, Boss, NPC, Goldene Saat …" autocomplete="off">
+            <label class="field-label" for="mapSearch" data-i18n="mapSearchLabel">Karte durchsuchen</label>
+            <input id="mapSearch" type="search" data-i18n-placeholder="mapSearchPlaceholder" placeholder="Gnadenort, Boss, NPC, Goldene Saat …" autocomplete="off">
             <div id="mapSearchResults" class="map-search-results"></div>
           </div>
           <div class="map-category-block">
             <div class="panel-top"><h3>Markierungen</h3><span class="muted" id="mapMarkerCount">—</span></div>
             <div id="mapCategories" class="map-category-list">
-              <label><input type="checkbox" data-map-category="grace" checked><span class="map-cat-dot grace"></span>Gnadenorte</label>
-              <label><input type="checkbox" data-map-category="boss" checked><span class="map-cat-dot boss"></span>Bosse</label>
-              <label><input type="checkbox" data-map-category="golden" checked><span class="map-cat-dot golden"></span>Goldene Saat</label>
-              <label><input type="checkbox" data-map-category="npc"><span class="map-cat-dot npc"></span>NPCs</label>
-              <label><input type="checkbox" data-map-category="tear"><span class="map-cat-dot tear"></span>Heilige Tränen</label>
-              <label><input type="checkbox" data-map-category="crystal"><span class="map-cat-dot crystal"></span>Kristalltränen</label>
-              <label><input type="checkbox" data-map-category="greatrune"><span class="map-cat-dot greatrune"></span>Große Runen</label>
-              <label><input type="checkbox" data-map-category="memory"><span class="map-cat-dot memory"></span>Gedächtnissteine</label>
-              <label><input type="checkbox" data-map-category="larval"><span class="map-cat-dot larval"></span>Larventränen</label>
+              <label><input type="checkbox" data-map-category="grace" checked><span class="map-cat-dot grace"></span><span data-i18n="mapCatGrace">Gnadenorte</span></label>
+              <label><input type="checkbox" data-map-category="boss" checked><span class="map-cat-dot boss"></span><span data-i18n="mapCatBoss">Bosse</span></label>
+              <label><input type="checkbox" data-map-category="golden" checked><span class="map-cat-dot golden"></span><span data-i18n="mapCatGolden">Goldene Saat</span></label>
+              <label><input type="checkbox" data-map-category="npc"><span class="map-cat-dot npc"></span><span data-i18n="mapCatNpc">NPCs</span></label>
+              <label><input type="checkbox" data-map-category="tear"><span class="map-cat-dot tear"></span><span data-i18n="mapCatSacredTear">Heilige Tränen</span></label>
+              <label><input type="checkbox" data-map-category="crystal"><span class="map-cat-dot crystal"></span><span data-i18n="mapCatCrystalTear">Kristalltränen</span></label>
+              <label><input type="checkbox" data-map-category="greatrune"><span class="map-cat-dot greatrune"></span><span data-i18n="mapCatGreatRune">Große Runen</span></label>
+              <label><input type="checkbox" data-map-category="memory"><span class="map-cat-dot memory"></span><span data-i18n="mapCatMemoryStone">Gedächtnissteine</span></label>
+              <label><input type="checkbox" data-map-category="larval"><span class="map-cat-dot larval"></span><span data-i18n="mapCatLarvalTear">Larventränen</span></label>
             </div>
           </div>
           <div class="custom-pin-block">
-            <div class="panel-top"><h3>Eigener Wegpunkt</h3><span class="muted" id="customPinStatus">Lokal gespeichert</span></div>
-            <input id="customPinName" type="text" maxlength="48" placeholder="Name des Wegpunkts">
-            <textarea id="customPinNote" rows="2" maxlength="180" placeholder="Notiz (optional)"></textarea>
-            <button id="startCustomPin" class="primary-btn" type="button">Auf Karte platzieren ↗</button>
-            <p class="muted">Name eingeben, „Auf Karte platzieren“ drücken und dann die gewünschte Stelle auf der Karte anklicken. Deine Markierungen bleiben auf diesem Gerät gespeichert.</p>
+            <div class="panel-top"><h3 data-i18n="customWaypointTitle">Eigener Wegpunkt</h3><span class="muted" id="customPinStatus">Lokal gespeichert</span></div>
+            <input id="customPinName" type="text" maxlength="48" data-i18n-placeholder="customWaypointPlaceholder" placeholder="Name des Wegpunkts">
+            <textarea id="customPinNote" rows="2" maxlength="180" data-i18n-placeholder="customWaypointNotePlaceholder" placeholder="Notiz (optional)"></textarea>
+            <button id="startCustomPin" class="primary-btn" type="button" data-i18n="customWaypointAdd">Auf Karte platzieren ↗</button>
+            <p class="muted" data-i18n="customWaypointHelp">Name eingeben, „Auf Karte platzieren“ drücken und dann die gewünschte Stelle auf der Karte anklicken. Deine Markierungen bleiben auf diesem Gerät gespeichert.</p>
             <div id="customPinList" class="custom-pin-list"></div>
           </div>
         </aside>
         <div class="interactive-map-main">
           <div class="map-layer-tabs">
-            <button class="chip active" data-map-layer="M00">Zwischenlande</button>
-            <button class="chip" data-map-layer="M01">Untergrund</button>
-            <button class="chip" data-map-layer="M10">Schattenland</button>
-            <button class="chip" data-map-reset="true">Gesamte Karte</button>
+            <button class="chip active" data-map-layer="M00" data-i18n="mapLayerBase">Zwischenlande</button>
+            <button class="chip" data-map-layer="M01" data-i18n="mapLayerUnderground">Untergrund</button>
+            <button class="chip" data-map-layer="M10" data-i18n="mapLayerShadow">Schattenland</button>
+            <button class="chip" data-map-reset="true" data-i18n="mapLayerReset">Gesamte Karte</button>
           </div>
           <div id="erMap" class="er-map" aria-label="Interaktive Elden-Ring-Karte"></div>
-          <div class="map-footnote">Kartenkoordinaten und Markierungen sind Community-Daten. Die Kartenansicht unterstützt Zoom, Verschieben und eigene Pins.</div>
+          <div class="map-footnote">Kartenkacheln und Koordinaten stammen aus einem Community-Kartenprojekt; die importierten Markierungen sind auf die angezeigten Kategorien begrenzt. Zoom, Verschieben und eigene Wegpunkte sind verfügbar.</div>
         </div>
       </div>
       <div class="map-layout">
@@ -131,26 +131,26 @@
     </section>
 
     <section class="view-panel" id="view-bosses">
-      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span><span>BOSS-ÜBERSICHT</span></div><h2>Alle Boss-Standorte</h2></div><p>Eine reine Fundortkarte: Boss-Markierungen, Name und Gebiet – ohne lange Hintergrundtexte.</p></div>
+      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="bossEyebrow">BOSS-ÜBERSICHT</span></div><h2 data-i18n="bossTitle">Alle Boss-Standorte</h2></div><p data-i18n="bossSub">Eine reine Fundortkarte: Boss-Markierungen, Name und Gebiet – ohne lange Hintergrundtexte.</p></div>
       <article class="panel-card boss-map-card">
         <div class="boss-map-toolbar">
           <div class="map-layer-tabs">
-            <button class="chip active" data-boss-layer="M00">Zwischenlande</button>
-            <button class="chip" data-boss-layer="M01">Untergrund</button>
-            <button class="chip" data-boss-layer="M10">Schattenland</button>
-            <button class="chip" data-boss-reset="true">Gesamte Karte</button>
+            <button class="chip active" data-boss-layer="M00" data-i18n="mapLayerBase">Zwischenlande</button>
+            <button class="chip" data-boss-layer="M01" data-i18n="mapLayerUnderground">Untergrund</button>
+            <button class="chip" data-boss-layer="M10" data-i18n="mapLayerShadow">Schattenland</button>
+            <button class="chip" data-boss-reset="true" data-i18n="mapLayerReset">Gesamte Karte</button>
           </div>
-          <input id="bossSearch" type="search" placeholder="Boss oder Gebiet suchen …" autocomplete="off">
+          <input id="bossSearch" type="search" data-i18n-placeholder="bossSearchPlaceholder" placeholder="Boss oder Gebiet suchen …" autocomplete="off">
         </div>
         <div id="bossMap" class="er-map boss-map" aria-label="Karte mit Boss-Standorten"></div>
-        <div class="panel-top boss-list-heading"><h3>Boss-Fundorte</h3><span class="muted" id="bossCount"></span></div>
+        <div class="panel-top boss-list-heading"><h3 data-i18n="bossListTitle">Boss-Fundorte</h3><span class="muted" id="bossCount"></span></div>
         <div id="bossResults" class="boss-results"></div>
       </article>
     </section>
 
     <section class="view-panel" id="view-quests">
       <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="questAtlasEyebrow">QUEST-ATLAS</span></div><h2 data-i18n="questAtlasTitle">Deine Geschichten. Deine Entscheidungen.</h2></div><p data-i18n="questAtlasSub">Questreihen mit Zwischenstopps, Verzweigungen und direkten Sprüngen zur passenden Region.</p></div>
-      <div class="toolbar quest-search-toolbar"><label class="search-box"><span>⌕</span><input id="questSearch" type="search" placeholder="Questreihe oder NPC suchen …"></label></div>
+      <div class="toolbar quest-search-toolbar"><label class="search-box"><span>⌕</span><input id="questSearch" type="search" data-i18n-placeholder="questSearchPlaceholder" placeholder="Questreihe oder NPC suchen …"></label></div>
       <div class="quest-hub-layout">
         <aside class="quest-list panel-card" id="questList"></aside>
         <article class="quest-detail panel-card" id="questDetail"><div class="empty-region"><span>✧</span><h3 data-i18n="chooseQuest">Quest auswählen</h3><p data-i18n="chooseQuestText">Wähle links eine Questreihe aus, um alle Zwischenstationen zu sehen.</p></div></article>
