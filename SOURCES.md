@@ -15,7 +15,7 @@ Wichtig: Ein Community-Export und ein Wiki, aus dem der Export abgeleitet wurde,
 ## 2. Verwendete Referenzen
 
 - Elden Ring Wiki — Armor: https://eldenring.wiki.gg/wiki/Armor
-- Elden Ring Wiki — Bosses: https://eldenring.wiki.gg/wiki/Bosses
+- Elden Ring Wiki — Bosses: Eldenpedia — Bossübersicht und Bosskategorien
 - Elden Ring Wiki — Characters: https://eldenring.wiki.gg/wiki/Category:Characters
 - Elden Ring Wiki — Creatures: https://eldenring.wiki.gg/wiki/Category:Creatures
 
@@ -57,12 +57,12 @@ Bei größeren Spielupdates sollten insbesondere Ortszuordnungen, DLC-Kennzeiche
 ### Questverläufe
 Die folgenden Questverläufe wurden als redaktionelle Schrittfolgen zusammengefasst. Einträge geben optionale Begegnungen und Verzweigungen an; sie ersetzen keine vollständige Dialog- oder Trigger-Datenbank.
 
-- Ranni: https://eldenring.wiki.gg/wiki/Ranni_quest
-- Millicent: https://eldenring.wiki.gg/wiki/Millicent
-- Nadelritterin Leda: https://eldenring.wiki.gg/wiki/Leda
-- Sir Ansbach: https://eldenring.wiki.gg/wiki/Sir_Ansbach
-- Igon: https://eldenring.wiki.gg/wiki/Igon
-- Alexander: https://eldenring.wiki.gg/wiki/Alexander,_Warrior_Jar
+- Eldenpedia — Ranni-Questreihe (NPC-Begegnungen, Trigger, optionale Gespräche)
+- Eldenpedia — Millicent-Questreihe (Reihenfolge und Verzweigung)
+- Eldenpedia — Nadelritterin Leda (DLC-Ereignisse und Entscheidungen)
+- Eldenpedia — Sir Ansbach (DLC-Quest und Freyja-Verknüpfung)
+- Eldenpedia — Igon (Zackengipfel-Fortschritt)
+- Eldenpedia — Alexander, das Kriegergefäß (Begegnungsorte und Abschluss)
 
 Die Questübersichten wurden in eigene Zwischenstationen aufgeteilt. Fortschritt wird pro Station lokal im Browser gespeichert. Einige Dialogbedingungen können abhängig von der vorherigen Spielreihenfolge abweichen.
 
@@ -82,10 +82,10 @@ Die 18 ausführlicheren Bossprofile kombinieren Hintergrund, Rolle im Handlungsv
 https://eldenring.wiki.gg/wiki/Bosses
 
 ### Runen-Fundorte
-- Lenne's Rise: https://eldenring.wiki.gg/wiki/Lenne%27s_Rise
-- Bestial Sanctum: https://eldenring.wiki.gg/wiki/Bestial_Sanctum
-- Palace Approach Ledge-Road: https://eldenring.wiki.gg/wiki/Palace_Approach_Ledge-Road
-- Vergleichende Community-Übersicht: https://tarnishedwiki.com/elden-ring-rune-farming/
+- Eldenpedia — Lenne's Rise (Gebiet und Runen-Route)
+- Eldenpedia — Bestial Sanctum (Gebiet und wiederkehrende Gegnergruppen)
+- Eldenpedia — Palace Approach Ledge-Road (Gebietsbeschreibung und Farm-Kontext)
+- Tarnished Wiki — vergleichende Community-Übersicht zu Runen-Fundorten
 
 Ertragsangaben werden als grobe Richtwerte gekennzeichnet. Sie können sich durch NG-Zyklus und Spielfortschritt verändern. Einmalige Runenbelohnungen sind von wiederholbaren Routen getrennt.
 
