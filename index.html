@@ -79,9 +79,11 @@
 
     <section class="view-panel" id="view-atlas">
       <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="loreAndPlaces">WISSEN & ORTE</span></div><h2 data-i18n="atlasTitle">Der Atlas</h2></div><p data-i18n="atlasSub">Finde wichtige Orte, Figuren und Aufgaben. Setze Haken, sobald du etwas erledigt hast.</p></div>
-      <div class="toolbar"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="Einträge durchsuchen…"></label><select id="typeFilter" aria-label="Filter type"><option value="all" data-i18n="allCategories">Alle Kategorien</option><option value="boss" data-i18n="bosses">Bosse</option><option value="npc">NPCs</option><option value="quest" data-i18n="quests">Quests</option><option value="place" data-i18n="places">Orte</option><option value="collectible" data-i18n="collectibles">Sammelobjekte</option></select><select id="scopeFilter" aria-label="Filter game"><option value="all" data-i18n="baseAndDlc">Grundspiel + DLC</option><option value="base" data-i18n="baseOnly">Nur Grundspiel</option><option value="dlc">Nur DLC</option></select></div>
+      <div class="toolbar"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="Einträge durchsuchen…"></label><select id="typeFilter" aria-label="Filter type"><option value="all" data-i18n="allCategories">Alle Kategorien</option><option value="boss" data-i18n="bosses">Bosse</option><option value="npc">NPCs</option><option value="quest" data-i18n="quests">Quests</option><option value="place" data-i18n="places">Orte</option><option value="collectible" data-i18n="collectibles">Sammelobjekte</option><option value="armor" data-i18n="armor">Rüstungen</option><option value="creature" data-i18n="creatures">Kreaturen</option></select><select id="scopeFilter" aria-label="Filter game"><option value="all" data-i18n="baseAndDlc">Grundspiel + DLC</option><option value="base" data-i18n="baseOnly">Nur Grundspiel</option><option value="dlc">Nur DLC</option></select></div>
       <div class="results-meta"><span id="resultCount"></span><button id="clearFilters" class="text-btn" data-i18n="resetFilters">Filter zurücksetzen</button></div>
+      <div class="source-note" id="sourceNote"></div>
       <div class="atlas-grid" id="atlasGrid"></div>
+      <div class="atlas-pagination" id="atlasPagination"></div>
     </section>
 
     <section class="view-panel" id="view-route">
@@ -96,6 +98,7 @@
     </section>
   </main>
   <footer><div class="brand footer-brand"><span class="brand-mark">✦</span><span><b>GRACEBOUND</b><small>AN UNOFFICIAL FAN COMPANION</small></span></div><p data-i18n="footerText">Ein Fanprojekt. Elden Ring und alle zugehörigen Inhalte sind Eigentum ihrer jeweiligen Rechteinhaber.</p><span>v0.1.0 · <span data-i18n="madeFor">Für neugierige Befleckte</span></span></footer>
+  <script src="data/catalog.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
