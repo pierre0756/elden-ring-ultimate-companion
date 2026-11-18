@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11130f">
+  <meta name="description" content="Ein zweisprachiger Elden Ring Erkundungs- und Fortschrittsbegleiter für das Grundspiel und Shadow of the Erdtree.">
+  <title>Gracebound — Elden Ring Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Gracebound Startseite"><span class="brand-mark">✦</span><span><b>GRACEBOUND</b><small>THE LANDS BETWEEN & BEYOND</small></span></a>
+    <nav class="main-nav" aria-label="Hauptnavigation">
+      <button class="nav-link active" data-view="overview" data-i18n="navOverview">Übersicht</button>
+      <button class="nav-link" data-view="map" data-i18n="navMap">Weltkarte</button>
+      <button class="nav-link" data-view="atlas" data-i18n="navAtlas">Atlas</button>
+      <button class="nav-link" data-view="route" data-i18n="navRoute">Wegweiser</button>
+      <button class="nav-link" data-view="journal" data-i18n="navJournal">Reisetagebuch</button>
+    </nav>
+    <div class="top-actions">
+      <button id="langToggle" class="small-control" aria-label="Change language">EN</button>
+      <button id="themeToggle" class="small-control" aria-label="Toggle theme">☼</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="eyebrow">EIN ATLAS FÜR DIE ZWISCHENLANDE</span></div>
+        <h1 data-i18n="heroTitle">Dein Weg.<br><em>Deine Gnade.</em></h1>
+        <p data-i18n="heroText">Ein Begleiter für Entdeckungen, Geschichten und deinen eigenen Weg durch die Zwischenlande und das Schattenland.</p>
+        <div class="hero-actions">
+          <button class="primary-btn" data-go="map"><span data-i18n="openMap">Karte erkunden</span><span>↗</span></button>
+          <button class="text-btn" data-go="route" data-i18n="planJourney">Reise planen</button>
+        </div>
+        <div class="hero-meta"><span class="status-dot"></span><span data-i18n="offlineReady">Lokal speicherbar · kein Konto nötig</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="halo"></div><div class="rune rune-a">ᚷ</div><div class="rune rune-b">ᛟ</div>
+        <div class="tree"><div class="tree-trunk"></div><div class="tree-branch branch-a"></div><div class="tree-branch branch-b"></div><div class="tree-crown"></div></div>
+        <div class="hero-caption"><span>01 / 02</span><span>THE GOLDEN ORDER</span></div>
+      </div>
+    </section>
+
+    <section class="stats-row" id="statsRow">
+      <div class="stat"><strong id="statRegions">—</strong><span data-i18n="regions">Regionen</span></div>
+      <div class="stat"><strong id="statEntries">—</strong><span data-i18n="atlasEntries">Atlas-Einträge</span></div>
+      <div class="stat"><strong id="statDone">0%</strong><span data-i18n="journeyDone">Reise abgeschlossen</span></div>
+      <div class="stat stat-dlc"><strong>+</strong><span>SHADOW OF THE ERDTREE</span></div>
+    </section>
+
+    <section class="view-panel active" id="view-overview">
+      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="continueJourney">DEINE REISE</span></div><h2 data-i18n="overviewTitle">Wo möchtest du hin?</h2></div><p data-i18n="overviewSub">Wähle deinen nächsten Schritt oder entdecke, was dich erwartet.</p></div>
+      <div class="feature-grid">
+        <button class="feature-card feature-map" data-go="map"><span class="feature-number">01</span><span class="feature-icon">⌖</span><strong data-i18n="featureMap">Die Welt entdecken</strong><small data-i18n="featureMapText">Regionen, Orte und Orientierung</small><span class="feature-arrow">↗</span></button>
+        <button class="feature-card feature-atlas" data-go="atlas"><span class="feature-number">02</span><span class="feature-icon">✧</span><strong data-i18n="featureAtlas">Der Atlas</strong><small data-i18n="featureAtlasText">Bosse, NPCs, Quests und Fundorte</small><span class="feature-arrow">↗</span></button>
+        <button class="feature-card feature-route" data-go="route"><span class="feature-number">03</span><span class="feature-icon">⌁</span><strong data-i18n="featureRoute">Dein Wegweiser</strong><small data-i18n="featureRouteText">Empfohlene Gebiete nach Level</small><span class="feature-arrow">↗</span></button>
+        <button class="feature-card feature-journal" data-go="journal"><span class="feature-number">04</span><span class="feature-icon">▤</span><strong data-i18n="featureJournal">Reisetagebuch</strong><small data-i18n="featureJournalText">Fortschritt festhalten und abhaken</small><span class="feature-arrow">↗</span></button>
+      </div>
+      <div class="lower-grid">
+        <article class="panel-card"><div class="panel-top"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="suggested">VORSCHLAG</span></div><h3 data-i18n="suggestedTitle">Dein nächster Halt</h3></div><span class="pill" data-i18n="basedOnLevel">Level-Auswahl</span></div><div id="suggestedRegion" class="suggested-region"></div></article>
+        <article class="panel-card progress-card"><div class="panel-top"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="yourProgress">DEIN FORTSCHRITT</span></div><h3 data-i18n="progressTitle">Jeder Schritt zählt</h3></div><span class="progress-ring" id="progressRing">0%</span></div><div class="progress-track"><span id="progressBar"></span></div><p id="progressText" class="muted"></p><button class="inline-link" data-go="journal" data-i18n="openJournal">Tagebuch öffnen ↗</button></article>
+      </div>
+    </section>
+
+    <section class="view-panel" id="view-map">
+      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="worldAtlas">WELT-ATLAS</span></div><h2 data-i18n="mapTitle">Die Zwischenlande & das Schattenland</h2></div><p data-i18n="mapSub">Wähle eine Region, um empfohlene Stufe, Orte und wichtige Stationen zu sehen.</p></div>
+      <div class="map-layout">
+        <div class="map-frame"><div class="map-tools"><span class="map-label" data-i18n="schematicMap">SCHEMATISCHE GEBIETSÜBERSICHT</span><div><button id="mapBase" class="chip active" data-map-scope="base" data-i18n="baseGame">Grundspiel</button><button id="mapDlc" class="chip" data-map-scope="dlc">DLC</button><button id="mapAll" class="chip" data-map-scope="all" data-i18n="all">Alle</button></div></div><div class="map-canvas"><svg id="worldMap" viewBox="0 0 900 650" role="img" aria-label="Schematische Karte der Spielregionen"></svg><div class="map-legend"><span><i class="legend-dot gold"></i><span data-i18n="baseRegions">Grundspiel</span></span><span><i class="legend-dot blue"></i><span data-i18n="dlcRegions">Schattenland</span></span></div></div><p class="map-disclaimer" data-i18n="mapDisclaimer">Hinweis: Diese Karte zeigt die grobe Gebietsbeziehung und ist nicht maßstabsgetreu oder als Ingame-Karte gedacht.</p></div>
+        <aside class="region-panel" id="regionPanel"><div class="empty-region"><span>⌖</span><h3 data-i18n="selectRegion">Region auswählen</h3><p data-i18n="selectRegionText">Wähle einen Punkt auf der Karte oder eine Region aus der Liste.</p></div></aside>
+      </div>
+      <div class="region-list-wrap"><div class="panel-top"><h3 data-i18n="allRegions">Alle Regionen</h3><span class="muted" data-i18n="regionHint">Zum Öffnen auswählen</span></div><div class="region-chips" id="regionChips"></div></div>
+    </section>
+
+    <section class="view-panel" id="view-atlas">
+      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="loreAndPlaces">WISSEN & ORTE</span></div><h2 data-i18n="atlasTitle">Der Atlas</h2></div><p data-i18n="atlasSub">Finde wichtige Orte, Figuren und Aufgaben. Setze Haken, sobald du etwas erledigt hast.</p></div>
+      <div class="toolbar"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="Einträge durchsuchen…"></label><select id="typeFilter" aria-label="Filter type"><option value="all" data-i18n="allCategories">Alle Kategorien</option><option value="boss" data-i18n="bosses">Bosse</option><option value="npc">NPCs</option><option value="quest" data-i18n="quests">Quests</option><option value="place" data-i18n="places">Orte</option><option value="collectible" data-i18n="collectibles">Sammelobjekte</option></select><select id="scopeFilter" aria-label="Filter game"><option value="all" data-i18n="baseAndDlc">Grundspiel + DLC</option><option value="base" data-i18n="baseOnly">Nur Grundspiel</option><option value="dlc">Nur DLC</option></select></div>
+      <div class="results-meta"><span id="resultCount"></span><button id="clearFilters" class="text-btn" data-i18n="resetFilters">Filter zurücksetzen</button></div>
+      <div class="atlas-grid" id="atlasGrid"></div>
+    </section>
+
+    <section class="view-panel" id="view-route">
+      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="progressionGuide">FORTSCHRITTSPLANER</span></div><h2 data-i18n="routeTitle">Finde deinen nächsten Weg</h2></div><p data-i18n="routeSub">Nutze dein aktuelles Level als grobe Orientierung für die nächste Region.</p></div>
+      <div class="route-layout"><article class="panel-card route-controls"><h3 data-i18n="yourCharacter">Dein Charakter</h3><label class="field-label" for="levelInput" data-i18n="currentLevel">Aktuelles Level</label><div class="level-input-wrap"><input id="levelInput" type="number" min="1" max="713" value="35"><span>RL</span></div><label class="field-label" data-i18n="journeyScope">Reiseumfang</label><div class="scope-choice"><button class="scope-btn active" data-route-scope="base" data-i18n="baseGame">Grundspiel</button><button class="scope-btn" data-route-scope="dlc">+ DLC</button><button class="scope-btn" data-route-scope="all" data-i18n="everything">Alles</button></div><p class="muted" data-i18n="levelDisclaimer">Levelbereiche sind Richtwerte der Community und keine Zugangsvoraussetzungen.</p></article><article class="panel-card route-results"><div class="panel-top"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="routeRecommendation">EMPFEHLUNGEN</span></div><h3 data-i18n="nextAreas">Passende Gebiete</h3></div><span class="pill" id="routeLevelLabel">RL 35</span></div><div id="routeList"></div></article></div>
+    </section>
+
+    <section class="view-panel" id="view-journal">
+      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="personalLog">PERSÖNLICHES TAGEBUCH</span></div><h2 data-i18n="journalTitle">Deine Reise in deinem Tempo</h2></div><p data-i18n="journalSub">Deine Haken bleiben auf diesem Gerät gespeichert. Du kannst jederzeit weitermachen.</p></div>
+      <div class="journal-summary panel-card"><div><span class="eyebrow" data-i18n="journeyProgress">REISEFORTSCHRITT</span><strong id="journalPercent">0%</strong></div><div class="progress-track"><span id="journalBar"></span></div><span id="journalCount" class="muted"></span></div>
+      <div class="journal-columns"><div><div class="panel-top"><h3 data-i18n="tasksToExplore">Stationen zum Entdecken</h3><span class="muted" data-i18n="tapToComplete">Antippen zum Abhaken</span></div><div id="journalTasks" class="journal-tasks"></div></div><aside class="panel-card notes-card"><h3 data-i18n="travelNotes">Reisenotizen</h3><p class="muted" data-i18n="notesText">Notiere dir Hinweise, offene Fragen oder deinen nächsten Schritt.</p><textarea id="notesInput" rows="9" data-i18n-placeholder="notesPlaceholder" placeholder="Deine Notizen…"></textarea><span class="save-hint" id="saveHint" data-i18n="autoSaved">Wird automatisch gespeichert</span><button id="resetProgress" class="danger-link" data-i18n="resetProgress">Fortschritt zurücksetzen</button></aside></div>
+    </section>
+  </main>
+  <footer><div class="brand footer-brand"><span class="brand-mark">✦</span><span><b>GRACEBOUND</b><small>AN UNOFFICIAL FAN COMPANION</small></span></div><p data-i18n="footerText">Ein Fanprojekt. Elden Ring und alle zugehörigen Inhalte sind Eigentum ihrer jeweiligen Rechteinhaber.</p><span>v0.1.0 · <span data-i18n="madeFor">Für neugierige Befleckte</span></span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
