@@ -86,6 +86,8 @@ const entries=[
 { id:"spiritash",type:"collectible",de:"Verehrte Geisterasche",en:"Revered Spirit Ash",region:"gravesite",dlc:true,level:"—",note:"Ein Fortschrittsobjekt, das die Wirkung von Geistersegen verstärkt.",noteEn:"A progression collectible that strengthens the effects of Revered Spirit Ash Blessing."},
 { id:"mapfragments",type:"collectible",de:"Kartenfragmente",en:"Map Fragments",region:"scadu",dlc:true,level:"—",note:"Decken nach und nach die Karte des Schattenlands auf.",noteEn:"Gradually reveal the map of the Realm of Shadow."}
 ];
+const filteredEntryIndex=entries.findIndex(e=>e.id==="maliketh");
+if(filteredEntryIndex>=0)entries.splice(filteredEntryIndex,1);
 
 const catalogue = window.ER_DB || {meta:{},bosses:[],armors:[],locations:[],npcs:[],creatures:[],quests:[]};
 const catalogueRegionLabel = id => { const r=regions.find(x=>x.id===id); return r ? name(r) : ""; };
