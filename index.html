@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,6 +19,7 @@
     <nav class="main-nav" aria-label="Hauptnavigation">
       <button class="nav-link active" data-view="overview" data-i18n="navOverview">Übersicht</button>
       <button class="nav-link" data-view="map" data-i18n="navMap">Weltkarte</button>
+      <button class="nav-link" data-view="bosses" data-i18n="navBosses">Bosse</button>
       <button class="nav-link" data-view="quests" data-i18n="navQuests">Quests</button>
       <button class="nav-link" data-view="atlas" data-i18n="navAtlas">Atlas</button>
       <button class="nav-link" data-view="route" data-i18n="navRoute">Wegweiser</button>
@@ -76,6 +78,47 @@
 
     <section class="view-panel" id="view-map">
       <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="worldAtlas">WELT-ATLAS</span></div><h2 data-i18n="mapTitle">Die Zwischenlande & das Schattenland</h2></div><p data-i18n="mapSub">Wähle eine Region, um empfohlene Stufe, Orte und wichtige Stationen zu sehen.</p></div>
+      <div class="interactive-map-layout">
+        <aside class="map-sidebar panel-card">
+          <div class="map-search-block">
+            <label class="field-label" for="mapSearch">Karte durchsuchen</label>
+            <input id="mapSearch" type="search" placeholder="Gnadenort, Boss, NPC, Goldene Saat …" autocomplete="off">
+            <div id="mapSearchResults" class="map-search-results"></div>
+          </div>
+          <div class="map-category-block">
+            <div class="panel-top"><h3>Markierungen</h3><span class="muted" id="mapMarkerCount">—</span></div>
+            <div id="mapCategories" class="map-category-list">
+              <label><input type="checkbox" data-map-category="grace" checked><span class="map-cat-dot grace"></span>Gnadenorte</label>
+              <label><input type="checkbox" data-map-category="boss" checked><span class="map-cat-dot boss"></span>Bosse</label>
+              <label><input type="checkbox" data-map-category="golden" checked><span class="map-cat-dot golden"></span>Goldene Saat</label>
+              <label><input type="checkbox" data-map-category="npc"><span class="map-cat-dot npc"></span>NPCs</label>
+              <label><input type="checkbox" data-map-category="tear"><span class="map-cat-dot tear"></span>Heilige Tränen</label>
+              <label><input type="checkbox" data-map-category="crystal"><span class="map-cat-dot crystal"></span>Kristalltränen</label>
+              <label><input type="checkbox" data-map-category="greatrune"><span class="map-cat-dot greatrune"></span>Große Runen</label>
+              <label><input type="checkbox" data-map-category="memory"><span class="map-cat-dot memory"></span>Gedächtnissteine</label>
+              <label><input type="checkbox" data-map-category="larval"><span class="map-cat-dot larval"></span>Larventränen</label>
+            </div>
+          </div>
+          <div class="custom-pin-block">
+            <div class="panel-top"><h3>Eigener Wegpunkt</h3><span class="muted" id="customPinStatus">Lokal gespeichert</span></div>
+            <input id="customPinName" type="text" maxlength="48" placeholder="Name des Wegpunkts">
+            <textarea id="customPinNote" rows="2" maxlength="180" placeholder="Notiz (optional)"></textarea>
+            <button id="startCustomPin" class="primary-btn" type="button">Auf Karte platzieren ↗</button>
+            <p class="muted">Name eingeben, „Auf Karte platzieren“ drücken und dann die gewünschte Stelle auf der Karte anklicken. Deine Markierungen bleiben auf diesem Gerät gespeichert.</p>
+            <div id="customPinList" class="custom-pin-list"></div>
+          </div>
+        </aside>
+        <div class="interactive-map-main">
+          <div class="map-layer-tabs">
+            <button class="chip active" data-map-layer="M00">Zwischenlande</button>
+            <button class="chip" data-map-layer="M01">Untergrund</button>
+            <button class="chip" data-map-layer="M10">Schattenland</button>
+            <button class="chip" data-map-reset="true">Gesamte Karte</button>
+          </div>
+          <div id="erMap" class="er-map" aria-label="Interaktive Elden-Ring-Karte"></div>
+          <div class="map-footnote">Kartenkoordinaten und Markierungen sind Community-Daten. Die Kartenansicht unterstützt Zoom, Verschieben und eigene Pins.</div>
+        </div>
+      </div>
       <div class="map-layout">
         <div class="map-frame"><div class="map-tools"><span class="map-label" data-i18n="schematicMap">SCHEMATISCHE GEBIETSÜBERSICHT</span><div><button id="mapBase" class="chip active" data-map-scope="base" data-i18n="baseGame">Grundspiel</button><button id="mapDlc" class="chip" data-map-scope="dlc">DLC</button><button id="mapAll" class="chip" data-map-scope="all" data-i18n="all">Alle</button></div></div><div class="map-canvas"><svg id="worldMap" viewBox="0 0 900 650" role="img" aria-label="Schematische Karte der Spielregionen"></svg><div class="map-legend"><span><i class="legend-dot gold"></i><span data-i18n="baseRegions">Grundspiel</span></span><span><i class="legend-dot blue"></i><span data-i18n="dlcRegions">Schattenland</span></span></div></div><p class="map-disclaimer" data-i18n="mapDisclaimer">Hinweis: Diese Karte zeigt die grobe Gebietsbeziehung und ist nicht maßstabsgetreu oder als Ingame-Karte gedacht.</p></div>
         <aside class="region-panel" id="regionPanel"><div class="empty-region"><span>⌖</span><h3 data-i18n="selectRegion">Region auswählen</h3><p data-i18n="selectRegionText">Wähle einen Punkt auf der Karte oder eine Region aus der Liste.</p></div></aside>
@@ -85,6 +128,24 @@
         <input id="mapLevel" type="range" min="1" max="713" value="35" step="1">
       </div>
       <div class="region-list-wrap"><div class="panel-top"><h3 data-i18n="allRegions">Alle Regionen</h3><span class="muted" data-i18n="regionHint">Zum Öffnen auswählen</span></div><div class="region-chips" id="regionChips"></div></div>
+    </section>
+
+    <section class="view-panel" id="view-bosses">
+      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span><span>BOSS-ÜBERSICHT</span></div><h2>Alle Boss-Standorte</h2></div><p>Eine reine Fundortkarte: Boss-Markierungen, Name und Gebiet – ohne lange Hintergrundtexte.</p></div>
+      <article class="panel-card boss-map-card">
+        <div class="boss-map-toolbar">
+          <div class="map-layer-tabs">
+            <button class="chip active" data-boss-layer="M00">Zwischenlande</button>
+            <button class="chip" data-boss-layer="M01">Untergrund</button>
+            <button class="chip" data-boss-layer="M10">Schattenland</button>
+            <button class="chip" data-boss-reset="true">Gesamte Karte</button>
+          </div>
+          <input id="bossSearch" type="search" placeholder="Boss oder Gebiet suchen …" autocomplete="off">
+        </div>
+        <div id="bossMap" class="er-map boss-map" aria-label="Karte mit Boss-Standorten"></div>
+        <div class="panel-top boss-list-heading"><h3>Boss-Fundorte</h3><span class="muted" id="bossCount"></span></div>
+        <div id="bossResults" class="boss-results"></div>
+      </article>
     </section>
 
     <section class="view-panel" id="view-quests">
@@ -122,10 +183,14 @@
       <div class="journal-columns"><div><div class="panel-top"><h3 data-i18n="tasksToExplore">Stationen zum Entdecken</h3><span class="muted" data-i18n="tapToComplete">Antippen zum Abhaken</span><select id="journalFilter" aria-label="Journal category"><option value="all" data-i18n="journalAll">Alle</option><option value="boss" data-i18n="journalBosses">Bosse</option><option value="quest" data-i18n="journalQuests">Quests</option><option value="place" data-i18n="journalPlaces">Orte</option><option value="npc" data-i18n="journalNpcs">NPCs</option><option value="armor" data-i18n="journalArmor">Rüstungen</option><option value="creature" data-i18n="journalCreatures">Kreaturen</option><option value="collectible" data-i18n="journalCollectibles">Sammelobjekte</option></select></div><div id="journalTasks" class="journal-tasks"></div></div><aside class="panel-card notes-card"><h3 data-i18n="travelNotes">Reisenotizen</h3><p class="muted" data-i18n="notesText">Notiere dir Hinweise, offene Fragen oder deinen nächsten Schritt.</p><textarea id="notesInput" rows="9" data-i18n-placeholder="notesPlaceholder" placeholder="Deine Notizen…"></textarea><span class="save-hint" id="saveHint" data-i18n="autoSaved">Wird automatisch gespeichert</span><button id="resetProgress" class="danger-link" data-i18n="resetProgress">Fortschritt zurücksetzen</button></aside></div>
     </section>
   </main>
-  <footer><div class="brand footer-brand"><span class="brand-mark">✦</span><span><b>GRACEBOUND</b><small>AN UNOFFICIAL FAN COMPANION</small></span></div><p data-i18n="footerText">Ein Fanprojekt. Elden Ring und alle zugehörigen Inhalte sind Eigentum ihrer jeweiligen Rechteinhaber.</p><span>v0.3.0 · <span data-i18n="madeFor">Für neugierige Befleckte</span></span></footer>
+  <footer><div class="brand footer-brand"><span class="brand-mark">✦</span><span><b>GRACEBOUND</b><small>AN UNOFFICIAL FAN COMPANION</small></span></div><p data-i18n="footerText">Ein Fanprojekt. Elden Ring und alle zugehörigen Inhalte sind Eigentum ihrer jeweiligen Rechteinhaber.</p><span>v0.4.0 · <span data-i18n="madeFor">Für neugierige Befleckte</span></span></footer>
   <dialog id="detailDialog" class="detail-dialog"><div class="detail-dialog-inner"><div class="detail-dialog-header"><span class="eyebrow" id="detailEyebrow"></span><button id="closeDetail" class="small-control" aria-label="Close">×</button></div><h2 id="detailTitle"></h2><div id="detailBody" class="detail-body"></div><div class="detail-actions"><button id="detailMapButton" class="primary-btn"><span data-i18n="showOnMap">Auf Karte zeigen</span><span>↗</span></button><a id="detailSourceLink" class="inline-link" href="#" target="_blank" rel="noopener" data-i18n="openSource">Quelle öffnen ↗</a></div></div></dialog>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="data/catalog.js"></script>
   <script src="data/guides.js"></script>
+  <script src="data/map-markers.js"></script>
+  <script src="data/npc-quests.js"></script>
+  <script src="map-ui.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
