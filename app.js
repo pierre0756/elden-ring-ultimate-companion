@@ -87,8 +87,9 @@ const entries=[
 { id:"mapfragments",type:"collectible",de:"Kartenfragmente",en:"Map Fragments",region:"scadu",dlc:true,level:"—",note:"Decken nach und nach die Karte des Schattenlands auf.",noteEn:"Gradually reveal the map of the Realm of Shadow."}
 ];
 const edges=[["limgrave","stormhill"],["limgrave","peninsula"],["stormhill","liurnia"],["liurnia","caelid"],["liurnia","altus"],["altus","gelmir"],["altus","leyndell"],["leyndell","mountains"],["mountains","snowfield"],["mountains","farum"],["liurnia","underground"],["gravesite","belurat"],["gravesite","ens is"],["ens is","scadu"],["scadu","shadowkeep"],["scadu","coast"],["coast","jagged"],["shadowkeep","rauh"],["shadowkeep","hinterland"],["rauh","abyss"],["rauh","enirilim"],["hinterland","enirilim"]];
-const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-const state={lang:localStorage.getItem("gb_lang")||"de",scope:"base",routeScope:"base",selected:null,done:JSON.parse(localStorage.getItem("gb_done")||"{}")};
+const store={get(k,d=""){try{return store.get(k)??d}catch{return d}},set(k,v){try{store.set(k,v)}catch{}},remove(k){try{store.remove(k)}catch{}}};
+const $=s=>document.querySelector(s), $=s=>[...document.querySelectorAll(s)];
+const state={lang:store.get("gb_lang")||"de",scope:"base",routeScope:"base",selected:null,done:JSON.parse(store.get("gb_done")||"{}")};
 function t(key){return I18N[state.lang][key]||I18N.de[key]||key}
 function name(obj){return obj[state.lang]||obj.de}
 function region(id){return regions.find(r=>r.id===id)}
@@ -164,21 +165,22 @@ $$("[data-route-scope]").forEach(b=>b.classList.toggle("active",b.dataset.routeS
 }
 function renderJournal(){
 $("#journalTasks").innerHTML=entries.map(e=>`<label class="journal-task ${state.done[e.id]?"done":""}"><input type="checkbox" data-journal-check="${e.id}" ${state.done[e.id]?"checked":""}><span>${safe(name(e))}</span><small>${typeName(e.type)}</small></label>`).join("");
-$("#notesInput").value=localStorage.getItem("gb_notes")||"";
+$("#notesInput").value=store.get("gb_notes")||"";
 updateProgress();
 }
 function toggleEntry(id){
 state.done[id]=!state.done[id];if(!state.done[id])delete state.done[id];
-localStorage.setItem("gb_done",JSON.stringify(state.done));renderStats();renderAtlas();if($("#view-journal").classList.contains("active"))renderJournal();if(state.selected)selectRegion(state.selected);
+store.set("gb_done",JSON.stringify(state.done));renderStats();renderAtlas();if($("#view-journal").classList.contains("active"))renderJournal();if(state.selected)selectRegion(state.selected);
 }
-function changeLanguage(){state.lang=state.lang==="de"?"en":"de";localStorage.setItem("gb_lang",state.lang);updateTranslations();renderStats();renderMap();if($("#view-atlas").classList.contains("active"))renderAtlas();if($("#view-route").classList.contains("active"))renderRoute();if($("#view-journal").classList.contains("active"))renderJournal();if(state.selected)selectRegion(state.selected)}
+function changeLanguage(){state.lang=state.lang==="de"?"en":"de";store.set("gb_lang",state.lang);updateTranslations();renderStats();renderMap();if($("#view-atlas").classList.contains("active"))renderAtlas();if($("#view-route").classList.contains("active"))renderRoute();if($("#view-journal").classList.contains("active"))renderJournal();if(state.selected)selectRegion(state.selected)}
 function init(){
+if("serviceWorker" in navigator && location.protocol!=="file:") navigator.serviceWorker.register("./sw.js").catch(()=>{});
 updateTranslations();renderStats();renderSuggested();renderMap();renderAtlas();renderRoute();
 $$("[data-view]").forEach(b=>b.addEventListener("click",()=>selectView(b.dataset.view)));
 $$("[data-go]").forEach(b=>b.addEventListener("click",()=>selectView(b.dataset.go)));
 $("#langToggle").addEventListener("click",changeLanguage);
-$("#themeToggle").addEventListener("click",()=>{document.body.classList.toggle("light");localStorage.setItem("gb_theme",document.body.classList.contains("light")?"light":"dark")});
-if(localStorage.getItem("gb_theme")==="light")document.body.classList.add("light");
+$("#themeToggle").addEventListener("click",()=>{document.body.classList.toggle("light");store.set("gb_theme",document.body.classList.contains("light")?"light":"dark")});
+if(store.get("gb_theme")==="light")document.body.classList.add("light");
 $("#mapBase").addEventListener("click",()=>{state.scope="base";renderMap()});$("#mapDlc").addEventListener("click",()=>{state.scope="dlc";renderMap()});$("#mapAll").addEventListener("click",()=>{state.scope="all";renderMap()});
 $("#worldMap").addEventListener("click",e=>{const n=e.target.closest("[data-region]");if(n)selectRegion(n.dataset.region)});
 $("#worldMap").addEventListener("keydown",e=>{const n=e.target.closest("[data-region]");if(n&&(e.key==="Enter"||e.key===" ")){e.preventDefault();selectRegion(n.dataset.region)}});
@@ -189,8 +191,8 @@ $("#clearFilters").addEventListener("click",()=>{$("#searchInput").value="";$("#
 $("#levelInput").addEventListener("input",()=>{renderRoute();renderSuggested()});
 $$("[data-route-scope]").forEach(b=>b.addEventListener("click",()=>{state.routeScope=b.dataset.routeScope;renderRoute()}));
 document.addEventListener("click",e=>{const b=e.target.closest("[data-open-region]");if(b){state.scope=region(b.dataset.openRegion).dlc?"dlc":"base";selectView("map");selectRegion(b.dataset.openRegion)}});
-$("#journalTasks").addEventListener("change",e=>{const i=e.target.closest("[data-journal-check]");if(i){state.done[i.dataset.journalCheck]=i.checked;if(!i.checked)delete state.done[i.dataset.journalCheck];localStorage.setItem("gb_done",JSON.stringify(state.done));renderStats();renderJournal()}});
-$("#notesInput").addEventListener("input",()=>{localStorage.setItem("gb_notes",$("#notesInput").value);$("#saveHint").textContent=t("autoSaved")});
-$("#resetProgress").addEventListener("click",()=>{if(confirm(t("resetConfirm"))){state.done={};localStorage.removeItem("gb_done");localStorage.removeItem("gb_notes");renderStats();renderJournal();if($("#view-atlas").classList.contains("active"))renderAtlas();alert(t("resetDone"))}});
+$("#journalTasks").addEventListener("change",e=>{const i=e.target.closest("[data-journal-check]");if(i){state.done[i.dataset.journalCheck]=i.checked;if(!i.checked)delete state.done[i.dataset.journalCheck];store.set("gb_done",JSON.stringify(state.done));renderStats();renderJournal()}});
+$("#notesInput").addEventListener("input",()=>{store.set("gb_notes",$("#notesInput").value);$("#saveHint").textContent=t("autoSaved")});
+$("#resetProgress").addEventListener("click",()=>{if(confirm(t("resetConfirm"))){state.done={};store.remove("gb_done");store.remove("gb_notes");renderStats();renderJournal();if($("#view-atlas").classList.contains("active"))renderAtlas();alert(t("resetDone"))}});
 }
 document.addEventListener("DOMContentLoaded",init);
