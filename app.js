@@ -292,7 +292,8 @@ function openQuestMap(regionId,locationName){
  state.scope=region(regionId).dlc?"dlc":"base";
  selectView("map");
  selectRegion(regionId);
- const found=catalogue.locations.find(l=>l.region===regionId&&locationName&&(l.name.toLowerCase()===locationName.toLowerCase()||l.name.toLowerCase().includes(locationName.toLowerCase())||locationName.toLowerCase().includes(l.name.toLowerCase())));
+ const terms=String(locationName||"").split(/[\/,;]/).map(x=>x.trim().toLowerCase()).filter(Boolean);
+ const found=catalogue.locations.find(l=>l.region===regionId&&terms.some(term=>l.name.toLowerCase()===term||l.name.toLowerCase().includes(term)||term.includes(l.name.toLowerCase())));
  if(found)openEntryDetails(found.id);
  else {
   const panel=$("#regionPanel");
