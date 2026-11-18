@@ -1,6 +1,6 @@
 const I18N={
 de:{
-navOverview:"Übersicht",navMap:"Weltkarte",navAtlas:"Atlas",navRoute:"Wegweiser",navJournal:"Reisetagebuch",
+navOverview:"Übersicht",navMap:"Weltkarte",navBosses:"Bosse",navAtlas:"Atlas",navRoute:"Wegweiser",navJournal:"Reisetagebuch",
 eyebrow:"Ein Atlas für die Zwischenlande",heroTitle:"Dein Weg.<br><em>Deine Gnade.</em>",heroText:"Ein Begleiter für Entdeckungen, Geschichten und deinen eigenen Weg durch die Zwischenlande und das Schattenland.",openMap:"Karte erkunden",planJourney:"Reise planen",offlineReady:"Lokal speicherbar · kein Konto nötig",
 regions:"Regionen",atlasEntries:"Atlas-Einträge",journeyDone:"Reise abgeschlossen",continueJourney:"Deine Reise",overviewTitle:"Wo möchtest du hin?",overviewSub:"Wähle deinen nächsten Schritt oder entdecke, was dich erwartet.",
 featureMap:"Die Welt entdecken",featureMapText:"Regionen, Orte und Orientierung",featureAtlas:"Der Atlas",featureAtlasText:"Bosse, NPCs, Quests und Fundorte",featureRoute:"Dein Wegweiser",featureRouteText:"Empfohlene Gebiete nach Level",featureJournal:"Reisetagebuch",featureJournalText:"Fortschritt festhalten und abhaken",
@@ -13,7 +13,7 @@ footerText:"Ein Fanprojekt. Elden Ring und alle zugehörigen Inhalte sind Eigent
 navQuests:"Quests",navArmor:"Rüstungs-Check",mapLevelLabel:"Dein aktuelles Level",levelMatches:"passende Regionen",regionImageCredit:"Bildquelle",regionalMap:"Kartenfragment",fragmentFind:"Fundort des Kartenfragments",openRegionalMap:"Kartenübersicht öffnen",showOnMap:"Auf Karte zeigen",openSource:"Quelle öffnen ↗",details:"Details",questAtlasEyebrow:"Quest-Atlas",questAtlasTitle:"Deine Geschichten. Deine Entscheidungen.",questAtlasSub:"Questreihen mit Zwischenstopps, Verzweigungen und direkten Sprüngen zur passenden Region.",chooseQuest:"Quest auswählen",chooseQuestText:"Wähle links eine Questreihe aus, um alle Zwischenstationen zu sehen.",spoilerNote:"Spoiler-Hinweis: Die folgenden Stationen verraten wichtige Ereignisse und mögliche Quest-Enden.",questSteps:"Zwischenstationen",stepDone:"Schritt erledigt",markStepDone:"Als erledigt markieren",optional:"Optional",questProgress:"Questfortschritt",questReference:"Inhaltsabgleich: Eldenpedia-Questverläufe; Texte redaktionell zusammengefasst.",runeRoutesEyebrow:"Runen-Routen",runeRoutesTitle:"Wo lohnt sich die nächste Runde?",runeRoutesText:"Ausbeute hängt von Gegnern, Spielzyklus und Fortschritt ab. Die Angaben sind keine garantierten Werte.",estimates:"Richtwerte",farmRepeat:"Wiederholbar",farmOneTime:"Einmalig",farmGrace:"Nächste Gnade",farmRegion:"Gebiet öffnen",farmCurrent:"Für dein Level interessant",farmSource:"Quellenhinweis",armorPlannerEyebrow:"Defensive Ausrüstung",armorPlannerTitle:"Rüstungs-Check",armorPlannerSub:"Vergleiche Schutzwerte und Gewicht. Der Rechner betrachtet nur Rüstungsteile und defensive Werte.",armorGoal:"Deine Schutz-Priorität",armorPriority:"Schutzwert priorisieren",armorWeightBudget:"Maximales Rüstungsgewicht",weightUnits:"Gewicht",calculateArmor:"Rüstung vergleichen",armorDisclaimer:"Automatischer Vergleich auf Basis der importierten Rüstungswerte, keine KI-Beratung. Werte können im Spielstand variieren.",defenseSets:"Defensive Sets",bestArmorMatches:"Passende Kombinationen",noArmorMatches:"Mit diesem Gewichtslimit wurde keine vollständige Kombination gefunden. Erhöhe das Gewichtslimit.",armorSetWeight:"Gesamtgewicht",armorProtection:"Summe des gewählten Schutzwertes",head:"Helm",chest:"Brustschutz",hands:"Armschutz",legs:"Beinschutz",galleryTitle:"Einblicke in die Zwischenlande",gallerySub:"Ausgewählte Screenshots und Gebietseindrücke mit Quellenangabe.",mapFocus:"Gesuchte Station",levelAt:"Empfohlenes Level",noMapImage:"Für diese Region liegt aktuell kein Kartenfragment-Bild vor.",bossOverview:"Boss-Überblick",bossLocations:"Bekannte Orte",bossHP:"HP-Datenwert",bossContext:"Hintergrund und Einordnung",bossRole:"Rolle in der Geschichte",sourceReference:"Quellenbasis",stationList:"Wichtige Stationen",associatedQuests:"Questreihen in dieser Region",noStations:"Keine Stationen in diesem Datenbestand zugeordnet.",openQuest:"Quest öffnen",showDetails:"Details anzeigen",currentLevelFit:"Passt zu deinem Level",laterLevel:"Späteres Gebiet",earlierLevel:"Dein Level liegt über dem Orientierungsbereich",openAtlas:"Atlas öffnen",noQuestStops:"Keine Zwischenstopps vorhanden.",farmNote:"Die Runenzahlen sind grobe Richtwerte und können je nach Spielzyklus abweichen.",statPhy:"Physisch",statMag:"Magie",statFire:"Feuer",statLightning:"Blitz",statHoly:"Heilig",statImmunity:"Immunität",statRobustness:"Robustheit",statFocus:"Fokus",statVitality:"Vitalität",statPoise:"Gleichgewicht"
 },
 en:{
-navOverview:"Overview",navMap:"World Map",navAtlas:"Atlas",navRoute:"Guide",navJournal:"Travel Journal",
+navOverview:"Overview",navMap:"World Map",navBosses:"Bosses",navAtlas:"Atlas",navRoute:"Guide",navJournal:"Travel Journal",
 eyebrow:"An atlas for the Lands Between",heroTitle:"Your path.<br><em>Your grace.</em>",heroText:"A companion for discoveries, stories, and your own journey through the Lands Between and the Realm of Shadow.",openMap:"Explore the map",planJourney:"Plan a journey",offlineReady:"Saved locally · no account needed",
 regions:"Regions",atlasEntries:"Atlas entries",journeyDone:"Journey complete",continueJourney:"Your journey",overviewTitle:"Where to next?",overviewSub:"Choose your next step or discover what awaits.",
 featureMap:"Explore the world",featureMapText:"Regions, places and orientation",featureAtlas:"The Atlas",featureAtlasText:"Bosses, NPCs, quests and locations",featureRoute:"Your guide",featureRouteText:"Suggested areas by level",featureJournal:"Travel journal",featureJournalText:"Track your progress and check things off",
@@ -270,37 +270,23 @@ function renderGallery(){
 
 function renderQuests(){
  const list=$("#questList"),detail=$("#questDetail");if(!list||!detail)return;
- const quests=guides.questlines||[];
- if(!state.selectedQuest||!quests.some(q=>q.id===state.selectedQuest))state.selectedQuest=quests[0]?.id||null;
- list.innerHTML=`<div class="quest-list-heading"><div class="eyebrow"><span class="eyebrow-line"></span>${t("questSteps")}</div><h3>${state.lang==="de"?"Questreihen":"Questlines"}</h3></div>`+quests.map(q=>{
-  const done=q.steps.filter((step,i)=>!!state.questDone[q.id+"_"+i]).length;
-  return `<button class="quest-select ${state.selectedQuest===q.id?"active":""}" data-select-quest="${q.id}"><span class="quest-select-title">${safe(state.lang==="de"?q.de:q.name)}</span><small>${done}/${q.steps.length} ${t("stepDone")}</small><span class="mini-progress"><i style="width:${Math.round(done/q.steps.length*100)}%"></i></span></button>`;
- }).join("");
- const q=quests.find(x=>x.id===state.selectedQuest);
- if(!q){detail.innerHTML=`<p class="muted">${t("chooseQuestText")}</p>`;return;}
+ const all=window.ER_NPC_QUESTS||guides.questlines||[];
+ const query=($("#questSearch")?.value||"").trim().toLocaleLowerCase();
+ const quests=all.filter(q=>(q.name+" "+(q.steps||[]).map(s=>s.title+" "+s.location).join(" ")).toLocaleLowerCase().includes(query));
+ if(!state.selectedQuest||!all.some(q=>q.id===state.selectedQuest))state.selectedQuest=quests[0]?.id||all[0]?.id||null;
+ list.innerHTML=`<div class="quest-list-heading"><div class="eyebrow"><span class="eyebrow-line"></span>${t("questSteps")}</div><h3>${state.lang==="de"?"NPC-Questlinien":"NPC questlines"}</h3><p class="muted">${all.length} ${state.lang==="de"?"Questlinien":"questlines"}</p></div>`+
+ (quests.length?quests.map(q=>{
+  const done=(q.steps||[]).filter((step,i)=>!!state.questDone[q.id+"_"+i]).length;
+  return `<button class="quest-select ${state.selectedQuest===q.id?"active":""}" data-select-quest="${q.id}"><span class="quest-select-title">${safe(q.de||q.name)}</span><small>${done}/${q.steps.length} ${t("stepDone")}</small><span class="mini-progress"><i style="width:${Math.round(done/q.steps.length*100)}%"></i></span></button>`;
+ }).join(""):`<p class="muted">Keine passende Questreihe gefunden.</p>`);
+ const q=all.find(x=>x.id===state.selectedQuest);
+ if(!q){detail.innerHTML=`<div class="empty-region"><span>✧</span><h3>${t("chooseQuest")}</h3><p>${t("chooseQuestText")}</p></div>`;return;}
  const done=q.steps.filter((step,i)=>!!state.questDone[q.id+"_"+i]).length;
- const summary=state.lang==="de"?q.summary:q.summaryEn;
- detail.innerHTML=`<div class="quest-detail-top"><div class="eyebrow"><span class="eyebrow-line"></span>${q.dlc?t("dlc"):t("base")}</div><span class="pill">${done}/${q.steps.length} ${t("questProgress")}</span></div><h3>${safe(state.lang==="de"?q.de:q.name)}</h3><p class="quest-summary">${safe(summary)}</p><div class="quest-progress-track"><i style="width:${Math.round(done/q.steps.length*100)}%"></i></div><h4>${t("questSteps")}</h4><div class="quest-timeline">${q.steps.map((step,i)=>{
+ detail.innerHTML=`<div class="quest-detail-top"><div class="eyebrow"><span class="eyebrow-line"></span>${q.steps.length} ${state.lang==="de"?"Stationen":"stops"}</div><span class="pill">${done}/${q.steps.length} ${t("questProgress")}</span></div><h3>${safe(q.de||q.name)}</h3><p class="quest-summary">${state.lang==="de"?"Die Übersicht zeigt die wichtigen NPC-Begegnungen und Ortswechsel in Reihenfolge.":"This overview lists key NPC encounters and locations in order."}</p><div class="quest-progress-track"><i style="width:${Math.round(done/q.steps.length*100)}%"></i></div><h4>${t("questSteps")}</h4><div class="quest-timeline">${q.steps.map((step,i)=>{
   const key=q.id+"_"+i,checked=!!state.questDone[key];
-  return `<article class="quest-step ${checked?"done":""}"><div class="quest-step-marker">${i+1}</div><div class="quest-step-content"><div class="quest-step-title"><strong>${safe(state.lang==="de"?step.title:step.titleEn)}</strong><span class="step-tag">${step.optional?t("optional"):t("stepDone")}</span></div><p>${safe(state.lang==="de"?step.detail:step.detailEn)}</p><div class="quest-step-actions"><label class="quest-check"><input type="checkbox" data-quest-check="${key}" ${checked?"checked":""}><span>${checked?t("completed"):t("markStepDone")}</span></label><button class="text-btn" data-quest-map="${step.region}" data-quest-location="${safe(step.location)}">${t("showOnMap")} · ${safe(step.location)} ↗</button></div></div></article>`;
- }).join("")}</div><p class="muted quest-reference">${t("questReference")}</p>`;
+  return `<article class="quest-step ${checked?"done":""}"><div class="quest-step-marker">${i+1}</div><div class="quest-step-content"><div class="quest-step-title"><strong>${safe(step.title)}</strong><span class="step-tag">${step.optional?t("optional"):t("stepDone")}</span></div><p>${safe(step.location||"")}</p><div class="quest-step-actions"><label class="quest-check"><input type="checkbox" data-quest-check="${key}" ${checked?"checked":""}><span>${checked?t("completed"):t("markStepDone")}</span></label><button class="text-btn" data-quest-map-pin="true" data-master="${safe(step.master)}" data-px="${step.px}" data-py="${step.py}" data-label="${safe(step.title)}">${t("showOnMap")} ↗</button></div></div></article>`;
+ }).join("")}</div><p class="muted quest-reference">${state.lang==="de"?"Die Schrittfolge ist eine Community-Zusammenstellung. Optionale Gespräche und Reihenfolgen können abweichen.":"Quest order is community-curated; optional dialogue and ordering can vary."}</p>`;
 }
-
-function openQuestMap(regionId,locationName){
- if(!region(regionId))return;
- state.mapFocusLocation=locationName||"";
- state.scope=region(regionId).dlc?"dlc":"base";
- selectView("map");
- selectRegion(regionId);
- const terms=String(locationName||"").split(/[\/,;]/).map(x=>x.trim().toLowerCase()).filter(Boolean);
- const found=catalogue.locations.find(l=>l.region===regionId&&terms.some(term=>l.name.toLowerCase()===term||l.name.toLowerCase().includes(term)||term.includes(l.name.toLowerCase())));
- if(found)openEntryDetails(found.id);
- else {
-  const panel=$("#regionPanel");
-  panel?.scrollIntoView({behavior:"smooth",block:"center"});
- }
-}
-
 function renderRuneFarms(){
  const box=$("#runeFarmList");if(!box)return;
  const level=Math.max(1,Number($("#levelInput")?.value||$("#mapLevel")?.value||35));
@@ -424,6 +410,7 @@ function init(){
  $("#clearFilters").addEventListener("click",()=>{$("#searchInput").value="";$("#typeFilter").value="all";$("#scopeFilter").value="all";atlasPage=0;renderAtlas()});
  $("#levelInput").addEventListener("input",()=>{$("#mapLevel").value=Math.min(713,Number($("#levelInput").value||1));renderMap();renderRoute();renderSuggested();renderRuneFarms()});
  queryAll("[data-route-scope]").forEach(b=>b.addEventListener("click",()=>{state.routeScope=b.dataset.routeScope;renderRoute();renderRuneFarms()}));
+ $("#questSearch").addEventListener("input",()=>{renderQuests()});
  $("#questList").addEventListener("click",e=>{const n=e.target.closest("[data-select-quest]");if(n){state.selectedQuest=n.dataset.selectQuest;renderQuests()}});
  $("#questDetail").addEventListener("change",e=>{
   const n=e.target.closest("[data-quest-check]");if(!n)return;
