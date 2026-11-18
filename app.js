@@ -257,6 +257,123 @@ function toggleEntry(id){
 state.done[id]=!state.done[id];if(!state.done[id])delete state.done[id];
 store.set("gb_done",JSON.stringify(state.done));renderStats();renderAtlas();if($("#view-journal").classList.contains("active"))renderJournal();if(state.selected)selectRegion(state.selected);
 }
+
+function renderGallery(){
+ const grid=$("#galleryGrid");if(!grid)return;
+ grid.innerHTML=(guides.imageGallery||[]).map(img=>`<article class="scene-card"><a href="${safe(img.source)}" target="_blank" rel="noopener" class="scene-image-link"><img loading="lazy" src="${safe(img.image)}" alt="${safe(state.lang==="de"?img.caption:img.captionEn)}"></a><div class="scene-caption"><strong>${safe(state.lang==="de"?img.de:img.title)}</strong><span>${safe(state.lang==="de"?img.caption:img.captionEn)}</span><small>${t("regionImageCredit")}: <a href="${safe(img.source)}" target="_blank" rel="noopener">${safe(img.credit)}</a></small><button class="text-btn" data-open-region="${img.region}">${t("openRegion")} ↗</button></div></article>`).join("");
+}
+
+function renderQuests(){
+ const list=$("#questList"),detail=$("#questDetail");if(!list||!detail)return;
+ const quests=guides.questlines||[];
+ if(!state.selectedQuest||!quests.some(q=>q.id===state.selectedQuest))state.selectedQuest=quests[0]?.id||null;
+ list.innerHTML=`<div class="quest-list-heading"><div class="eyebrow"><span class="eyebrow-line"></span>${t("questSteps")}</div><h3>${state.lang==="de"?"Questreihen":"Questlines"}</h3></div>`+quests.map(q=>{
+  const done=q.steps.filter((step,i)=>!!state.questDone[q.id+"_"+i]).length;
+  return `<button class="quest-select ${state.selectedQuest===q.id?"active":""}" data-select-quest="${q.id}"><span class="quest-select-title">${safe(state.lang==="de"?q.de:q.name)}</span><small>${done}/${q.steps.length} ${t("stepDone")}</small><span class="mini-progress"><i style="width:${Math.round(done/q.steps.length*100)}%"></i></span></button>`;
+ }).join("");
+ const q=quests.find(x=>x.id===state.selectedQuest);
+ if(!q){detail.innerHTML=`<p class="muted">${t("chooseQuestText")}</p>`;return;}
+ const done=q.steps.filter((step,i)=>!!state.questDone[q.id+"_"+i]).length;
+ const summary=state.lang==="de"?q.summary:q.summaryEn;
+ detail.innerHTML=`<div class="quest-detail-top"><div class="eyebrow"><span class="eyebrow-line"></span>${q.dlc?t("dlc"):t("base")}</div><span class="pill">${done}/${q.steps.length} ${t("questProgress")}</span></div><h3>${safe(state.lang==="de"?q.de:q.name)}</h3><p class="quest-summary">${safe(summary)}</p><div class="quest-progress-track"><i style="width:${Math.round(done/q.steps.length*100)}%"></i></div><h4>${t("questSteps")}</h4><div class="quest-timeline">${q.steps.map((step,i)=>{
+  const key=q.id+"_"+i,checked=!!state.questDone[key];
+  return `<article class="quest-step ${checked?"done":""}"><div class="quest-step-marker">${i+1}</div><div class="quest-step-content"><div class="quest-step-title"><strong>${safe(state.lang==="de"?step.title:step.titleEn)}</strong><span class="step-tag">${step.optional?t("optional"):t("stepDone")}</span></div><p>${safe(state.lang==="de"?step.detail:step.detailEn)}</p><div class="quest-step-actions"><label class="quest-check"><input type="checkbox" data-quest-check="${key}" ${checked?"checked":""}><span>${checked?t("completed"):t("markStepDone")}</span></label><button class="text-btn" data-quest-map="${step.region}" data-quest-location="${safe(step.location)}">${t("showOnMap")} · ${safe(step.location)} ↗</button></div></div></article>`;
+ }).join("")}</div><p class="muted quest-reference">${t("questReference")}</p>`;
+}
+
+function openQuestMap(regionId,locationName){
+ if(!region(regionId))return;
+ state.mapFocusLocation=locationName||"";
+ state.scope=region(regionId).dlc?"dlc":"base";
+ selectView("map");
+ selectRegion(regionId);
+ const found=catalogue.locations.find(l=>l.region===regionId&&locationName&&(l.name.toLowerCase()===locationName.toLowerCase()||l.name.toLowerCase().includes(locationName.toLowerCase())||locationName.toLowerCase().includes(l.name.toLowerCase())));
+ if(found)openEntryDetails(found.id);
+ else {
+  const panel=$("#regionPanel");
+  panel?.scrollIntoView({behavior:"smooth",block:"center"});
+ }
+}
+
+function renderRuneFarms(){
+ const box=$("#runeFarmList");if(!box)return;
+ const level=Math.max(1,Number($("#levelInput")?.value||$("#mapLevel")?.value||35));
+ box.innerHTML=(guides.runeFarms||[]).map(f=>{
+  const repeat=f.type==="repeatable";
+  const info=state.lang==="de"?f.description:f.descriptionEn;
+  const output=state.lang==="de"?f.runes:f.runesEn;
+  const levelText=state.lang==="de"?f.level:f.levelEn;
+  const fit=level<45&&f.tier==="late"?t("levelHigh"):level>=100&&f.tier==="early"?t("levelLow"):t("farmCurrent");
+  return `<article class="farm-card"><div class="farm-card-top"><span class="type-tag">${safe(state.lang==="de"?f.tier:f.tier.replace("early","early game"))}</span><span class="pill">${repeat?t("farmRepeat"):t("farmOneTime")}</span></div><h4>${safe(state.lang==="de"?f.title:f.titleEn)}</h4><p class="farm-level">${safe(levelText)} · ${safe(fit)}</p><strong class="farm-yield">${safe(output)}</strong><p>${safe(info)}</p><div class="farm-meta"><span>${t("farmGrace")}: ${safe(f.grace)}</span><button class="text-btn" data-farm-map="${f.region}" data-farm-location="${safe(f.grace)}">${t("farmRegion")} ↗</button></div><small>${t("farmSource")}: ${safe(f.reference||"Community estimate")}</small></article>`;
+ }).join("");
+}
+
+function openEntryDetails(id){
+ const e=entries.find(x=>x.id===id);
+ if(!e)return;
+ const title=name(e);
+ const dialog=$("#detailDialog");
+ $("#detailEyebrow").textContent=typeName(e.type)+(e.dlc?" · DLC":" · "+t("base"));
+ $("#detailTitle").textContent=title;
+ let body="",regionData=region(e.region);
+ if(e.type==="boss"){
+  const profile=(guides.bossProfiles||[]).find(p=>p.key===e.en||p.key===e.de||p.key.toLowerCase()===String(e.en).toLowerCase());
+  const dbBoss=(catalogue.bosses||[]).find(b=>b.id===e.id||b.name===e.en);
+  const locs=dbBoss?.locations||[];
+  body+=profile?`<h4>${t("bossRole")}</h4><p>${safe(state.lang==="de"?profile.role:profile.roleEn)}</p><h4>${t("bossContext")}</h4><p>${safe(state.lang==="de"?profile.context:profile.contextEn)}</p>`:"";
+  body+=locs.length?`<h4>${t("bossLocations")}</h4><p>${locs.map(safe).join(" · ")}</p>`:"";
+  body+=dbBoss?.hp?`<p><strong>${t("bossHP")}:</strong> ${Number(dbBoss.hp).toLocaleString()}</p>`:"";
+  body+=`<p class="muted">${t("sourceReference")}: ${safe(profile?.reference||"Eldenpedia – Community-Bossübersicht")}</p>`;
+ }else if(e.type==="place"){
+  const loc=(catalogue.locations||[]).find(l=>l.id===id);
+  if(loc){
+   body+=`<p><strong>${safe(loc.regionName||"")}</strong></p>`;
+   if(loc.npcs?.length)body+=`<h4>NPCs</h4><p>${loc.npcs.map(safe).join(" · ")}</p>`;
+   if(loc.creatures?.length)body+=`<h4>${state.lang==="de"?"Kreaturen":"Creatures"}</h4><p>${loc.creatures.map(safe).join(" · ")}</p>`;
+   if(loc.bosses?.length)body+=`<h4>${t("bossOverview")}</h4><p>${loc.bosses.map(safe).join(" · ")}</p>`;
+  }
+ }else if(e.type==="npc"){
+  const npc=(catalogue.npcs||[]).find(x=>x.id===id);
+  if(npc)body+=`<p><strong>${safe(npc.role||"NPC")}</strong></p><p>${safe(npc.location||"")}</p>`;
+ }else if(e.type==="armor"){
+  const a=(catalogue.armors||[]).find(x=>x.id===id);
+  if(a){
+   body+=`<p><strong>${t("armorSetWeight")}:</strong> ${a.weight}</p><h4>${state.lang==="de"?"Schadensnegation":"Damage negation"}</h4><p>${Object.entries(a.negation||{}).map(([k,v])=>safe(k)+": "+safe(v)).join(" · ")}</p><h4>${state.lang==="de"?"Widerstände":"Resistances"}</h4><p>${Object.entries(a.resistance||{}).map(([k,v])=>safe(k)+": "+safe(v)).join(" · ")}</p>`;
+  }
+ }else{
+  body+=`<p>${safe(state.lang==="de"?(e.note||e.noteEn):(e.noteEn||e.note))}</p>`;
+ }
+ body+=regionData?`<p><strong>${t("mapFocus")}:</strong> ${safe(name(regionData))}</p>`:"";
+ $("#detailBody").innerHTML=body||`<p>${t("noEntries")}</p>`;
+ const mapButton=$("#detailMapButton");
+ mapButton.hidden=!e.region;
+ mapButton.dataset.region=e.region||"";
+ mapButton.dataset.location=title;
+ const source=$("#detailSourceLink");source.hidden=true;source.removeAttribute("href");
+ if(typeof dialog.showModal==="function"&&!dialog.open)dialog.showModal();
+}
+
+function renderArmorPlanner(){
+ const box=$("#armorResults");if(!box)return;
+ const priority=$("#armorPriority").value;
+ const budget=Math.max(5,Math.min(120,Number($("#armorBudget").value||32)));
+ const slots=[
+  {key:"helm",label:t("head")},{key:"chest armor",label:t("chest")},{key:"gauntlets",label:t("hands")},{key:"leg armor",label:t("legs")}
+ ];
+ const score=a=>Number((a.negation||{})[priority]??(a.resistance||{})[priority]??0);
+ const groups=slots.map(slot=>(catalogue.armors||[]).filter(a=>a.type===slot.key&&Number.isFinite(Number(a.weight))).sort((a,b)=>score(b)-score(a)).slice(0,12));
+ if(groups.some(g=>!g.length)){box.innerHTML=`<p class="muted">${t("noArmorMatches")}</p>`;return;}
+ let combos=[];
+ for(const a of groups[0])for(const b of groups[1])for(const c of groups[2])for(const d of groups[3]){
+  const items=[a,b,c,d],weight=items.reduce((n,x)=>n+Number(x.weight||0),0);
+  if(weight<=budget)combos.push({items,weight,score:items.reduce((n,x)=>n+score(x),0)});
+ }
+ combos.sort((a,b)=>b.score-a.score||a.weight-b.weight);
+ box.innerHTML=combos.slice(0,4).map((set,i)=>`<article class="armor-result"><div class="armor-result-top"><strong>#${i+1}</strong><span>${t("armorSetWeight")}: ${set.weight.toFixed(1)}</span></div><div class="armor-result-score">${t("armorProtection")}: <b>${set.score.toFixed(1)}</b></div><div class="armor-pieces">${set.items.map((a,i)=>`<div><small>${slots[i].label}</small><strong>${safe(a.name)}</strong><span>${priority}: ${score(a)} · ${a.weight} wt</span></div>`).join("")}</div></article>`).join("")||`<p class="muted">${t("noArmorMatches")}</p>`;
+}
+
+function openAtlasEntry(id){selectView("atlas");const item=entries.find(e=>e.id===id);if(item){$("#searchInput").value=name(item);$("#typeFilter").value="all";$("#scopeFilter").value="all";atlasPage=0;renderAtlas();openEntryDetails(id);}}
+
 function updateSourceNote(){
   $("#sourceNote").textContent=state.lang==="de"
     ?"Datenbasis: normalisierte Community-Wiki-Daten. Gegenprüfung anhand von Wiki-Übersichten zu Bossen, Rüstung, Figuren und Kreaturen. Keine Bilder oder Belohnungslisten übernommen. Viele Eigennamen bleiben in der englischen Originalform; Vollständigkeit und DLC-Markierungen sind nicht für jeden Eintrag unabhängig bestätigt."
