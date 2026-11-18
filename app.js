@@ -317,7 +317,7 @@ function openEntryDetails(id){
  $("#detailTitle").textContent=title;
  let body="",regionData=region(e.region);
  if(e.type==="boss"){
-  const profile=(guides.bossProfiles||[]).find(p=>p.key===e.en||p.key===e.de||p.key.toLowerCase()===String(e.en).toLowerCase());
+  const profile=(guides.bossProfiles||[]).find(p=>p.key===e.en||p.key===e.de||String(e.en).toLowerCase().includes(String(p.key).toLowerCase())||String(p.key).toLowerCase().includes(String(e.en).toLowerCase()));
   const dbBoss=(catalogue.bosses||[]).find(b=>b.id===e.id||b.name===e.en);
   const locs=dbBoss?.locations||[];
   body+=profile?`<h4>${t("bossRole")}</h4><p>${safe(state.lang==="de"?profile.role:profile.roleEn)}</p><h4>${t("bossContext")}</h4><p>${safe(state.lang==="de"?profile.context:profile.contextEn)}</p>`:"";
