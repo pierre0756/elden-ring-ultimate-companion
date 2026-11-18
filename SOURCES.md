@@ -23,11 +23,11 @@ Wichtig: Ein Community-Export und ein Wiki, aus dem der Export abgeleitet wurde,
 
 | Bereich | Einträge | Behandlung |
 |---|---:|---|
-| Rüstung | 714 | Werte für Gewicht, Schutz und Widerstände normalisiert |
-| Bosse | 146 | Namensvarianten zusammengeführt; Belohnungslisten nicht übernommen |
-| Orte | 286 | Alle Einträge einer Hauptregion zugeordnet |
+| Rüstung | 668 | Werte für Gewicht, Schutz und Widerstände normalisiert |
+| Bosse | 137 | Namensvarianten zusammengeführt; Belohnungslisten nicht übernommen |
+| Orte | 285 | Alle Einträge einer Hauptregion zugeordnet |
 | NPCs | 109 | Name, Standort und Rolle |
-| Kreaturen | 201 | Varianten zu allgemeinen Kreaturentypen zusammengefasst |
+| Kreaturen | 196 | Varianten zu allgemeinen Kreaturentypen zusammengefasst |
 | Questübersichten | 5 | Eigene kurze Zusammenfassungen wichtiger NPC-Handlungsstränge |
 
 ## 4. Auffälligkeiten und Korrekturen
@@ -35,7 +35,7 @@ Wichtig: Ein Community-Export und ein Wiki, aus dem der Export abgeleitet wurde,
 - **Bosse:** Die Wiki-Übersicht beschreibt mehr als 200 Bossbegegnungen. Der bereinigte Import enthält 146 eindeutige Datensätze. Der Unterschied kann durch Varianten, Feld- und Dungeonbegegnungen sowie unterschiedliche Zählweisen entstehen. Die Importliste wird deshalb nicht als vollständig dargestellt.
 - **DLC-Markierung:** Die ursprünglichen DLC-Kennzeichen wurden nicht blind übernommen. Für erkennbare Schattenland-Orte wurden DLC-Zuordnungen zusätzlich anhand der Ortsnamen abgeleitet. Das reduziert offensichtliche Fehlmarkierungen, ersetzt aber keine Prüfung jedes einzelnen Datensatzes im Spiel.
 - **Dubletten:** Eindeutige Alias- bzw. Phasen-Dubletten wurden zusammengeführt. Bei Kreaturen wurden Variantenbezeichnungen zu einer Familienbezeichnung normalisiert.
-- **Ortszuordnung:** Alle 286 importierten Orte sind einer der Hauptregionen der Website zugeordnet. Bei Bossen ohne klare Ortsangabe wurde keine Region erfunden.
+- **Ortszuordnung:** Alle 285 importierten Orte sind einer der Hauptregionen der Website zugeordnet. Bei Bossen ohne klare Ortsangabe wurde keine Region erfunden.
 - **Lokalisierung:** Die Oberfläche ist zweisprachig. Wo keine verlässliche deutsche Bezeichnung vorlag, bleibt der englische Eigenname erhalten.
 
 ## 5. Grenzen der Datenbank
