@@ -239,3 +239,20 @@ footer{max-width:1420px;margin:0 auto;padding:25px clamp(20px,5vw,78px) 35px;bor
 .build-faith{border-top:2px solid #c8a86a}.build-sorcery{border-top:2px solid #91a8b9}.build-bleed{border-top:2px solid #bd786a}
 @media(max-width:1000px){.build-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:700px){.hero{min-height:520px;background-position:58% center}.light .hero{background-position:58% center}.hero-copy{padding:64px 0 78px}.hero-actions{align-items:flex-start}.build-grid{grid-template-columns:1fr}.build-card{padding:18px}.build-description,.build-variant p{min-height:0}.hero-image-credit{font-size:8px;right:8px;bottom:8px}}
+
+.build-grid-extra{margin-top:16px}
+.build-strength{border-top:2px solid #b99460}.build-dex{border-top:2px solid #93aeb1}.build-dragon{border-top:2px solid #a16f61}
+.build-fieldguide{margin-top:13px;padding-top:10px;border-top:1px solid var(--line)}
+.build-fieldguide h4{font:500 12px Cinzel;margin:3px 0 8px}
+.build-find{font-size:10px;line-height:1.7;color:var(--muted);margin:5px 0}
+.build-find strong{color:var(--text)}
+.build-find a,.build-links a{color:var(--gold2);text-decoration:none;border-bottom:1px solid #c8a86a55}
+.build-find a:hover,.build-links a:hover{color:var(--text);border-color:var(--gold)}
+.build-links{margin-top:auto;padding-top:12px}
+.build-level-guide,.build-next-improvements{margin-top:16px;padding:clamp(18px,3vw,28px)}
+.build-level-guide h3,.build-next-improvements h3{font:500 20px Cinzel;margin:8px 0 18px}
+.level-guide-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.level-guide-grid article{background:var(--panel2);border:1px solid var(--line);padding:15px;border-radius:9px}
+.level-guide-grid h4{font:500 12px Cinzel;color:var(--gold2);margin:0 0 8px}
+.level-guide-grid p,.build-next-improvements p{font-size:11px;line-height:1.75;color:var(--muted);margin:0}
+@media(max-width:700px){.level-guide-grid{grid-template-columns:1fr}}
