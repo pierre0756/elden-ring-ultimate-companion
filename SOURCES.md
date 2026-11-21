@@ -133,3 +133,8 @@ Das Startseitenbild zeigt einen Elden-Ring-Limgrave-Screenshot. Quelle und Bildn
 ## 11. Erweiterung v0.7.0 — Build-Pfade und Levelhilfe
 
 Die Build-Bibliothek ergänzt Stärke/Kolossalwaffen, Geschicklichkeit/Frost und Drachenkommunion. Angaben zu Waffen, Talismanen und Fundorten verlinken auf die jeweilige Seite im Community-Wiki [Elden Ring Wiki.gg](https://eldenring.wiki.gg/wiki/Elden_Ring_Wiki). Level-Empfehlungen sind Richtwerte; die Vigor-Schwellen bei 40 und 60 sind im [Bandai-Namco-Stat-Guide](https://www.bandainamcoent.com/news/elden-ring-introduction-part-2-advanced-stats) erläutert. Eine vollständige Übersicht zu Talisman-Fundorten gibt es außerdem bei [PowerPyx](https://www.powerpyx.com/elden-ring-all-talisman-locations/).
+
+
+## 12. Erweiterung v0.9.0 — Persönliche Builds und Fundstückliste
+
+Eigene Builds, Attribute und Notizen werden lokal im Browser gespeichert. JSON-Export und -Import ermöglichen eine manuelle Sicherung oder den Umzug auf ein anderes Gerät. Die Fundstückliste nutzt die bereits dokumentierten Community-Kartenmarkierungen für Talismane, Goldene Saat, Tränen, Gedächtnissteine und Große Runen; erledigte Funde werden getrennt vom Atlas-Fortschritt lokal abgelegt. „Auf Karte“ fokussiert die passende Markierung. Das Fortschritt-zurücksetzen löscht Atlas-, Quest- und Fundstück-Haken sowie Reisenotizen, behält aber persönliche Build-Sicherungen.
