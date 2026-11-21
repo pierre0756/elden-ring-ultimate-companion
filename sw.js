@@ -1,5 +1,5 @@
-const CACHE_NAME = "gracebound-shell-v3";
-const APP_FILES = ["./", "./index.html", "./styles.css", "./app.js", "./map-ui.js", "./data/catalog.js", "./data/guides.js", "./data/map-markers.js", "./data/npc-quests.js"];
+const CACHE_NAME = "gracebound-shell-v4";
+const APP_FILES = ["./", "./index.html", "./styles.css", "./app.js", "./map-ui.js", "./data/catalog.js", "./data/guides.js", "./data/boss-notes.js", "./data/talismans.js", "./data/map-markers.js", "./data/npc-quests.js"];
 
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_FILES)));
