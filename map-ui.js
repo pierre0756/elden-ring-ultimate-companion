@@ -14,7 +14,11 @@
     greatrune:{label:"Große Rune",icon:"◎",color:"#c9a85b"},
     larval:{label:"Larventräne",icon:"◉",color:"#bd8eb8"},
     memory:{label:"Gedächtnisstein",icon:"▣",color:"#81a6bd"},
-    talisman:{label:"Talisman",icon:"◆",color:"#d99450"}
+    talisman:{label:"Talisman",icon:"◆",color:"#d99450"},
+    dungeon:{label:"Dungeon",en:"Dungeon",icon:"⌂",color:"#b99768"},
+    spell:{label:"Zauber & Anrufung",en:"Sorceries & Incantations",icon:"✧",color:"#9b78cb"},
+    smithing:{label:"Schmiedestein-Mine",en:"Smithing Stone mine",icon:"⬡",color:"#82a7a0"},
+    somber:{label:"Dunkelschmiedestein-Mine",en:"Somber Smithing Stone mine",icon:"◆",color:"#8494bd"}
   };
   const xy = (px,py) => L.latLng(-py/SCALE,px/SCALE);
   const bounds = L.latLngBounds(xy(0,SIZE),xy(SIZE,0));
@@ -31,9 +35,11 @@
   const popupHtml = (m, custom=false) => {
     const d=CAT[m.cat]||{label:"Eigener Wegpunkt"};
     const talismanInfo=m.cat==="talisman"?(window.ER_TALISMAN_INFO||{})[m.name]:null;
-    const description=talismanInfo?.sum||(m.cat==="talisman"?"Fundort auf der Karte":m.desc||m.location||d.label);
+    const categoryLabel=document.documentElement.lang==="en"?(d.en||d.label):d.label;
+    const description=talismanInfo?.sum||(m.cat==="talisman"?"Fundort auf der Karte":m.desc||m.location||categoryLabel);
+    const spellLink=m.cat==="spell"?`<a class="popup-more" href="https://eldenring.wiki.gg/wiki/${encodeURIComponent(m.name.replace(/ /g,"_"))}" target="_blank" rel="noopener noreferrer">${document.documentElement.lang==="de"?"Zauber-Infos öffnen":"Open spell guide"} ↗</a>`:"";
     const infoButton=!custom&&["boss","npc"].includes(m.cat)?`<button type="button" class="popup-more" data-open-map-entry="${safe(m.cat)}" data-map-entry-name="${safe(m.name)}" data-map-entry-location="${safe(m.desc||layerName(m.master))}">${document.documentElement.lang==="de"?"Informationen öffnen":"Open information"} ↗</button>`:"";
-    return `<div class="er-popup"><b>${safe(m.name)}</b><span>${safe(description)}</span><small>${safe(custom?"Eigener Wegpunkt":d.label+" · "+layerName(m.master))}</small>${infoButton}${custom&&m.note?`<p>${safe(m.note)}</p>`:""}${custom?`<button type="button" class="popup-delete" data-delete-custom-pin="${safe(m.id)}">Wegpunkt löschen</button>`:""}</div>`;
+    return `<div class="er-popup"><b>${safe(m.name)}</b><span>${safe(description)}</span><small>${safe(custom?"Eigener Wegpunkt":categoryLabel+" · "+layerName(m.master))}</small>${infoButton}${spellLink}${custom&&m.note?`<p>${safe(m.note)}</p>`:""}${custom?`<button type="button" class="popup-delete" data-delete-custom-pin="${safe(m.id)}">Wegpunkt löschen</button>`:""}</div>`;
   };
 
   function makeMap(id, master="M00") {
@@ -52,7 +58,7 @@
 
   let main=null,boss=null,pendingPin=false,customPins=[];
   const mainLayers=new Map(),bossLayers=new Map();
-  const mainVisible={grace:true,boss:false,golden:true,npc:false,tear:false,crystal:false,greatrune:false,memory:false,larval:false,talisman:true};
+  const mainVisible={grace:true,boss:false,golden:true,npc:false,tear:false,crystal:false,greatrune:false,memory:false,larval:false,talisman:true,dungeon:true,spell:false,smithing:false,somber:false};
   let mainMarkerRefs=new Map(),bossMarkerRefs=new Map();
 
   function addPin(target,m,group,refs,custom=false){
@@ -94,8 +100,8 @@
     const q=(document.getElementById("mapSearch")?.value||"").trim().toLocaleLowerCase();
     const box=document.getElementById("mapSearchResults");if(!box)return;
     if(!q){box.innerHTML="";return;}
-    const rows=MARKERS.filter(m=>(m.name+" "+m.desc+" "+(CAT[m.cat]?.label||"")).toLocaleLowerCase().includes(q)).slice(0,9);
-    box.innerHTML=rows.length?rows.map(m=>`<button class="map-result" type="button" data-map-result="${safe(m.id)}"><span>${safe(m.name)}</span><small>${safe(CAT[m.cat]?.label||"Ort")} · ${safe(m.desc||layerName(m.master))}</small></button>`).join(""):`<p class="muted map-no-results">Keine passenden Markierungen gefunden.</p>`;
+    const rows=MARKERS.filter(m=>(m.name+" "+m.desc+" "+(document.documentElement.lang==="en"?(CAT[m.cat]?.en||CAT[m.cat]?.label||""):(CAT[m.cat]?.label||""))).toLocaleLowerCase().includes(q)).slice(0,9);
+    box.innerHTML=rows.length?rows.map(m=>`<button class="map-result" type="button" data-map-result="${safe(m.id)}"><span>${safe(m.name)}</span><small>${safe(document.documentElement.lang==="en"?(CAT[m.cat]?.en||CAT[m.cat]?.label||"Location"):(CAT[m.cat]?.label||"Ort"))} · ${safe(m.desc||layerName(m.master))}</small></button>`).join(""):`<p class="muted map-no-results">Keine passenden Markierungen gefunden.</p>`;
   }
   function focusMainMarker(m){
     if(!m||!main)return;
