@@ -144,6 +144,11 @@ const store={get(k,d=""){try{return localStorage.getItem(k)??d}catch{return d}},
 const $=s=>document.querySelector(s), queryAll=s=>[...document.querySelectorAll(s)];
 const parseStored=(key,fallback={})=>{try{return JSON.parse(store.get(key)||"null")??fallback}catch{return fallback}};
 const state={lang:store.get("gb_lang")||"de",scope:"base",routeScope:"base",selected:null,done:parseStored("gb_done"),questDone:parseStored("gb_qdone"),selectedQuest:null,mapFocusLocation:"",savedBuilds:(()=>{const v=parseStored("gb_saved_builds",[]);return Array.isArray(v)?v:[]})(),collected:(()=>{const v=parseStored("gb_collected",{});return v&&typeof v==="object"&&!Array.isArray(v)?v:{}})()};
+if(!store.get("gb_quest_migration_fia_v1")){
+ const fiaCurse=!!state.questDone["fia_1"],fiaDepths=!!state.questDone["fia_2"];
+ if(fiaCurse||fiaDepths){delete state.questDone["fia_1"];delete state.questDone["fia_2"];if(fiaCurse)state.questDone["fia_2"]=true;if(fiaDepths)state.questDone["fia_3"]=true;store.set("gb_qdone",JSON.stringify(state.questDone));}
+ store.set("gb_quest_migration_fia_v1","1");
+}
 function t(key){return I18N[state.lang][key]||I18N.de[key]||key}
 function name(obj){return obj[state.lang]||obj.de}
 function region(id){return regions.find(r=>r.id===id)}
