@@ -207,3 +207,35 @@ footer{max-width:1420px;margin:0 auto;padding:25px clamp(20px,5vw,78px) 35px;bor
 #view-map>.map-layout,#view-map>.map-level-control,#view-map>.region-list-wrap{display:none!important}
 @media(max-width:1080px){.interactive-map-layout{grid-template-columns:1fr}.interactive-map-main{order:1}.map-sidebar{order:2}.er-map{height:620px}}
 @media(max-width:700px){.er-map{height:470px}.boss-map{height:440px}.boss-results{grid-template-columns:1fr}.map-category-list{grid-template-columns:1fr 1fr}.map-sidebar,.boss-map-card{padding:14px}.map-layer-tabs .chip{font-size:11px;padding:7px 9px}}
+
+
+/* v0.6 — scenic title screen and build guide */
+.hero{display:grid;grid-template-columns:1fr;min-height:610px;align-items:center;background-image:linear-gradient(90deg,#10120ff2 0%,#10120fdc 37%,#10120f70 73%,#10120f30 100%),linear-gradient(0deg,#10120fb5,transparent 44%),url("https://img.redbull.com/images/c_crop%2Cw_1920%2Ch_960%2Cx_0%2Cy_120/c_auto%2Cw_1200%2Ch_600/f_auto%2Cq_auto/redbullcom/2021/11/25/sfow8ir6clju0a34hgqr/elden-ring");background-size:cover;background-position:center 42%;border-bottom:1px solid var(--line)}
+.light .hero{background-image:linear-gradient(90deg,#e9e5d9f2 0%,#e9e5d9dc 39%,#e9e5d979 74%,#e9e5d940 100%),linear-gradient(0deg,#e9e5d9bf,transparent 48%),url("https://img.redbull.com/images/c_crop%2Cw_1920%2Ch_960%2Cx_0%2Cy_120/c_auto%2Cw_1200%2Ch_600/f_auto%2Cq_auto/redbullcom/2021/11/25/sfow8ir6clju0a34hgqr/elden-ring")}
+.hero-copy{max-width:660px;padding:92px 0 82px}
+.hero-copy>p{color:var(--text);opacity:.83}
+.hero-art{display:none!important}
+.hero-image-credit{position:absolute;right:14px;bottom:12px;z-index:3;padding:6px 9px;border:1px solid #ffffff3a;border-radius:4px;background:#10120f9c;color:#f0d39b;font-size:9px;text-decoration:none;letter-spacing:.25px}
+.hero-image-credit:hover{text-decoration:underline;background:#10120fd9}
+.light .hero-image-credit{background:#f4f0e5d9;color:#715327;border-color:#71532755}
+.hero-actions{flex-wrap:wrap;gap:10px 22px}
+.build-level-note{border-left:2px solid var(--gold);padding:12px 15px;background:var(--panel);color:var(--muted);font-size:10px;line-height:1.65;margin:0 0 16px}
+.build-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch}
+.build-card{display:flex;flex-direction:column;padding:22px;min-width:0}
+.build-card h3{font:500 22px Cinzel;margin:11px 0 8px}
+.build-tag{font-size:9px;text-transform:uppercase;letter-spacing:1.4px;color:var(--gold2)}
+.build-description{font-size:11px;line-height:1.7;color:var(--muted);min-height:56px}
+.build-class{font-size:10px;color:var(--muted);padding-top:12px;border-top:1px solid var(--line)}
+.build-stats{font:11px/1.8 Inter,system-ui,sans-serif;color:var(--gold2);padding:12px;background:var(--panel2);border:1px solid var(--line);margin-bottom:14px}
+.build-stats strong{font-family:Cinzel;font-size:15px}
+.build-gear h4,.build-variants-title{font:500 13px Cinzel;margin:9px 0}
+.build-variants-title{margin-top:18px}
+.build-gear p{font-size:10px;line-height:1.55;color:var(--muted);margin:0 0 7px}
+.build-variant{padding:13px 0;border-top:1px solid var(--line)}
+.build-variant b{font:500 13px Cinzel;color:var(--text)}
+.build-variant p{min-height:34px;font-size:10px;line-height:1.6;color:var(--muted);margin:6px 0 10px}
+.build-planner-link{width:100%;justify-content:space-between;text-decoration:none;font-size:9px;padding:11px 12px;margin-top:auto}
+.build-planner-link:hover{text-decoration:none}
+.build-faith{border-top:2px solid #c8a86a}.build-sorcery{border-top:2px solid #91a8b9}.build-bleed{border-top:2px solid #bd786a}
+@media(max-width:1000px){.build-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.hero{min-height:520px;background-position:58% center}.light .hero{background-position:58% center}.hero-copy{padding:64px 0 78px}.hero-actions{align-items:flex-start}.build-grid{grid-template-columns:1fr}.build-card{padding:18px}.build-description,.build-variant p{min-height:0}.hero-image-credit{font-size:8px;right:8px;bottom:8px}}
