@@ -346,3 +346,5 @@ footer{max-width:1420px;margin:0 auto;padding:25px clamp(20px,5vw,78px) 35px;bor
 @media(max-width:850px){.build-milestone-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:620px){.build-milestone-list{grid-template-columns:1fr 1fr}.build-detail-item-list,.quest-overview-grid{grid-template-columns:1fr}.route-item-expanded{grid-template-columns:30px minmax(0,1fr)}.route-item-expanded .route-level{grid-column:2}.route-open{grid-column:2;justify-self:start}.route-target-list{grid-template-columns:1fr 1fr}}
 @media(max-width:400px){.build-milestone-list{grid-template-columns:1fr}.route-target-list{grid-template-columns:1fr}}
+
+.map-cat-dot.dungeon{background:#b99768}.map-cat-dot.spell{background:#9b78cb}.map-cat-dot.smithing{background:#82a7a0}.map-cat-dot.somber{background:#8494bd}.pin-dungeon,.pin-spell,.pin-smithing,.pin-somber{box-shadow:0 0 0 2px rgba(10,12,10,.78),0 2px 8px rgba(0,0,0,.4)}
