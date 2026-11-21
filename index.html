@@ -24,6 +24,7 @@
       <button class="nav-link" data-view="atlas" data-i18n="navAtlas">Atlas</button>
       <button class="nav-link" data-view="route" data-i18n="navRoute">Wegweiser</button>
       <button class="nav-link" data-view="armor" data-i18n="navArmor">Rüstungs-Check</button>
+      <button class="nav-link" data-view="builds" data-i18n="navBuilds">Builds</button>
       <a class="nav-link" href="https://www.tarnished.dev/" target="_blank" rel="noopener noreferrer" aria-label="Build Planner bei Tarnished.dev öffnen">Build Planner ↗</a>
       <button class="nav-link" data-view="journal" data-i18n="navJournal">Reisetagebuch</button>
     </nav>
@@ -42,15 +43,12 @@
         <div class="hero-actions">
           <button class="primary-btn" data-go="map"><span data-i18n="openMap">Karte erkunden</span><span>↗</span></button>
           <button class="text-btn" data-go="route" data-i18n="planJourney">Reise planen</button>
+          <button class="text-btn" data-go="builds" data-i18n="openBuilds">Builds entdecken</button>
           <a class="text-btn" href="https://eldenringcalculator.com/build-planner/" target="_blank" rel="noopener noreferrer" aria-label="Elden Ring Build Planner mit Waffen, Rüstung und Talismane öffnen">Waffen-Build planen ↗</a>
         </div>
         <div class="hero-meta"><span class="status-dot"></span><span data-i18n="offlineReady">Lokal speicherbar · kein Konto nötig</span></div>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="halo"></div><div class="rune rune-a">ᚷ</div><div class="rune rune-b">ᛟ</div>
-        <div class="tree"><div class="tree-trunk"></div><div class="tree-branch branch-a"></div><div class="tree-branch branch-b"></div><div class="tree-crown"></div></div>
-        <div class="hero-caption"><span>01 / 02</span><span>THE GOLDEN ORDER</span></div>
-      </div>
+      <a class="hero-image-credit" href="https://www.redbull.com/es-es/elden-ring-lugares-mas-bellos" target="_blank" rel="noopener noreferrer" data-i18n="heroImageCredit">Bildquelle: Red Bull ↗</a>
     </section>
 
     <section class="stats-row" id="statsRow">
@@ -170,7 +168,38 @@
       <div class="atlas-pagination" id="atlasPagination"></div>
     </section>
 
-    <section class="view-panel" id="view-route">
+<section class="view-panel" id="view-builds">
+      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="buildsEyebrow">DEIN SPIELSTIL</span></div><h2 data-i18n="buildsTitle">Builds für deinen nächsten Durchlauf</h2></div><p data-i18n="buildsSub">Drei Startpunkte mit Varianten. Die Links öffnen den Build-Planer mit Klasse, Attributen und passender Ausrüstung.</p></div>
+      <p class="build-level-note" data-i18n="buildLevelNote">Alle Werte sind Vorschläge für RL 150. Passe sie an deinen Fortschritt und deine Vorlieben an.</p>
+      <div class="build-grid">
+        <article class="panel-card build-card build-faith">
+          <span class="build-tag" data-i18n="buildPaladinTag">Nahkampf · Glaube</span><h3 data-i18n="buildPaladinTitle">Gnadenritter</h3><p class="build-description" data-i18n="buildPaladinText">Ein widerstandsfähiger Nahkämpfer mit Feuer- oder Heiligschaden, Stärkungszaubern und Heilung.</p>
+          <p class="build-class"><span data-i18n="buildStartClass">Startklasse</span>: Prophet</p><p class="build-stats"><strong>RL 150</strong><br>VIG 60 · MND 20 · END 25 · STR 30 · DEX 14 · INT 7 · FAI 70 · ARC 10</p>
+          <div class="build-gear"><h4 data-i18n="buildEquipment">Ausrüstung & Zauber</h4><p data-i18n="buildPaladinGear1">Waffe: Blasphemous Blade oder Claymore mit Sacred Blade</p><p data-i18n="buildPaladinGear2">Siegel: Erdtree Seal</p><p data-i18n="buildPaladinGear3">Zauber: Golden Vow, Flame Grant Me Strength, Blessing of the Erdtree</p></div>
+          <h4 class="build-variants-title" data-i18n="buildVariants">Varianten</h4>
+          <div class="build-variant"><b data-i18n="buildPaladinFireTitle">Flammenritter</b><p data-i18n="buildPaladinFireText">Blasphemous Blade für Feuerschaden und Heilung beim Besiegen von Gegnern.</p><a class="primary-btn build-planner-link" href="https://www.tarnished.dev/build-planner?selectedClass=Prophet&vig=60&min=20&end=25&str=30&dex=14&int=7&fai=70&arc=10&rh1=Blasphemous+Blade&lh1=Erdtree+Seal" target="_blank" rel="noopener noreferrer" data-i18n="buildPlannerButton">Im Build-Planer öffnen ↗</a></div>
+          <div class="build-variant"><b data-i18n="buildPaladinHolyTitle">Heiliger Schildträger</b><p data-i18n="buildPaladinHolyText">Claymore mit Sacred Blade; mehr Ausdauer und ein Großschild für sicheres Blocken.</p><a class="primary-btn build-planner-link" href="https://www.tarnished.dev/build-planner?selectedClass=Prophet&vig=60&min=20&end=25&str=30&dex=14&int=7&fai=70&arc=10&rh1=Claymore&aRh1=Sacred&lh1=Erdtree+Seal" target="_blank" rel="noopener noreferrer" data-i18n="buildPlannerButton">Im Build-Planer öffnen ↗</a></div>
+        </article>
+        <article class="panel-card build-card build-sorcery">
+          <span class="build-tag" data-i18n="buildSorceryTag">Fernkampf · Intelligenz</span><h3 data-i18n="buildSorceryTitle">Mondzauberer</h3><p class="build-description" data-i18n="buildSorceryText">Hohe Intelligenz für starke Zauber, mit genug Leben und Ausdauer für schwierige Kämpfe.</p>
+          <p class="build-class"><span data-i18n="buildStartClass">Startklasse</span>: Astrologe</p><p class="build-stats"><strong>RL 150</strong><br>VIG 60 · MND 30 · END 22 · STR 16 · DEX 11 · INT 80 · FAI 7 · ARC 9</p>
+          <div class="build-gear"><h4 data-i18n="buildEquipment">Ausrüstung & Zauber</h4><p data-i18n="buildSorceryGear1">Waffen: Dark Moon Greatsword oder Carian Regal Scepter</p><p data-i18n="buildSorceryGear2">Stab-Variante: Staff of Loss</p><p data-i18n="buildSorceryGear3">Zauber: Ranni’s Dark Moon, Night Comet, Carian Slicer</p></div>
+          <h4 class="build-variants-title" data-i18n="buildVariants">Varianten</h4>
+          <div class="build-variant"><b data-i18n="buildSorceryMoonTitle">Mondklinge</b><p data-i18n="buildSorceryMoonText">Dark Moon Greatsword für Frost und Nahkampf, ergänzt durch Mondzauber.</p><a class="primary-btn build-planner-link" href="https://www.tarnished.dev/build-planner?selectedClass=Astrologer&vig=60&min=30&end=22&str=16&dex=11&int=80&fai=7&arc=9&rh1=Dark+Moon+Greatsword&lh1=Carian+Regal+Scepter" target="_blank" rel="noopener noreferrer" data-i18n="buildPlannerButton">Im Build-Planer öffnen ↗</a></div>
+          <div class="build-variant"><b data-i18n="buildSorceryNightTitle">Nachtzauber</b><p data-i18n="buildSorceryNightText">Staff of Loss und Night Comet für einen konsequenten Zauber-Fernkampf.</p><a class="primary-btn build-planner-link" href="https://www.tarnished.dev/build-planner?selectedClass=Astrologer&vig=60&min=30&end=22&str=16&dex=11&int=80&fai=7&arc=9&lh1=Staff+of+Loss" target="_blank" rel="noopener noreferrer" data-i18n="buildPlannerButton">Im Build-Planer öffnen ↗</a></div>
+        </article>
+        <article class="panel-card build-card build-bleed">
+          <span class="build-tag" data-i18n="buildBleedTag">Schnelle Treffer · Arkan</span><h3 data-i18n="buildBleedTitle">Blutklinge</h3><p class="build-description" data-i18n="buildBleedText">Schnelle Angriffe und Arkan-Skalierung bauen Blutverlust auf. Bleib beweglich und setze Druck auf.</p>
+          <p class="build-class"><span data-i18n="buildStartClass">Startklasse</span>: Samurai</p><p class="build-stats"><strong>RL 150</strong><br>VIG 60 · MND 15 · END 25 · STR 18 · DEX 45 · INT 9 · FAI 15 · ARC 51</p>
+          <div class="build-gear"><h4 data-i18n="buildEquipment">Ausrüstung & Zauber</h4><p data-i18n="buildBleedGear1">Waffe: Rivers of Blood oder Nagakiba mit Occult</p><p data-i18n="buildBleedGear2">Siegel: Dragon Communion Seal</p><p data-i18n="buildBleedGear3">Talismane: Lord of Blood’s Exultation, Rotten Winged Sword Insignia</p></div>
+          <h4 class="build-variants-title" data-i18n="buildVariants">Varianten</h4>
+          <div class="build-variant"><b data-i18n="buildBleedDualTitle">Doppelte Katanas</b><p data-i18n="buildBleedDualText">Rivers of Blood mit einer zweiten Katana; stark auf schnelle Trefferfolgen ausgelegt.</p><a class="primary-btn build-planner-link" href="https://www.tarnished.dev/build-planner?selectedClass=Samurai&vig=60&min=15&end=25&str=18&dex=45&int=9&fai=15&arc=51&rh1=Rivers+of+Blood&lh1=Dragon+Communion+Seal" target="_blank" rel="noopener noreferrer" data-i18n="buildPlannerButton">Im Build-Planer öffnen ↗</a></div>
+          <div class="build-variant"><b data-i18n="buildBleedSpearTitle">Blutiger Großspeer</b><p data-i18n="buildBleedSpearText">Mohgwyn’s Sacred Spear mit mehr Stärke und Arkan für größere Reichweite und Flächenangriffe.</p><a class="primary-btn build-planner-link" href="https://www.tarnished.dev/build-planner?selectedClass=Samurai&vig=60&min=20&end=28&str=24&dex=22&int=9&fai=15&arc=60&rh1=Mohgwyn%27s+Sacred+Spear&lh1=Dragon+Communion+Seal" target="_blank" rel="noopener noreferrer" data-i18n="buildPlannerButton">Im Build-Planer öffnen ↗</a></div>
+        </article>
+      </div>
+    </section>
+
+        <section class="view-panel" id="view-route">
       <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="progressionGuide">FORTSCHRITTSPLANER</span></div><h2 data-i18n="routeTitle">Finde deinen nächsten Weg</h2></div><p data-i18n="routeSub">Nutze dein aktuelles Level als grobe Orientierung für die nächste Region.</p></div>
       <div class="route-layout"><article class="panel-card route-controls"><h3 data-i18n="yourCharacter">Dein Charakter</h3><label class="field-label" for="levelInput" data-i18n="currentLevel">Aktuelles Level</label><div class="level-input-wrap"><input id="levelInput" type="number" min="1" max="713" value="35"><span>RL</span></div><label class="field-label" data-i18n="journeyScope">Reiseumfang</label><div class="scope-choice"><button class="scope-btn active" data-route-scope="base" data-i18n="baseGame">Grundspiel</button><button class="scope-btn" data-route-scope="dlc">+ DLC</button><button class="scope-btn" data-route-scope="all" data-i18n="everything">Alles</button></div><p class="muted" data-i18n="levelDisclaimer">Levelbereiche sind Richtwerte der Community und keine Zugangsvoraussetzungen.</p></article><article class="panel-card route-results"><div class="panel-top"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="routeRecommendation">EMPFEHLUNGEN</span></div><h3 data-i18n="nextAreas">Passende Gebiete</h3></div><span class="pill" id="routeLevelLabel">RL 35</span></div><div id="routeList"></div></article></div>
     <section class="farm-section panel-card"><div class="panel-top"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="runeRoutesEyebrow">RUNEN-ROUTEN</span></div><h3 data-i18n="runeRoutesTitle">Wo lohnt sich die nächste Runde?</h3></div><span class="pill" data-i18n="estimates">Richtwerte</span></div><p class="muted" data-i18n="runeRoutesText">Ausbeute hängt von Gegnern, Spielzyklus und Fortschritt ab. Die Angaben sind keine garantierten Werte.</p><div id="runeFarmList" class="farm-grid"></div></section>
@@ -187,7 +216,7 @@
       <div class="journal-columns"><div><div class="panel-top"><h3 data-i18n="tasksToExplore">Stationen zum Entdecken</h3><span class="muted" data-i18n="tapToComplete">Antippen zum Abhaken</span><select id="journalFilter" aria-label="Journal category"><option value="all" data-i18n="journalAll">Alle</option><option value="boss" data-i18n="journalBosses">Bosse</option><option value="quest" data-i18n="journalQuests">Quests</option><option value="place" data-i18n="journalPlaces">Orte</option><option value="npc" data-i18n="journalNpcs">NPCs</option><option value="armor" data-i18n="journalArmor">Rüstungen</option><option value="creature" data-i18n="journalCreatures">Kreaturen</option><option value="collectible" data-i18n="journalCollectibles">Sammelobjekte</option></select></div><div id="journalTasks" class="journal-tasks"></div></div><aside class="panel-card notes-card"><h3 data-i18n="travelNotes">Reisenotizen</h3><p class="muted" data-i18n="notesText">Notiere dir Hinweise, offene Fragen oder deinen nächsten Schritt.</p><textarea id="notesInput" rows="9" data-i18n-placeholder="notesPlaceholder" placeholder="Deine Notizen…"></textarea><span class="save-hint" id="saveHint" data-i18n="autoSaved">Wird automatisch gespeichert</span><button id="resetProgress" class="danger-link" data-i18n="resetProgress">Fortschritt zurücksetzen</button></aside></div>
     </section>
   </main>
-  <footer><div class="brand footer-brand"><span class="brand-mark">✦</span><span><b>GRACEBOUND</b><small>AN UNOFFICIAL FAN COMPANION</small></span></div><p data-i18n="footerText">Ein Fanprojekt. Elden Ring und alle zugehörigen Inhalte sind Eigentum ihrer jeweiligen Rechteinhaber.</p><span>v0.5.0 · <span data-i18n="madeFor">Für neugierige Befleckte</span></span></footer>
+  <footer><div class="brand footer-brand"><span class="brand-mark">✦</span><span><b>GRACEBOUND</b><small>AN UNOFFICIAL FAN COMPANION</small></span></div><p data-i18n="footerText">Ein Fanprojekt. Elden Ring und alle zugehörigen Inhalte sind Eigentum ihrer jeweiligen Rechteinhaber.</p><span>v0.6.0 · <span data-i18n="madeFor">Für neugierige Befleckte</span></span></footer>
   <dialog id="detailDialog" class="detail-dialog"><div class="detail-dialog-inner"><div class="detail-dialog-header"><span class="eyebrow" id="detailEyebrow"></span><button id="closeDetail" class="small-control" aria-label="Close">×</button></div><div id="detailPortrait" class="entry-portrait" hidden></div><h2 id="detailTitle"></h2><div id="detailBody" class="detail-body"></div><div class="detail-actions"><button id="detailMapButton" class="primary-btn"><span data-i18n="showOnMap">Auf Karte zeigen</span><span>↗</span></button><a id="detailSourceLink" class="inline-link" href="#" target="_blank" rel="noopener" data-i18n="openSource">Quelle öffnen ↗</a></div></div></dialog>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="data/catalog.js"></script>
