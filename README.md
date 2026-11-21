@@ -2,16 +2,17 @@
 
 A responsive German/English fan companion for Elden Ring and Shadow of the Erdtree.
 
-## Current features (v0.9.0)
+## Current features (v0.10.0)
 
-- Detailed quest atlas with 6 questlines and 36 intermediate stops, optional steps, branching notes and local checkmarks
+- Step-by-step NPC quest atlas with 31 questlines and 283 localized action instructions, branch notes, map jumps and local checkmarks
 - Direct map jumps from quest stops, regional station lists and Atlas details
 - 18 extended boss profiles with story context and known encounter locations
 - 24 map-fragment records (19 base game + 5 DLC), pickup notes and individual map links
 - Sourced screenshot gallery with publisher/source credits
 - Rune-farming area guide with one-time vs repeatable spots and level notes
-- Six build archetypes with weapon and talisman locations, RL 150 stat targets, and leveling guidance
+- Six individual build detail windows with RL 30/60/90/120/150 stat targets, weapons, talismans, armor, spells and locations
 - Personal build library with notes, editing, and JSON backup import/export
+- Level-aware Wegweiser with uncompleted boss, NPC and quest targets for each recommended region
 - Personal checklist for 260+ map collectibles with filters, map jumps, and saved completion
 - Defensive armor comparison based on weight, damage negation and resistance values (rule-based; not AI)
 
