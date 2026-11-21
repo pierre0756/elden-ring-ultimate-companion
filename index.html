@@ -82,7 +82,7 @@
         <aside class="map-sidebar panel-card">
           <div class="map-search-block">
             <label class="field-label" for="mapSearch" data-i18n="mapSearchLabel">Karte durchsuchen</label>
-            <input id="mapSearch" type="search" data-i18n-placeholder="mapSearchPlaceholder" placeholder="Gnadenort, Boss, NPC, Goldene Saat …" autocomplete="off">
+            <input id="mapSearch" type="search" data-i18n-placeholder="mapSearchPlaceholder" placeholder="Gnadenort, Boss, NPC, Dungeon, Zauber …" autocomplete="off">
             <div id="mapSearchResults" class="map-search-results"></div>
           </div>
           <div class="map-category-block">
@@ -90,6 +90,10 @@
             <div id="mapCategories" class="map-category-list">
               <label><input type="checkbox" data-map-category="grace" checked><span class="map-cat-dot grace"></span><span data-i18n="mapCatGrace">Gnadenorte</span></label>
               <label><input type="checkbox" data-map-category="talisman" checked><span class="map-cat-dot talisman"></span><span data-i18n="mapCatTalisman">Talismane</span></label>
+              <label><input type="checkbox" data-map-category="dungeon" checked><span class="map-cat-dot dungeon"></span><span data-i18n="mapCatDungeon">Dungeons</span></label>
+              <label><input type="checkbox" data-map-category="spell"><span class="map-cat-dot spell"></span><span data-i18n="mapCatSpell">Zauber &amp; Anrufungen</span></label>
+              <label><input type="checkbox" data-map-category="smithing"><span class="map-cat-dot smithing"></span><span data-i18n="mapCatSmithing">Schmiedestein-Minen</span></label>
+              <label><input type="checkbox" data-map-category="somber"><span class="map-cat-dot somber"></span><span data-i18n="mapCatSomber">Dunkelschmiedestein-Minen</span></label>
               <label><input type="checkbox" data-map-category="boss" checked><span class="map-cat-dot boss"></span><span data-i18n="mapCatBoss">Bosse</span></label>
               <label><input type="checkbox" data-map-category="golden" checked><span class="map-cat-dot golden"></span><span data-i18n="mapCatGolden">Goldene Saat</span></label>
               <label><input type="checkbox" data-map-category="npc"><span class="map-cat-dot npc"></span><span data-i18n="mapCatNpc">NPCs</span></label>
@@ -117,7 +121,7 @@
             <button class="chip" data-map-reset="true" data-i18n="mapLayerReset">Gesamte Karte</button>
           </div>
           <div id="erMap" class="er-map" aria-label="Interaktive Elden-Ring-Karte"></div>
-          <div class="map-footnote">Kartenkacheln und Koordinaten stammen aus Community-Kartendaten. Bosse und NPCs bieten direkte Atlas-Infos; Talisman-Fundorte lassen sich separat ein- und ausblenden. Zoom, Verschieben und eigene Wegpunkte sind verfügbar.</div>
+          <div class="map-footnote">Community-Koordinaten: Dungeons, Zauber, Anrufungen, Talismane und Minen für Schmiede- und Dunkelschmiedesteine. Minen markieren Sammelgebiete; einzelne Steine können darin an mehreren Stellen liegen. Zoom, Suche und eigene Wegpunkte sind verfügbar.</div>
         </div>
       </div>
       <div class="map-layout">
