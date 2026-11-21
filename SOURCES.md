@@ -128,3 +128,8 @@ Boss- und NPC-Markierungen öffnen nun passende Gracebound-Atlasdetails. Die vor
 Die Build-Bibliothek enthält drei frei anpassbare RL-150-Beispiele: Glaube/Nahkampf, Intelligenz-Zauberei und Blutung/Arkan. Je Beispiel gibt es zwei Varianten. Die Links führen zu Tarnished.dev mit vorausgefüllter Startklasse, Attributen und Kernwaffe. Der externe Rechner unterstützt Builds mit Attributen, Waffen, Rüstung, Zaubern und Talismanen; seine Spielwerte werden vom Betreiber gepflegt.
 
 Das Startseitenbild zeigt einen Elden-Ring-Limgrave-Screenshot. Quelle und Bildnachweis stehen direkt auf der Startseite: [Red Bull — Elden Ring’s most beautiful places](https://www.redbull.com/es-es/elden-ring-lugares-mas-bellos). Das Bild wird vom Anbieter geladen, nicht im Repository gespeichert.
+
+
+## 11. Erweiterung v0.7.0 — Build-Pfade und Levelhilfe
+
+Die Build-Bibliothek ergänzt Stärke/Kolossalwaffen, Geschicklichkeit/Frost und Drachenkommunion. Angaben zu Waffen, Talismanen und Fundorten verlinken auf die jeweilige Seite im Community-Wiki [Elden Ring Wiki.gg](https://eldenring.wiki.gg/wiki/Elden_Ring_Wiki). Level-Empfehlungen sind Richtwerte; die Vigor-Schwellen bei 40 und 60 sind im [Bandai-Namco-Stat-Guide](https://www.bandainamcoent.com/news/elden-ring-introduction-part-2-advanced-stats) erläutert. Eine vollständige Übersicht zu Talisman-Fundorten gibt es außerdem bei [PowerPyx](https://www.powerpyx.com/elden-ring-all-talisman-locations/).
