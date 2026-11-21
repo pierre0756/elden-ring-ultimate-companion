@@ -256,3 +256,47 @@ footer{max-width:1420px;margin:0 auto;padding:25px clamp(20px,5vw,78px) 35px;bor
 .level-guide-grid h4{font:500 12px Cinzel;color:var(--gold2);margin:0 0 8px}
 .level-guide-grid p,.build-next-improvements p{font-size:11px;line-height:1.75;color:var(--muted);margin:0}
 @media(max-width:700px){.level-guide-grid{grid-template-columns:1fr}}
+
+.prepare-build-btn{font-size:9px;padding:8px 0;margin:0 0 8px;color:var(--gold2)}
+.saved-builds-panel,.collection-checklist{margin-top:16px;padding:clamp(16px,3vw,26px)}
+.saved-builds-panel h3,.collection-checklist h3{font:500 20px Cinzel;margin:7px 0}
+.saved-builds-panel>.muted,.collection-checklist>.muted{font-size:11px;line-height:1.65;color:var(--muted)}
+.saved-build-form{display:grid;grid-template-columns:1.2fr 1fr .55fr;gap:12px;margin-top:16px}
+.saved-build-form>div{display:flex;flex-direction:column;gap:6px}
+.saved-build-form .field-label{font-size:10px;color:var(--muted)}
+.saved-build-form input,.saved-build-form select,.saved-build-form textarea,.collection-toolbar select{width:100%;background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:10px;font-size:11px}
+.saved-build-form textarea{resize:vertical;line-height:1.6}
+.saved-build-form input:focus,.saved-build-form select:focus,.saved-build-form textarea:focus,.collection-toolbar select:focus{outline:1px solid var(--gold)}
+.saved-build-stats-field{grid-column:span 2}
+.saved-build-notes-field{grid-column:1/-1}
+.saved-build-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:13px}
+.saved-build-toolbar .primary-btn{font-size:10px;padding:10px 15px}
+.saved-build-portability{display:flex;gap:8px;margin-left:auto}
+.saved-build-portability .text-btn,.saved-build-toolbar>.text-btn{font-size:10px}
+.saved-build-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}
+.saved-build-card{display:flex;justify-content:space-between;gap:14px;padding:15px;background:var(--panel2);border:1px solid var(--line);border-radius:10px}
+.saved-build-card h4{font:500 14px Cinzel;margin:8px 0}
+.saved-build-card-top{display:flex;align-items:center;gap:9px}
+.saved-build-card .pill{font-size:9px}
+.saved-build-stats,.saved-build-note{font-size:10px;line-height:1.65;color:var(--muted);white-space:pre-wrap;margin:6px 0}
+.saved-build-actions{display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0}
+.saved-build-actions button{font-size:10px}
+.collection-toolbar{display:grid;grid-template-columns:minmax(220px,1fr) repeat(3,minmax(125px,.55fr));gap:9px;margin:15px 0 10px}
+.collection-toolbar .search-box{min-width:0}
+.collection-toolbar select{font-size:10px;padding:9px}
+.collection-meta{display:flex;align-items:center;justify-content:space-between;margin:6px 0 9px;font-size:10px}
+.collection-list{max-height:520px;overflow:auto;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.collection-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:9px 4px;border-bottom:1px solid var(--line)}
+.collection-row:last-child{border-bottom:0}
+.collection-row>label{display:flex;align-items:center;gap:10px;min-width:0;flex:1;cursor:pointer}
+.collection-row input[type=checkbox]{accent-color:var(--gold);width:16px;height:16px;flex-shrink:0}
+.collection-item-copy{display:flex;flex-direction:column;min-width:0;gap:3px}
+.collection-item-copy strong{font-size:11px;overflow:hidden;text-overflow:ellipsis}
+.collection-item-copy small{font-size:9px;line-height:1.4;color:var(--muted)}
+.collection-row.is-found .collection-item-copy strong{text-decoration:line-through;color:var(--muted)}
+.collection-map-button{font-size:9px;flex-shrink:0}
+.collection-empty{font-size:11px;padding:12px}
+.collection-pagination{display:flex;align-items:center;justify-content:center;gap:15px;margin-top:12px;font-size:10px;color:var(--muted)}
+.collection-pagination button:disabled{opacity:.4;cursor:default}
+@media(max-width:760px){.collection-toolbar{grid-template-columns:1fr 1fr}.collection-toolbar .search-box{grid-column:1/-1}.saved-build-form{grid-template-columns:1fr 1fr}.saved-build-list{grid-template-columns:1fr}}
+@media(max-width:480px){.saved-build-form{grid-template-columns:1fr}.saved-build-stats-field,.saved-build-notes-field{grid-column:auto}.saved-build-portability{width:100%;margin-left:0;justify-content:space-between}.saved-build-card{flex-direction:column}.saved-build-actions{flex-direction:row;justify-content:flex-end}}
