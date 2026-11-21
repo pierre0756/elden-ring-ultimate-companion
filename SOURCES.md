@@ -138,3 +138,12 @@ Die Build-Bibliothek ergänzt Stärke/Kolossalwaffen, Geschicklichkeit/Frost und
 ## 12. Erweiterung v0.9.0 — Persönliche Builds und Fundstückliste
 
 Eigene Builds, Attribute und Notizen werden lokal im Browser gespeichert. JSON-Export und -Import ermöglichen eine manuelle Sicherung oder den Umzug auf ein anderes Gerät. Die Fundstückliste nutzt die bereits dokumentierten Community-Kartenmarkierungen für Talismane, Goldene Saat, Tränen, Gedächtnissteine und Große Runen; erledigte Funde werden getrennt vom Atlas-Fortschritt lokal abgelegt. „Auf Karte“ fokussiert die passende Markierung. Das Fortschritt-zurücksetzen löscht Atlas-, Quest- und Fundstück-Haken sowie Reisenotizen, behält aber persönliche Build-Sicherungen.
+
+
+## 13. Erweiterung v0.10.0 — Quest-Schritte, Wegweiser und Build-Fenster
+
+Der NPC-Questatlas enthält jetzt 31 Questlinien mit je einem konkreten Handlungstext pro Station. Die Texte beschreiben, wohin der Kartenpin führt, welche Interaktion oder welcher Kampf ansteht und ob eine Auswahl Auswirkungen hat. Die Schrittfolge bleibt eine redaktionelle Community-Zusammenstellung. Referenzen für wichtige Routen: [Rannis Quest (PC Gamer)](https://www.pcgamer.com/elden-ring-ranni-quest-nokron/), [Ansbach/Leda/Freyja (PowerPyx)](https://www.powerpyx.com/elden-ring-shadow-of-the-erdtree-sir-ansbach-leda-freyja-questline-walkthrough/) und [NPC-Questübersicht (Elden Ring Wiki)](https://www.eldenringwiki.cc/quests/).
+
+Jeder der sechs Build-Stile öffnet ein eigenes Detailfenster mit fünf RL-Meilensteinen (30/60/90/120/150), vollständig aufs RL summierten Attributvorschlägen, Waffen-, Talisman-, Rüstungs- und Zauberfundorten sowie Spielhinweisen. Die Werte sind anpassbare Vorschläge, keine Anforderungen. Gegenstandsseiten und Locations verlinken ins Community-Wiki [Elden Ring Wiki.gg](https://eldenring.wiki.gg/wiki/Elden_Ring_Wiki).
+
+Der Wegweiser ergänzt levelpassende Regionen mit bis zu drei noch offenen Boss-, NPC- oder Quest-Atlaszielen pro Gebiet. Abschlussstatus folgt den vorhandenen Atlas-Haken.
