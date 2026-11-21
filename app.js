@@ -143,7 +143,7 @@ const edges=[["limgrave","stormhill"],["limgrave","peninsula"],["stormhill","liu
 const store={get(k,d=""){try{return localStorage.getItem(k)??d}catch{return d}},set(k,v){try{localStorage.setItem(k,v)}catch{}},remove(k){try{localStorage.removeItem(k)}catch{}}};
 const $=s=>document.querySelector(s), queryAll=s=>[...document.querySelectorAll(s)];
 const parseStored=(key,fallback={})=>{try{return JSON.parse(store.get(key)||"null")??fallback}catch{return fallback}};
-const state={lang:store.get("gb_lang")||"de",scope:"base",routeScope:"base",selected:null,done:parseStored("gb_done"),questDone:parseStored("gb_qdone"),selectedQuest:null,mapFocusLocation:"",savedBuilds:parseStored("gb_saved_builds",[]),collected:parseStored("gb_collected",{})};
+const state={lang:store.get("gb_lang")||"de",scope:"base",routeScope:"base",selected:null,done:parseStored("gb_done"),questDone:parseStored("gb_qdone"),selectedQuest:null,mapFocusLocation:"",savedBuilds:(()=>{const v=parseStored("gb_saved_builds",[]);return Array.isArray(v)?v:[]})(),collected:(()=>{const v=parseStored("gb_collected",{});return v&&typeof v==="object"&&!Array.isArray(v)?v:{}})()};
 function t(key){return I18N[state.lang][key]||I18N.de[key]||key}
 function name(obj){return obj[state.lang]||obj.de}
 function region(id){return regions.find(r=>r.id===id)}
@@ -280,6 +280,7 @@ const BUILD_TEMPLATES={
  dex:{title:"Frostklinge · RL 150",level:150,stats:"VIG 60 · MND 18 · END 25 · STR 18 · DEX 70 · INT 25 · FAI 8 · ARC 8"},
  dragon:{title:"Drachenkommunion · RL 150",level:150,stats:"VIG 60 · MND 25 · END 20 · STR 16 · DEX 12 · INT 7 · FAI 25 · ARC 64"}
 };
+const BUILD_PRESET_NAMES={de:{paladin:"Gnadenritter · RL 150",sorcery:"Mondzauberer · RL 150",bleed:"Blutklinge · RL 150",strength:"Kolossaler Krieger · RL 150",dex:"Frostklinge · RL 150",dragon:"Drachenkommunion · RL 150"},en:{paladin:"Paladin · RL 150",sorcery:"Moon Sorcerer · RL 150",bleed:"Bloodblade · RL 150",strength:"Colossal Warrior · RL 150",dex:"Frostblade · RL 150",dragon:"Dragon Communion · RL 150"}};
 function renderSavedBuilds(){
  const list=$("#savedBuildList");if(!list)return;
  list.innerHTML=state.savedBuilds.length?state.savedBuilds.map(b=>`<article class="saved-build-card"><div><div class="saved-build-card-top"><span class="build-tag">${t("buildType"+b.type[0].toUpperCase()+b.type.slice(1))}</span><span class="pill">RL ${Number(b.level)||150}</span></div><h4>${safe(b.name)}</h4>${b.stats?`<p class="saved-build-stats">${safe(b.stats)}</p>`:""}${b.notes?`<p class="saved-build-note">${safe(b.notes).replace(/\n/g,"<br>")}</p>`:""}</div><div class="saved-build-actions"><button class="text-btn" data-edit-saved-build="${safe(b.id)}">${t("editBuild")}</button><button class="danger-link" data-delete-saved-build="${safe(b.id)}">${t("deleteBuild")}</button></div></article>`).join(""):`<p class="muted">${t("noSavedBuilds")}</p>`;
@@ -289,7 +290,7 @@ function clearBuildForm(){
 }
 function prepareSavedBuild(type){
  const preset=BUILD_TEMPLATES[type];if(!preset)return;
- $("#savedBuildId").value="";$("#savedBuildName").value=preset.title;$("#savedBuildType").value=type;$("#savedBuildLevel").value=preset.level;$("#savedBuildStats").value=preset.stats;$("#savedBuildNotes").value="";$("#savedBuildStatus").textContent=t("preparedBuild");$("#savedBuildName").focus();$("#savedBuildName").scrollIntoView({behavior:"smooth",block:"center"});
+ $("#savedBuildId").value="";$("#savedBuildName").value=BUILD_PRESET_NAMES[state.lang][type]||preset.title;$("#savedBuildType").value=type;$("#savedBuildLevel").value=preset.level;$("#savedBuildStats").value=preset.stats;$("#savedBuildNotes").value="";$("#savedBuildStatus").textContent=t("preparedBuild");$("#savedBuildName").focus();$("#savedBuildName").scrollIntoView({behavior:"smooth",block:"center"});
 }
 function saveCurrentBuild(){
  const name=$("#savedBuildName").value.trim(),level=Math.max(1,Math.min(713,Number($("#savedBuildLevel").value)||150)),id=$("#savedBuildId").value;
@@ -541,13 +542,12 @@ function init(){
  $("#notesInput").addEventListener("input",()=>{store.set("gb_notes",$("#notesInput").value);$("#saveHint").textContent=t("autoSaved")});
  $("#savedBuildList").addEventListener("click",e=>{
   const edit=e.target.closest("[data-edit-saved-build]"),del=e.target.closest("[data-delete-saved-build]");
-  if(edit){const b=state.savedBuilds.find(x=>x.id===edit.dataset.editSavedBuild);if(b){$("#savedBuildId").value=b.id;$("#savedBuildName").value=b.name;$("#savedBuildType").value=b.type;$("#savedBuildLevel").value=b.level;$("#savedBuildStats").value=b.stats;$("#savedBuildNotes").value=b.notes;$("#savedBuildStatus").textContent="";$("#savedBuildName").focus();}return}
+  if(edit){const b=state.savedBuilds.find(x=>x.id===edit.dataset.editSavedBuild);if(b){$("#savedBuildId").value=b.id;$("#savedBuildName").value=b.name;$("#savedBuildType").value=b.type;$("#savedBuildLevel").value=b.level;$("#savedBuildStats").value=b.stats;$("#savedBuildNotes").value=b.notes;$("#savedBuildStatus").textContent="";$("#savedBuildName").focus();$("#savedBuildName").scrollIntoView({behavior:"smooth",block:"center"});}return}
   if(del){if(!confirm(t("deleteBuildConfirm")))return;state.savedBuilds=state.savedBuilds.filter(b=>b.id!==del.dataset.deleteSavedBuild);store.set("gb_saved_builds",JSON.stringify(state.savedBuilds));renderSavedBuilds();}
  });
  $("#saveSavedBuild").addEventListener("click",saveCurrentBuild);
  $("#clearSavedBuildForm").addEventListener("click",()=>{clearBuildForm();$("#savedBuildStatus").textContent="";});
- $("#savedBuildType").addEventListener("change",()=>{if(!$("#savedBuildName").value.trim()){const p=BUILD_TEMPLATES[$("#savedBuildType").value];if(p){$("#savedBuildName").value=p.title;$("#savedBuildLevel").value=p.level;$("#savedBuildStats").value=p.stats;}}});
- $("#savedBuildList").addEventListener("click",e=>{const edit=e.target.closest("[data-edit-saved-build]");if(edit)$("#savedBuildName").scrollIntoView({behavior:"smooth",block:"center"});});
+ $("#savedBuildType").addEventListener("change",()=>{if(!$("#savedBuildName").value.trim()){const p=BUILD_TEMPLATES[$("#savedBuildType").value];if(p){$("#savedBuildName").value=BUILD_PRESET_NAMES[state.lang][$("#savedBuildType").value]||p.title;$("#savedBuildLevel").value=p.level;$("#savedBuildStats").value=p.stats;}}});
  queryAll("[data-prepare-build]").forEach(b=>b.addEventListener("click",()=>prepareSavedBuild(b.dataset.prepareBuild)));
  $("#exportSavedBuilds").addEventListener("click",exportSavedBuilds);
  $("#importSavedBuildsButton").addEventListener("click",()=>$("#importSavedBuilds").click());
