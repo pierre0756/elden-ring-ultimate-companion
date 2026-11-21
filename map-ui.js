@@ -167,6 +167,8 @@
     },120);
   }
 
+  window.focusGraceboundMapMarker=(id)=>{const marker=MARKERS.find(x=>x.id===id);if(marker)focusMainMarker(marker);};
+
   window.focusGraceboundMap=(master,px,py,label)=>{
     if(!main)return;
     const point=xy(Number(px),Number(py));
