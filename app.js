@@ -4,7 +4,7 @@ navOverview:"Übersicht",navMap:"Weltkarte",navBosses:"Bosse",navAtlas:"Atlas",n
 eyebrow:"Ein Atlas für die Zwischenlande",heroTitle:"Dein Weg.<br><em>Deine Gnade.</em>",heroText:"Ein Begleiter für Entdeckungen, Geschichten und deinen eigenen Weg durch die Zwischenlande und das Schattenland.",openMap:"Karte erkunden",planJourney:"Reise planen",offlineReady:"Lokal speicherbar · kein Konto nötig",
 regions:"Regionen",atlasEntries:"Atlas-Einträge",journeyDone:"Reise abgeschlossen",continueJourney:"Deine Reise",overviewTitle:"Wo möchtest du hin?",overviewSub:"Wähle deinen nächsten Schritt oder entdecke, was dich erwartet.",
 featureMap:"Die Welt entdecken",featureMapText:"Regionen, Orte und Orientierung",featureAtlas:"Der Atlas",featureAtlasText:"Bosse, NPCs, Quests und Fundorte",featureRoute:"Dein Wegweiser",featureRouteText:"Empfohlene Gebiete nach Level",featureJournal:"Reisetagebuch",featureJournalText:"Fortschritt festhalten und abhaken",
-suggested:"Vorschlag",suggestedTitle:"Dein nächster Halt",basedOnLevel:"Level-Auswahl",yourProgress:"Dein Fortschritt",progressTitle:"Jeder Schritt zählt",openJournal:"Tagebuch öffnen ↗",worldAtlas:"Welt-Atlas",mapTitle:"Die Zwischenlande & das Schattenland",mapSub:"Zoome und verschiebe die Karte. Suche nach Gnadenorten, Bossen, NPCs und wichtigen Sammelobjekten.",mapSearchLabel:"Karte durchsuchen",mapSearchPlaceholder:"Gnadenort, Boss, NPC, Goldene Saat …",mapLayerBase:"Zwischenlande",mapLayerUnderground:"Untergrund",mapLayerShadow:"Schattenland",mapLayerReset:"Gesamte Karte",mapCatGrace:"Gnadenorte",mapCatBoss:"Bosse",mapCatGolden:"Goldene Saat",mapCatNpc:"NPCs",mapCatSacredTear:"Heilige Tränen",mapCatCrystalTear:"Kristalltränen",mapCatGreatRune:"Große Runen",mapCatMemoryStone:"Gedächtnissteine",mapCatLarvalTear:"Larventränen",customWaypointTitle:"Eigener Wegpunkt",customWaypointPlaceholder:"Name des Wegpunkts",customWaypointNotePlaceholder:"Notiz (optional)",customWaypointAdd:"Auf Karte platzieren ↗",customWaypointHelp:"Name eingeben, „Auf Karte platzieren“ drücken und dann die gewünschte Stelle anklicken. Deine Markierungen bleiben auf diesem Gerät gespeichert.",bossEyebrow:"Boss-Übersicht",bossTitle:"Alle Boss-Standorte",bossSub:"Eine reine Fundortkarte: Boss-Markierungen, Name und Gebiet – ohne lange Hintergrundtexte.",bossSearchPlaceholder:"Boss oder Gebiet suchen …",bossListTitle:"Boss-Fundorte",questSearchPlaceholder:"Questreihe oder NPC suchen …",
+suggested:"Vorschlag",suggestedTitle:"Dein nächster Halt",basedOnLevel:"Level-Auswahl",yourProgress:"Dein Fortschritt",progressTitle:"Jeder Schritt zählt",openJournal:"Tagebuch öffnen ↗",worldAtlas:"Welt-Atlas",mapTitle:"Die Zwischenlande & das Schattenland",mapSub:"Zoome und verschiebe die Karte. Suche nach Gnadenorten, Bossen, NPCs und wichtigen Sammelobjekten.",mapSearchLabel:"Karte durchsuchen",mapSearchPlaceholder:"Gnadenort, Boss, NPC, Goldene Saat …",mapLayerBase:"Zwischenlande",mapLayerUnderground:"Untergrund",mapLayerShadow:"Schattenland",mapLayerReset:"Gesamte Karte",mapCatGrace:"Gnadenorte",mapCatBoss:"Bosse",mapCatTalisman:"Talismane",mapCatGolden:"Goldene Saat",mapCatNpc:"NPCs",mapCatSacredTear:"Heilige Tränen",mapCatCrystalTear:"Kristalltränen",mapCatGreatRune:"Große Runen",mapCatMemoryStone:"Gedächtnissteine",mapCatLarvalTear:"Larventränen",customWaypointTitle:"Eigener Wegpunkt",customWaypointPlaceholder:"Name des Wegpunkts",customWaypointNotePlaceholder:"Notiz (optional)",customWaypointAdd:"Auf Karte platzieren ↗",customWaypointHelp:"Name eingeben, „Auf Karte platzieren“ drücken und dann die gewünschte Stelle anklicken. Deine Markierungen bleiben auf diesem Gerät gespeichert.",bossEyebrow:"Boss-Übersicht",bossTitle:"Alle Boss-Standorte",bossSub:"Eine reine Fundortkarte: Boss-Markierungen, Name und Gebiet – ohne lange Hintergrundtexte.",bossSearchPlaceholder:"Boss oder Gebiet suchen …",bossListTitle:"Boss-Fundorte",questSearchPlaceholder:"Questreihe oder NPC suchen …",
 schematicMap:"Schematische Gebietsübersicht",baseGame:"Grundspiel",all:"Alle",baseRegions:"Grundspiel",dlcRegions:"Schattenland",mapDisclaimer:"Hinweis: Diese Karte zeigt die grobe Gebietsbeziehung und ist nicht maßstabsgetreu oder als Ingame-Karte gedacht.",selectRegion:"Region auswählen",selectRegionText:"Wähle einen Punkt auf der Karte oder eine Region aus der Liste.",allRegions:"Alle Regionen",regionHint:"Zum Öffnen auswählen",
 loreAndPlaces:"Wissen & Orte",atlasTitle:"Der Atlas",atlasSub:"Finde wichtige Orte, Figuren und Aufgaben. Setze Haken, sobald du etwas erledigt hast.",searchPlaceholder:"Einträge durchsuchen…",allCategories:"Alle Kategorien",bosses:"Bosse",quests:"Quests",places:"Orte",collectibles:"Sammelobjekte",baseAndDlc:"Grundspiel + DLC",baseOnly:"Nur Grundspiel",resetFilters:"Filter zurücksetzen",
 progressionGuide:"Fortschrittsplaner",routeTitle:"Finde deinen nächsten Weg",routeSub:"Nutze dein aktuelles Level als grobe Orientierung für die nächste Region.",yourCharacter:"Dein Charakter",currentLevel:"Aktuelles Level",journeyScope:"Reiseumfang",everything:"Alles",levelDisclaimer:"Levelbereiche sind Richtwerte zur Orientierung und keine Zugangsvoraussetzungen.",routeRecommendation:"Empfehlungen",nextAreas:"Passende Gebiete",
@@ -17,7 +17,7 @@ navOverview:"Overview",navMap:"World Map",navBosses:"Bosses",navAtlas:"Atlas",na
 eyebrow:"An atlas for the Lands Between",heroTitle:"Your path.<br><em>Your grace.</em>",heroText:"A companion for discoveries, stories, and your own journey through the Lands Between and the Realm of Shadow.",openMap:"Explore the map",planJourney:"Plan a journey",offlineReady:"Saved locally · no account needed",
 regions:"Regions",atlasEntries:"Atlas entries",journeyDone:"Journey complete",continueJourney:"Your journey",overviewTitle:"Where to next?",overviewSub:"Choose your next step or discover what awaits.",
 featureMap:"Explore the world",featureMapText:"Regions, places and orientation",featureAtlas:"The Atlas",featureAtlasText:"Bosses, NPCs, quests and locations",featureRoute:"Your guide",featureRouteText:"Suggested areas by level",featureJournal:"Travel journal",featureJournalText:"Track your progress and check things off",
-suggested:"Suggested",suggestedTitle:"Your next stop",basedOnLevel:"Level selector",yourProgress:"Your progress",progressTitle:"Every step counts",openJournal:"Open journal ↗",worldAtlas:"World atlas",mapTitle:"The Lands Between & the Realm of Shadow",mapSub:"Zoom and pan the map. Search Sites of Grace, bosses, NPCs and important collectibles.",mapSearchLabel:"Search the map",mapSearchPlaceholder:"Site of Grace, boss, NPC, Golden Seed …",mapLayerBase:"Lands Between",mapLayerUnderground:"Underground",mapLayerShadow:"Realm of Shadow",mapLayerReset:"Full map",mapCatGrace:"Sites of Grace",mapCatBoss:"Bosses",mapCatGolden:"Golden Seeds",mapCatNpc:"NPCs",mapCatSacredTear:"Sacred Tears",mapCatCrystalTear:"Crystal Tears",mapCatGreatRune:"Great Runes",mapCatMemoryStone:"Memory Stones",mapCatLarvalTear:"Larval Tears",customWaypointTitle:"Custom waypoint",customWaypointPlaceholder:"Waypoint name",customWaypointNotePlaceholder:"Note (optional)",customWaypointAdd:"Place on map ↗",customWaypointHelp:"Enter a name, press Place on map, then click the desired spot. Your markers are saved on this device.",bossEyebrow:"Boss overview",bossTitle:"Boss locations",bossSub:"A location-only map with boss markers, names and areas — no long background text.",bossSearchPlaceholder:"Search boss or area …",bossListTitle:"Boss locations",questSearchPlaceholder:"Search questline or NPC …",
+suggested:"Suggested",suggestedTitle:"Your next stop",basedOnLevel:"Level selector",yourProgress:"Your progress",progressTitle:"Every step counts",openJournal:"Open journal ↗",worldAtlas:"World atlas",mapTitle:"The Lands Between & the Realm of Shadow",mapSub:"Zoom and pan the map. Search Sites of Grace, bosses, NPCs and important collectibles.",mapSearchLabel:"Search the map",mapSearchPlaceholder:"Site of Grace, boss, NPC, Golden Seed …",mapLayerBase:"Lands Between",mapLayerUnderground:"Underground",mapLayerShadow:"Realm of Shadow",mapLayerReset:"Full map",mapCatGrace:"Sites of Grace",mapCatBoss:"Bosses",mapCatTalisman:"Talismans",mapCatGolden:"Golden Seeds",mapCatNpc:"NPCs",mapCatSacredTear:"Sacred Tears",mapCatCrystalTear:"Crystal Tears",mapCatGreatRune:"Great Runes",mapCatMemoryStone:"Memory Stones",mapCatLarvalTear:"Larval Tears",customWaypointTitle:"Custom waypoint",customWaypointPlaceholder:"Waypoint name",customWaypointNotePlaceholder:"Note (optional)",customWaypointAdd:"Place on map ↗",customWaypointHelp:"Enter a name, press Place on map, then click the desired spot. Your markers are saved on this device.",bossEyebrow:"Boss overview",bossTitle:"Boss locations",bossSub:"A location-only map with boss markers, names and areas — no long background text.",bossSearchPlaceholder:"Search boss or area …",bossListTitle:"Boss locations",questSearchPlaceholder:"Search questline or NPC …",
 schematicMap:"Schematic region overview",baseGame:"Base game",all:"All",baseRegions:"Base game",dlcRegions:"Realm of Shadow",mapDisclaimer:"Note: This map shows rough regional relationships. It is not to scale and is not an in-game map.",selectRegion:"Select a region",selectRegionText:"Choose a point on the map or select a region from the list.",allRegions:"All regions",regionHint:"Select to open",
 loreAndPlaces:"Lore & locations",atlasTitle:"The Atlas",atlasSub:"Find important places, characters and quests. Check them off as you go.",searchPlaceholder:"Search entries…",allCategories:"All categories",bosses:"Bosses",quests:"Quests",places:"Places",collectibles:"Collectibles",baseAndDlc:"Base game + DLC",baseOnly:"Base game only",resetFilters:"Reset filters",
 progressionGuide:"Progression planner",routeTitle:"Find your next path",routeSub:"Use your current level as a rough guide for your next region.",yourCharacter:"Your character",currentLevel:"Current level",journeyScope:"Journey scope",everything:"Everything",levelDisclaimer:"Level ranges are guidance only, not entry requirements.",routeRecommendation:"Recommendations",nextAreas:"Suggested areas",
@@ -95,6 +95,7 @@ entries.push(
 );
 const catalogue = window.ER_DB || {meta:{},bosses:[],armors:[],locations:[],npcs:[],creatures:[],quests:[]};
 const guides = window.ER_GUIDES || {imageGallery:[],regionMaps:[],questlines:[],runeFarms:[],bossProfiles:[]};
+const bossNotes = window.ER_BOSS_NOTES || {};
 const catalogueRegionLabel = id => { const r=regions.find(x=>x.id===id); return r ? name(r) : ""; };
 function addCatalogueEntries(){
   const seen=new Set(entries.map(e=>(e.type+":"+String(e.en||e.de||"").toLowerCase())));
@@ -306,16 +307,19 @@ function openEntryDetails(id){
  if(!e)return;
  const title=name(e);
  const dialog=$("#detailDialog");
+ const portrait=$("#detailPortrait");portrait.hidden=true;portrait.innerHTML="";detailMediaToken++;
  $("#detailEyebrow").textContent=typeName(e.type)+(e.dlc?" · DLC":" · "+t("base"));
  $("#detailTitle").textContent=title;
  let body="",regionData=region(e.region);
  if(e.type==="boss"){
   const profile=(guides.bossProfiles||[]).find(p=>p.key===e.en||p.key===e.de||String(e.en).toLowerCase().includes(String(p.key).toLowerCase())||String(p.key).toLowerCase().includes(String(e.en).toLowerCase()));
-  const dbBoss=(catalogue.bosses||[]).find(b=>b.id===e.id||b.name===e.en);
+  const dbBoss=(catalogue.bosses||[]).find(b=>b.id===e.id||normalizeMapEntity(b.name)===normalizeMapEntity(e.en)||normalizeMapEntity(b.de)===normalizeMapEntity(e.de));
   const locs=dbBoss?.locations||[];
   body+=profile?`<h4>${t("bossRole")}</h4><p>${safe(state.lang==="de"?profile.role:profile.roleEn)}</p><h4>${t("bossContext")}</h4><p>${safe(state.lang==="de"?profile.context:profile.contextEn)}</p>`:"";
   body+=locs.length?`<h4>${t("bossLocations")}</h4><p>${locs.map(safe).join(" · ")}</p>`:"";
   body+=dbBoss?.hp?`<p><strong>${t("bossHP")}:</strong> ${Number(dbBoss.hp).toLocaleString()}</p>`:"";
+  const combatNote=bossNotes[dbBoss?.name||e.en]||bossNotes[e.de];
+  if(combatNote){body+=`<h4>${state.lang==="de"?"Kampfhilfe":"Combat note"}</h4><p>${safe(combatNote.note||"")}</p>`;if(combatNote.weak?.length)body+=`<p><strong>${state.lang==="de"?"Schwächen":"Weaknesses"}:</strong> ${combatNote.weak.map(safe).join(" · ")}</p>`;if(combatNote.resist?.length)body+=`<p><strong>${state.lang==="de"?"Resistenzen":"Resistances"}:</strong> ${combatNote.resist.map(safe).join(" · ")}</p>`;}
   body+=`<p class="muted">${t("sourceReference")}: ${safe(profile?.reference||"Eldenpedia – Community-Bossübersicht")}</p>`;
  }else if(e.type==="place"){
   const loc=(catalogue.locations||[]).find(l=>l.id===id);
@@ -326,7 +330,7 @@ function openEntryDetails(id){
    if(loc.bosses?.length)body+=`<h4>${t("bossOverview")}</h4><p>${loc.bosses.map(safe).join(" · ")}</p>`;
   }
  }else if(e.type==="npc"){
-  const npc=(catalogue.npcs||[]).find(x=>x.id===id);
+  const npc=(catalogue.npcs||[]).find(x=>x.id===id||normalizeMapEntity(x.name)===normalizeMapEntity(e.en)||normalizeMapEntity(x.de)===normalizeMapEntity(e.de));
   if(npc)body+=`<p><strong>${safe(npc.role||"NPC")}</strong></p><p>${safe(npc.location||"")}</p>`;
  }else if(e.type==="armor"){
   const a=(catalogue.armors||[]).find(x=>x.id===id);
@@ -342,8 +346,10 @@ function openEntryDetails(id){
  mapButton.hidden=!e.region;
  mapButton.dataset.region=e.region||"";
  mapButton.dataset.location=title;
- const source=$("#detailSourceLink");source.hidden=true;source.removeAttribute("href");
+ const source=$("#detailSourceLink");source.hidden=!["boss","npc"].includes(e.type);
+ if(source.hidden)source.removeAttribute("href");else source.href="https://eldenring.wiki.gg/wiki/"+encodeURIComponent((e.en||title).replace(/ /g,"_"));
  if(typeof dialog.showModal==="function"&&!dialog.open)dialog.showModal();
+ loadEntityMedia(e,title);
 }
 
 function renderArmorPlanner(){
@@ -366,6 +372,30 @@ function renderArmorPlanner(){
 }
 
 function openAtlasEntry(id){selectView("atlas");const item=entries.find(e=>e.id===id);if(item){$("#searchInput").value=name(item);$("#typeFilter").value="all";$("#scopeFilter").value="all";atlasPage=0;renderAtlas();openEntryDetails(id);}}
+function normalizeMapEntity(value){return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLocaleLowerCase().replace(/[^a-z0-9]+/g," ").trim();}
+let detailMediaToken=0;
+const entityMediaCache=new Map();
+function loadEntityMedia(entry,title){
+ if(!["boss","npc"].includes(entry.type))return;
+ const query=entry.en||entry.de||title,key=entry.type+":"+normalizeMapEntity(query),token=detailMediaToken;
+ let request=entityMediaCache.get(key);
+ if(!request){const endpoint="https://eldenring.fanapis.com/api/"+(entry.type==="boss"?"bosses":"npcs")+"?name="+encodeURIComponent(query);
+  request=fetch(endpoint,{cache:"force-cache"}).then(r=>{if(!r.ok)throw new Error("Entity info unavailable");return r.json()}).then(data=>{const rows=Array.isArray(data.data)?data.data:[];return rows.find(x=>normalizeMapEntity(x.name)===normalizeMapEntity(query))||null;}).catch(()=>null);entityMediaCache.set(key,request);}
+ request.then(info=>{
+  if(token!==detailMediaToken||!info||!$("#detailDialog").open)return;
+  const box=$("#detailPortrait");
+  if(typeof info.image==="string"&&info.image.startsWith("https://eldenring.fanapis.com/images/")){box.hidden=false;box.innerHTML=`<img loading="lazy" src="${safe(info.image)}" alt="${safe(info.name||title)}"><small>${state.lang==="de"?"Bildquelle":"Image source"}: Elden Ring API</small>`;}
+  const extra=[];if(info.description)extra.push(`<p>${safe(info.description)}</p>`);if(info.quote&&entry.type==="npc")extra.push(`<p><em>“${safe(info.quote)}”</em></p>`);if(info.drops?.length&&entry.type==="boss")extra.push(`<p><strong>${state.lang==="de"?"Beute":"Drops"}:</strong> ${info.drops.map(safe).join(" · ")}</p>`);
+  if(extra.length)$("#detailBody").insertAdjacentHTML("beforeend",extra.join(""));
+ });
+}
+window.openGraceboundMapEntry=(type,label,location)=>{
+ if(!["boss","npc"].includes(type))return;
+ const target=normalizeMapEntity(label);
+ let item=entries.find(e=>e.type===type&&[e.en,e.de].some(value=>normalizeMapEntity(value)===target));
+ if(!item){const id="map-"+type+"-"+target.replace(/\s+/g,"-");item={id,type,en:label,de:label,region:"",dlc:false,level:"",note:location||"",noteEn:location||""};entries.push(item);renderStats();}
+ openAtlasEntry(item.id);
+};
 
 function updateSourceNote(){
   $("#sourceNote").textContent=state.lang==="de"
