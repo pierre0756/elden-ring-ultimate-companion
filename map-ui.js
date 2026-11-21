@@ -1,4 +1,4 @@
-/* Gracebound interactive maps: only public non-weapon location categories are included. */
+/* Gracebound interactive maps: curated locations, talismans and non-weapon collectibles. */
 (() => {
   const MARKERS = window.ER_MAP_MARKERS || [];
   if (!MARKERS.length) return;
@@ -13,7 +13,8 @@
     crystal:{label:"Kristallträne",icon:"◇",color:"#b18bc9"},
     greatrune:{label:"Große Rune",icon:"◎",color:"#c9a85b"},
     larval:{label:"Larventräne",icon:"◉",color:"#bd8eb8"},
-    memory:{label:"Gedächtnisstein",icon:"▣",color:"#81a6bd"}
+    memory:{label:"Gedächtnisstein",icon:"▣",color:"#81a6bd"},
+    talisman:{label:"Talisman",icon:"◆",color:"#d99450"}
   };
   const xy = (px,py) => L.latLng(-py/SCALE,px/SCALE);
   const bounds = L.latLngBounds(xy(0,SIZE),xy(SIZE,0));
@@ -29,7 +30,10 @@
   };
   const popupHtml = (m, custom=false) => {
     const d=CAT[m.cat]||{label:"Eigener Wegpunkt"};
-    return `<div class="er-popup"><b>${safe(m.name)}</b><span>${safe(m.desc||m.location||d.label)}</span><small>${safe(custom?"Eigener Wegpunkt":d.label+" · "+layerName(m.master))}</small>${custom&&m.note?`<p>${safe(m.note)}</p>`:""}${custom?`<button type="button" class="popup-delete" data-delete-custom-pin="${safe(m.id)}">Wegpunkt löschen</button>`:""}</div>`;
+    const talismanInfo=m.cat==="talisman"?(window.ER_TALISMAN_INFO||{})[m.name]:null;
+    const description=talismanInfo?.sum||(m.cat==="talisman"?"Fundort auf der Karte":m.desc||m.location||d.label);
+    const infoButton=!custom&&["boss","npc"].includes(m.cat)?`<button type="button" class="popup-more" data-open-map-entry="${safe(m.cat)}" data-map-entry-name="${safe(m.name)}" data-map-entry-location="${safe(m.desc||layerName(m.master))}">${document.documentElement.lang==="de"?"Informationen öffnen":"Open information"} ↗</button>`:"";
+    return `<div class="er-popup"><b>${safe(m.name)}</b><span>${safe(description)}</span><small>${safe(custom?"Eigener Wegpunkt":d.label+" · "+layerName(m.master))}</small>${infoButton}${custom&&m.note?`<p>${safe(m.note)}</p>`:""}${custom?`<button type="button" class="popup-delete" data-delete-custom-pin="${safe(m.id)}">Wegpunkt löschen</button>`:""}</div>`;
   };
 
   function makeMap(id, master="M00") {
@@ -48,7 +52,7 @@
 
   let main=null,boss=null,pendingPin=false,customPins=[];
   const mainLayers=new Map(),bossLayers=new Map();
-  const mainVisible={grace:true,boss:false,golden:true,npc:false,tear:false,crystal:false,greatrune:false,memory:false,larval:false};
+  const mainVisible={grace:true,boss:false,golden:true,npc:false,tear:false,crystal:false,greatrune:false,memory:false,larval:false,talisman:true};
   let mainMarkerRefs=new Map(),bossMarkerRefs=new Map();
 
   function addPin(target,m,group,refs,custom=false){
@@ -203,6 +207,8 @@
       const m=MARKERS.find(x=>x.id===b.dataset.bossResult);if(m)focusBoss(m);
     });
     document.addEventListener("click",e=>{
+      const info=e.target.closest("[data-open-map-entry]");
+      if(info){e.preventDefault();window.openGraceboundMapEntry?.(info.dataset.openMapEntry,info.dataset.mapEntryName,info.dataset.mapEntryLocation);return;}
       const a=e.target.closest("[data-delete-custom-pin],[data-remove-custom-pin]");
       if(a){const id=a.dataset.deleteCustomPin||a.dataset.removeCustomPin;customPins=customPins.filter(p=>p.id!==id);saveCustomPins();renderCustomPinList();drawCustomPins();return;}
       const f=e.target.closest("[data-focus-custom-pin]");
