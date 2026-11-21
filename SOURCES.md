@@ -121,3 +121,10 @@ Nicht Bestandteil dieser Version sind Waffen-Buildempfehlungen und Fundortlisten
 Die interaktive Karte ergänzt 154 Talisman-Markierungen aus dem Community-Kartenprojekt [jw-ofs/elden-ring-map](https://github.com/jw-ofs/elden-ring-map). Die Koordinaten verweisen auf die drei Kartenebenen und sind Community-Daten, keine offiziellen FromSoftware-Daten. Talisman-Effekte stammen ebenfalls aus dessen Itemdaten.
 
 Boss- und NPC-Markierungen öffnen nun passende Gracebound-Atlasdetails. Die vorhandenen lokalen Datensätze liefern Rollen, Orte, Bosswerte und redaktionelle Hinweise. Zusätzliche Kurzbeschreibungen, NPC-Zitate und Bilder werden bei geöffnetem Detailfenster über die öffentliche [Elden Ring API](https://docs.eldenring.fanapis.com/docs/) abgerufen. Diese API ist ein Community-Projekt und kann ausfallen; lokale Orts- und Atlasdaten bleiben davon unabhängig verfügbar. Die Bilder werden nicht in Gracebound gespeichert.
+
+
+## 10. Erweiterung v0.6.0 — Build-Bibliothek und Startseitenbild
+
+Die Build-Bibliothek enthält drei frei anpassbare RL-150-Beispiele: Glaube/Nahkampf, Intelligenz-Zauberei und Blutung/Arkan. Je Beispiel gibt es zwei Varianten. Die Links führen zu Tarnished.dev mit vorausgefüllter Startklasse, Attributen und Kernwaffe. Der externe Rechner unterstützt Builds mit Attributen, Waffen, Rüstung, Zaubern und Talismanen; seine Spielwerte werden vom Betreiber gepflegt.
+
+Das Startseitenbild zeigt einen Elden-Ring-Limgrave-Screenshot. Quelle und Bildnachweis stehen direkt auf der Startseite: [Red Bull — Elden Ring’s most beautiful places](https://www.redbull.com/es-es/elden-ring-lugares-mas-bellos). Das Bild wird vom Anbieter geladen, nicht im Repository gespeichert.
