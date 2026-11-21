@@ -45,7 +45,7 @@ Wichtig: Ein Community-Export und ein Wiki, aus dem der Export abgeleitet wurde,
 - Die Levelbereiche sind grobe Orientierung und keine Zugangsvoraussetzung.
 - Die Karte ist schematisch und nicht maßstabsgetreu.
 - Questübersichten sind knappe Wegweiser; optionale Dialoge und alle Verzweigungen sind nicht vollständig abgebildet.
-- Es werden keine Originalbilder oder längeren Wiki-Beschreibungen übernommen.
+- Originalbilder und längere Wiki-Texte werden nicht kopiert oder mit der Website ausgeliefert. Boss- und NPC-Bilder sowie kurze API-Beschreibungen werden bei Online-Verbindung auf Anfrage eingeblendet.
 
 ## 6. Pflegeempfehlung
 
@@ -107,10 +107,17 @@ Der Rüstungs-Check nutzt ausschließlich importierte Gewicht-, Schadensnegation
 
 Die schematische Regionsgrafik wurde durch eine kachelbasierte Kartenansicht mit drei Ebenen ersetzt: Zwischenlande, Untergrund und Schattenland. Die Darstellung basiert auf Community-Kartenkoordinaten und extern bereitgestellten Kartenkacheln. Die Kacheln werden online geladen; die Kartendaten sind daher nicht vollständig offline verfügbar.
 
-Für die eigenen Markierungen werden nur folgende Kategorien in Gracebound importiert: Gnadenorte, Boss-Standorte, NPC-Standorte, Goldene Saat, Heilige Tränen, Kristalltränen, Große Runen, Larventränen und Gedächtnissteine. Die gefilterte Datei enthält 1.016 Marker: 403 Gnadenort-Marker, 195 Boss-Marker, 312 NPC-Marker sowie 106 weitere Sammel-/Schlüsselobjekt-Marker. Die Kategorisierung und Ortsangaben stammen aus Community-Daten und wurden nicht einzeln im Spiel verifiziert.
+Für die eigenen Markierungen werden Gnadenorte, Boss-Standorte, NPC-Standorte, Talismane, Goldene Saat, Heilige Tränen, Kristalltränen, Große Runen, Larventränen und Gedächtnissteine in Gracebound importiert. Die gefilterte Datei enthält nach der Talismane-Erweiterung 1.170 Marker: 403 Gnadenort-Marker, 195 Boss-Marker, 312 NPC-Marker, 154 Talisman-Marker sowie 106 weitere Sammel-/Schlüsselobjekt-Marker. Die Kategorisierung und Ortsangaben stammen aus Community-Daten und wurden nicht einzeln im Spiel verifiziert.
 
-Die Boss-Ansicht ist ein eigener Reiter mit einer reinen Standortkarte und einer durchsuchbaren Ortsliste. Sie enthält keine redaktionellen Lore-Profile. Eigene Wegpunkte können mit Name und Notiz auf der Karte gesetzt, bearbeitet bzw. gelöscht werden; sie werden ausschließlich im lokalen Browser-Speicher des jeweiligen Geräts gespeichert und nicht zwischen Geräten synchronisiert.
+Die Boss-Ansicht ist ein eigener Reiter mit Standortkarte und durchsuchbarer Ortsliste; Marker-Popups springen zu den jeweiligen Atlasdetails mit zusätzlichen Boss- und NPC-Infos. Eigene Wegpunkte können mit Name und Notiz auf der Karte gesetzt, bearbeitet bzw. gelöscht werden; sie werden ausschließlich im lokalen Browser-Speicher des jeweiligen Geräts gespeichert und nicht zwischen Geräten synchronisiert.
 
 Die NPC-Questübersicht bündelt 31 Questlinien mit 280 Orts-/NPC-Stationen. Dargestellt werden Schrittname, Gebiet und Kartenposition; es handelt sich um eine gekürzte Orientierungshilfe, nicht um eine vollständige Dialog- oder Triggerdatenbank. Questfortschritt und eigene Kartenmarkierungen bleiben lokal im Browser.
 
 Nicht Bestandteil dieser Version sind Waffen-Buildempfehlungen und Fundortlisten für Waffen-Aufwertungsmaterialien. Der vorhandene Rüstungs-Check bleibt ein rein defensiver Rüstungsvergleich.
+
+
+## 9. Erweiterung v0.5.0 — Boss-/NPC-Infos und Talisman-Fundorte
+
+Die interaktive Karte ergänzt 154 Talisman-Markierungen aus dem Community-Kartenprojekt [jw-ofs/elden-ring-map](https://github.com/jw-ofs/elden-ring-map). Die Koordinaten verweisen auf die drei Kartenebenen und sind Community-Daten, keine offiziellen FromSoftware-Daten. Talisman-Effekte stammen ebenfalls aus dessen Itemdaten.
+
+Boss- und NPC-Markierungen öffnen nun passende Gracebound-Atlasdetails. Die vorhandenen lokalen Datensätze liefern Rollen, Orte, Bosswerte und redaktionelle Hinweise. Zusätzliche Kurzbeschreibungen, NPC-Zitate und Bilder werden bei geöffnetem Detailfenster über die öffentliche [Elden Ring API](https://docs.eldenring.fanapis.com/docs/) abgerufen. Diese API ist ein Community-Projekt und kann ausfallen; lokale Orts- und Atlasdaten bleiben davon unabhängig verfügbar. Die Bilder werden nicht in Gracebound gespeichert.
