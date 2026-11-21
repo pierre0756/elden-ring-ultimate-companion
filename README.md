@@ -2,7 +2,7 @@
 
 A responsive German/English fan companion for Elden Ring and Shadow of the Erdtree.
 
-## Current features (v0.5.0)
+## Current features (v0.6.0)
 
 - Detailed quest atlas with 6 questlines and 36 intermediate stops, optional steps, branching notes and local checkmarks
 - Direct map jumps from quest stops, regional station lists and Atlas details
@@ -59,12 +59,14 @@ Open `index.html` in a modern browser. Core catalogue, search and local progress
 Unofficial fan project, not affiliated with FromSoftware or Bandai Namco. Elden Ring, Shadow of the Erdtree and all related names and assets belong to their respective rights holders. This project does not bundle original game artwork.
 
 
-## Version 0.5.0
+## Version 0.6.0
 
 - Interactive tiled map for the Lands Between, underground areas and the Realm of Shadow.
 - Dedicated boss-location view with searchable map markers.
 - Map filters for Sites of Grace, NPCs, all 154 imported talisman locations and selected collectibles.
 - Boss and NPC map popups open matching Gracebound Atlas entries; details add community images and descriptions when online.
+- Build guide with RL 150 Paladin, Sorcery, and Bleed archetypes, each with two variants and prefilled planner links.
+- Scenic Elden Ring title-screen background with image credit.
 - Personal named waypoints with notes, saved in the current browser.
 - Searchable index of 31 NPC questlines and 280 location steps.
 - Map tiles are loaded online; personal progress and waypoint data remain local to the browser.
