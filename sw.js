@@ -1,4 +1,4 @@
-const CACHE_NAME = "gracebound-shell-v10";
+const CACHE_NAME = "gracebound-shell-v11";
 const APP_FILES = ["./", "./index.html", "./styles.css", "./app.js", "./map-ui.js", "./data/catalog.js", "./data/guides.js", "./data/boss-notes.js", "./data/talismans.js", "./data/build-guides.js", "./data/map-markers.js", "./data/npc-quests.js", "./weapon-companion.html"];
 
 self.addEventListener("install", event => {
