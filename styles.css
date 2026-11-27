@@ -348,3 +348,5 @@ footer{max-width:1420px;margin:0 auto;padding:25px clamp(20px,5vw,78px) 35px;bor
 @media(max-width:400px){.build-milestone-list{grid-template-columns:1fr}.route-target-list{grid-template-columns:1fr}}
 
 .map-cat-dot.dungeon{background:#b99768}.map-cat-dot.spell{background:#9b78cb}.map-cat-dot.smithing{background:#82a7a0}.map-cat-dot.somber{background:#8494bd}.pin-dungeon,.pin-spell,.pin-smithing,.pin-somber{box-shadow:0 0 0 2px rgba(10,12,10,.78),0 2px 8px rgba(0,0,0,.4)}
+
+.build-checklist{display:grid;gap:8px}.build-checklist article{display:grid;grid-template-columns:1fr;gap:4px;padding:12px;background:var(--panel2);border:1px solid var(--line);border-radius:8px}.build-checklist h4{font:500 11px Cinzel;color:var(--gold2);margin:0}.build-checklist p{font-size:10px;line-height:1.65;color:var(--muted);margin:0}
