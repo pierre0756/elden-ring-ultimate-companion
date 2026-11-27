@@ -25,7 +25,7 @@
       <button class="nav-link" data-view="route" data-i18n="navRoute">Wegweiser</button>
       <button class="nav-link" data-view="armor" data-i18n="navArmor">Rüstungs-Check</button>
       <button class="nav-link" data-view="builds" data-i18n="navBuilds">Builds</button>
-      <a class="nav-link" href="weapon-companion.html" target="_blank" rel="noopener noreferrer" data-i18n="navWeapons">Waffenkompass ↗</a>
+      <button class="nav-link" data-view="builds" data-i18n="navWeapons">Waffen & Builds</button>
       <a class="nav-link" href="https://www.tarnished.dev/" target="_blank" rel="noopener noreferrer" aria-label="Build Planner bei Tarnished.dev öffnen">Build Planner ↗</a>
       <button class="nav-link" data-view="journal" data-i18n="navJournal">Reisetagebuch</button>
     </nav>
@@ -45,7 +45,7 @@
           <button class="primary-btn" data-go="map"><span data-i18n="openMap">Karte erkunden</span><span>↗</span></button>
           <button class="text-btn" data-go="route" data-i18n="planJourney">Reise planen</button>
           <button class="text-btn" data-go="builds" data-i18n="openBuilds">Builds entdecken</button>
-          <a class="text-btn" href="weapon-companion.html" target="_blank" rel="noopener noreferrer" data-i18n="openWeaponCompanion">Waffenvergleich öffnen ↗</a>
+          <button class="text-btn" data-go="builds" data-i18n="openWeaponCompanion">Great-Stars-Build öffnen</button>
           <a class="text-btn" href="https://eldenringcalculator.com/build-planner/" target="_blank" rel="noopener noreferrer" aria-label="Elden Ring Build Planner mit Waffen, Rüstung und Talismane öffnen">Waffen-Build planen ↗</a>
         </div>
         <div class="hero-meta"><span class="status-dot"></span><span data-i18n="offlineReady">Lokal speicherbar · kein Konto nötig</span></div>
@@ -204,6 +204,10 @@
         </article>
       </div>
       <div class="build-grid build-grid-extra">
+        <article class="panel-card build-card build-bleed">
+          <span class="build-tag" data-i18n="buildGreatStarsTag">Samurai · Stärke & Blutung</span><h3 data-i18n="buildGreatStarsTitle">Great Stars · Blutflammen-Build</h3><p class="build-description" data-i18n="buildGreatStarsText"></p><button type="button" class="text-btn build-detail-open" data-open-build-details="greatstars" data-i18n="buildDetailOpen"></button>
+          <p class="build-stats" data-i18n="buildGreatStarsStats"></p><div class="build-gear"><h4 data-i18n="buildEquipment">Ausrüstung & Zauber</h4><p data-i18n="buildGreatStarsGear"></p><p data-i18n="buildGreatStarsTal"></p></div>
+        </article>
         <article class="panel-card build-card build-strength">
           <span class="build-tag" data-i18n="buildStrengthTag">Schwere Treffer · Stärke</span><h3 data-i18n="buildStrengthTitle">Kolossaler Krieger</h3><p class="build-description" data-i18n="buildStrengthText"></p><button type="button" class="text-btn prepare-build-btn" data-prepare-build="strength" data-i18n="prepareBuild"></button><button type="button" class="text-btn build-detail-open" data-open-build-details="strength" data-i18n="buildDetailOpen"></button>
           <p class="build-stats" data-i18n="buildStrengthStats"></p><div class="build-gear"><h4 data-i18n="buildEquipment">Ausrüstung & Zauber</h4><p data-i18n="buildStrengthGear"></p><p data-i18n="buildStrengthTal"></p></div>
